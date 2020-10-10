@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AdminRoutingModule } from './admin-routing.module';
+import { MenuAdminModule } from 'src/app/common-module/menu-package/menu-admin/menu-admin.module';
 
 
 
@@ -11,7 +12,8 @@ import { AdminRoutingModule } from './admin-routing.module';
   imports: [
     CommonModule,
     MatMenuModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MenuAdminModule
   ],
   exports: [
     AdminComponent
