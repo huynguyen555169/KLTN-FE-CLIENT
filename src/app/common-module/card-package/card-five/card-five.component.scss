@@ -1,0 +1,46 @@
+$cardNameHeigth: 2.8rem;
+
+.card-five-container {
+  .card-empty {
+    height: $cardNameHeigth / 2;
+  }
+  .card-wrapper {
+    box-shadow: 6px 6px 8px -3px rgba(0, 0, 0, 0.4);
+    padding: 3rem 3.5rem 1rem 1rem;
+    background-color: #e7f4fb;
+
+    .card-name {
+      top: -$cardNameHeigth / 2;
+      left: 1.5rem;
+      height: $cardNameHeigth;
+      padding: 0rem 1rem;
+      font-size: 1.5rem;
+      color: #0b5f87;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 6px 6px -6px rgba(0, 0, 0, 0.75);
+    }
+
+    .card-content {
+      .card-content-item {
+        margin-bottom: 1rem;
+
+        .slider-wrapper {
+          width: 100%;
+          background-color: #c3c2c1;
+
+          .slider {
+            height: 8px;
+            background-color: #00507c;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host {
+  width: 100%;
+}

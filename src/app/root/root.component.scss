@@ -1,0 +1,21 @@
+.header-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: rgba($color: black, $alpha: 0.5);
+    .header-right {
+        .header-menu02 {
+            margin: 0px 20px;
+        }
+    }
+}
+.footer-01 {
+    height: 400px;
+}
+.test111 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 50px;
+}

@@ -1,0 +1,38 @@
+.card-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 5px 13px -5px black;
+
+    .card-images {
+        width: 100%;
+        height: 250px;
+        padding: 10px;
+        .card-image--one {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .card-image--two {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            border-radius: 6px;
+        }
+    }
+    .card-title {
+    }
+    .card-description {
+    }
+    .card-price {
+    }
+    &:hover .card-images .card-image--one {
+        display: none;
+    }
+    &:hover .card-images .card-image--two {
+        display: block;
+        object-fit: cover;
+    }
+}

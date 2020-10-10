@@ -1,0 +1,46 @@
+<div class="product-container">
+    <video class="video" loop autoplay>
+        <source src="./../../../assets/videos/video.mp4" type="video/mp4">
+    </video>
+    <div class="container product-container--category mt-5 mb-5">
+        <div class="row">
+            <div class="col mr-2">
+                <div class="product-title w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                    {{data[0].title}}
+                    <button style="font-size: 0.8rem;" mat-button (click)="handleFashion()">SHOP
+                        ALL</button>
+                </div>
+            </div>
+            <div class="col d-flex flex-column justify-content-between ml-2">
+                <div class="row h-50 mb-2">
+                    <div class="product-title w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                        {{data[1].title}}
+                        <button style="font-size: 0.8rem;" mat-button (click)="handleShoes()">SHOP ALL</button>
+                    </div>
+                </div>
+                <div class="row h-50 mt-2">
+                    <div
+                        class="product-title w-100 h-100 d-flex flex-column  justify-content-center align-items-center">
+                        {{data[2].title}}
+                        <button style="font-size: 0.8rem;" mat-button (click)="handleWallets()">SHOP ALL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col mr-2">
+                <div class="product-title w-100 h-100 d-flex  flex-column  justify-content-center align-items-center">
+                    {{data[3].title}}
+                    <button style="font-size: 0.8rem;" mat-button (click)="handleBelts()">SHOP ALL</button>
+                </div>
+            </div>
+            <div class="col ml-2">
+                <div class="product-title w-100 h-100 d-flex  flex-column justify-content-center align-items-center">
+                    {{data[4].title}}
+                    <button style="font-size: 0.8rem;" mat-button (click)="handleWatch()">SHOP ALL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

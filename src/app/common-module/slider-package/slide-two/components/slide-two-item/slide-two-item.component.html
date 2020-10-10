@@ -1,0 +1,31 @@
+<div class="slide-container-two d-flex flex-column">
+  <div class="row slide-two-item--top d-flex justify-content-center">
+    <div class="slide-top--stars">
+      <div class="rate-container d-inline-flex">
+        <div
+          class="start-wrapper d-inline-flex mr-0"
+          *ngFor="let star of arrayStars"
+        >
+          <mat-icon class="rate-icon"
+            >star
+            <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+              <mat-icon class="rate-icon">star</mat-icon>
+            </span>
+          </mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="slide-two--img--container">
+      <img src="{{ data.img }}" alt="" class="slide-two-item--img" />
+    </div>
+  </div>
+  <div class="row slide-two-item--mid d-flex justify-content-center">
+    <p class="slide-mid--description">
+      {{ data.description }}
+    </p>
+  </div>
+  <div class="row slide-two-item--bottom d-flex flex-column">
+    <div class="slide-bottom--title">{{ data.title }}</div>
+    <div class="slide-bottom--subtitle">{{ data.subtitle }}</div>
+  </div>
+</div>

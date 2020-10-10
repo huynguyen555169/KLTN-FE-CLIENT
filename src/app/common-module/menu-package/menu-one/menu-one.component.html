@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg menu-one-container">
+  <!-- Logo image -->
+  <img
+    *ngIf="logo"
+    [src]="logo"
+    class="logo-image"
+    width="160px"
+    height="90px"
+    alt="Logo image"
+  />
+  <!-- End logo image -->
+  <div class="collapse navbar-collapse align-self-stretch">
+    <ul class="navbar-nav h-100">
+      <!-- Start menu item -->
+      <div *ngFor="let menu of menus">
+        <!-- Active when clicked -->
+        <li
+          class="nav-item menu-item d-flex align-items-center"
+          [ngClass]="{ active: menu.isActive }"
+        >
+          <!-- Binding event click. Maybe rediect page -->
+          <a
+            class="nav-link p-0 position-relative"
+            (click)="handleItemClick(menu)"
+          >
+            {{ menu.name }}
+          </a>
+        </li>
+      </div>
+      <!-- End menu item -->
+    </ul>
+  </div>
+</nav>

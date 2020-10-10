@@ -1,0 +1,46 @@
+.card-label-container {
+  &:hover {
+    cursor: pointer;
+  }
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+  .card-label-body {
+    padding: 0.5rem 2rem 0.5rem;
+    flex-grow: 1;
+    background-color: white;
+
+    .content-wrapper {
+      width: 100%;
+      .content-item {
+        flex-basis: 100%;
+        align-items: center;
+        margin: 1rem 0rem;
+        mat-icon {
+          color: #035678;
+          margin-right: 0.5rem;
+          flex-shrink: 0;
+          width: 1.8rem;
+          height: 1.8rem;
+          line-height: 1.8rem;
+          font-size: 1.8rem;
+        }
+
+        .item-title {
+          color: #035678;
+          flex-basis: 60%;
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+
+        .item-body {
+          color: #035678;
+          flex-grow: 1;
+          font-size: 1.8rem;
+          font-weight: 600;
+        }
+      }
+      margin: 1rem 0rem;
+    }
+  }
+}

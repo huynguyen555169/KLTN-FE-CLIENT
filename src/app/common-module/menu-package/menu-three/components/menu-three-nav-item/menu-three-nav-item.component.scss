@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    > .menu-list-item:not(.expanded):not(.active) {
+      background-color: #226484 !important;
+    }
+  }
+
+  .menu-list-item {
+    color: #91b2c1;
+    &.active {
+      background-color: #0c232e;
+      color: white;
+    }
+    &.info-item {
+      cursor: unset;
+    }
+    height: 3rem;
+    padding: 1rem 0.5rem 1rem 1rem;
+    cursor: pointer;
+
+    mat-icon.route-icon {
+      margin-right: 10px;
+    }
+
+    .route-text {
+      font-weight: 500;
+      &.child-route {
+        font-size: 0.8rem;
+        mat-icon {
+          font-size: 0.8rem;
+          width: 0.8rem;
+          height: 0.8rem;
+          line-height: 0.8rem;
+        }
+      }
+    }
+  }
+}

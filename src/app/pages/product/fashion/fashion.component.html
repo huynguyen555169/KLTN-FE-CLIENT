@@ -1,0 +1,16 @@
+<div class="container fashion-container">
+    <div class="row">
+        <div class="col-3">
+            <app-fillter-one [data]="data"></app-fillter-one>
+        </div>
+        <div class="col-9">
+            <div class="fashion-container--list">
+                <div class="" *ngFor="let item of dataProduct">
+                    <app-card-product [dataProduct]="item"></app-card-product>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

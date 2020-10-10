@@ -1,0 +1,29 @@
+<div class="card-three--container">
+  <div class="card-container--img">
+    <div class="card-container--title" *ngIf="user.title != null">
+      {{ user.title }}
+    </div>
+    <img
+      src="{{ user.img }}"
+      alt=""
+      class="img-active"
+      *ngIf="user.img != null"
+    />
+  </div>
+  <div class="card-container--info">
+    <div class="card-info--intro" *ngIf="user.intro != null">
+      "{{ user.intro }}"
+    </div>
+    <div class="card-info--container">
+      <div class="card-info--column" *ngFor="let item of user.info">
+        <div class="card-info--left--title" *ngIf="item.title">
+          {{ item.title }}
+        </div>
+        <ul class="" *ngFor="let info of item.data">
+          <li class="">{{ info.key }}</li>
+          <li class="">{{ info.value }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

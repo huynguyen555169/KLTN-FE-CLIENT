@@ -1,0 +1,20 @@
+<div class="label-container w-100 h-100 d-flex justify-content-between">
+  <!-- Start label item -->
+  <div
+    *ngFor="let label of labels"
+    class="label-item d-flex flex-column justify-content-center align-items-center"
+  >
+    <div class="content-item-wrapper">
+      <div class="d-flex justify-content-center align-items-center">
+        <!-- Image icon -->
+        <img class="imageIcon" src="{{ label.icon }}" alt="Icon" />
+        <div class="number" *ngIf="startCount">
+          {{ label.number | countNumber: "100" | async }}
+        </div>
+        <div class="number" *ngIf="!startCount">0</div>
+      </div>
+      <div class="unit text-center">{{ label.unit }}</div>
+    </div>
+  </div>
+  <!-- End label item -->
+</div>

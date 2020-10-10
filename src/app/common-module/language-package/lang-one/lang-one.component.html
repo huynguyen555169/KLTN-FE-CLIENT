@@ -1,0 +1,43 @@
+<!-- Start current language -->
+<div
+  *ngIf="languages && languages.length"
+  class="language-container d-flex justify-content-between position-relative"
+>
+  <div class="d-flex align-items-center" *ngIf="currentLanguage">
+    <!-- Logo of language -->
+    <img
+      width="18px"
+      height="13px"
+      class="logo"
+      [src]="currentLanguage.imageUrl"
+      alt="flag"
+    />
+    <!-- Name of language. Example: Tiếng Việt -->
+    <span class="lang-name">{{ currentLanguage.name }}</span>
+  </div>
+  <!-- Icon dropdown -->
+  <mat-icon>arrow_drop_down</mat-icon>
+  <!-- End current language -->
+
+  <!-- Start Menu item -->
+  <div class="lang-menu position-absolute" [ngClass]="{ active: openMenu }">
+    <!-- Menu item is languages ignore current language -->
+    <div
+      *ngFor="let lang of drawLanguage"
+      class="lang-item"
+      (click)="handleItemClick($event, lang)"
+    >
+      <!-- Binding event click and output click when user choose language -->
+
+      <img
+        class="logo"
+        [src]="lang.imageUrl"
+        alt="country flag"
+        width="18px"
+        height="13px"
+      />
+      <span class="lang-name">{{ lang.name }}</span>
+    </div>
+  </div>
+  <!-- End menu item -->
+</div>

@@ -1,0 +1,81 @@
+.card-two-container {
+  &:hover {
+    cursor: pointer;
+  }
+  // box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  //   0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+  .card-two-image {
+    width: 35%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+  }
+
+  .card-two-body {
+    padding: 0.5rem 2rem 2rem;
+    flex-grow: 1;
+    background-color: #f1f8fc;
+
+    .title-with-sub {
+      font-weight: 600;
+      font-size: 2rem;
+      .sub-title {
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: 400 !important;
+      }
+    }
+
+    .before-description {
+      span {
+        margin-right: 1rem;
+        color: #646464;
+      }
+    }
+    .description {
+      margin: 1rem 0rem;
+    }
+
+    .price {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .rate-container {
+      .start-wrapper {
+        margin-right: 0.5rem;
+
+        mat-icon.rate-icon {
+          color: #ddd;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 20px;
+        }
+
+        span.fill-start {
+          display: inline-block;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          & mat-icon.rate-icon {
+            color: #f7c149;
+          }
+        }
+      }
+    }
+  }
+
+  .card-two-actions {
+    padding: 0.5rem;
+  }
+
+  button:focus {
+    outline: unset !important;
+  }
+}

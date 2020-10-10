@@ -1,0 +1,30 @@
+.label-container {
+  .label-item {
+    flex-basis: 100%;
+    .content-item-wrapper {
+      width: 90%;
+      .number {
+        font-size: 36px;
+        margin-left: 1rem;
+        color: white;
+      }
+      .unit {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 26px;
+        color: white;
+        height: 28px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        width: 100%;
+      }
+      .imageIcon {
+        width: 44px;
+        height: 42px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="card-container-ten" [ngClass]="{ active: active }">
+  <div class="card-one--default">
+    <div class="card-one--show">
+      <div class="card-default--img">
+        <img src="{{ cardData.img }}" alt="" />
+      </div>
+      <div class="card-default--title">
+        {{ cardData.title }}
+      </div>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      'card-one--right-hide': direction === 'right',
+      'card-one--left-hide': direction === 'left',
+      'card-one--bottom-hide': direction === 'bottom'
+    }"
+  >
+    <div class="card-hide--description">
+      {{ cardData.description }}
+    </div>
+  </div>
+</div>

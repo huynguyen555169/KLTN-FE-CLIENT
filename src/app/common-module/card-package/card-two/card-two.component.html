@@ -1,0 +1,46 @@
+<div class="card-two-container">
+  <div class="card-two-wrapper d-flex">
+    <div *ngIf="imageBefore" class="card-two-image" [ngStyle]="{ 'background-image': 'url(' + data.imageUrl + ')' }">
+    </div>
+
+    <div class="card-two-body">
+      <div class="title-with-sub pt-2 pb-1">
+        {{ data.title }}
+        <div class="sub-title">with {{ data.master }}</div>
+      </div>
+
+      <div class="before-description d-flex">
+        <span>{{ data.sessions }} </span>
+        <span>{{ data.countStudent }}</span>
+        <div class="rate-container d-inline-flex">
+          <div class="start-wrapper d-inline-flex" *ngFor="let star of arrayStars">
+            <mat-icon class="rate-icon">star
+              <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                <mat-icon class="rate-icon">star</mat-icon>
+              </span>
+            </mat-icon>
+          </div>
+
+          {{ data.rate }}
+        </div>
+      </div>
+
+      <div class="description">
+        {{ data.description }}
+      </div>
+
+      <div class="price">
+        <span>{{ data.price }}</span>
+      </div>
+
+      <div class="card-two-actions d-flex justify-content-end" *ngIf="actions">
+        <div class="card-actions">
+          <button mat-button (click)="actionClick.emit()">Xem thêm</button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!imageBefore" class="card-two-image" [ngStyle]="{ 'background-image': 'url(' + data.imageUrl + ')' }">
+    </div>
+  </div>
+</div>

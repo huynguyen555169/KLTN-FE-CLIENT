@@ -1,0 +1,137 @@
+export const data = [
+    {
+        type_name: 'Áo sơ mi',
+        type_total: 20,
+    },
+    {
+        type_name: 'Áo thun',
+        type_total: 20,
+    },
+    {
+        type_name: 'Quần tây',
+        type_total: 20,
+    },
+    {
+        type_name: 'Quần JEAN',
+        type_total: 20,
+    },
+]
+export const dataProduct = [
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+    {
+        product_id: '',
+        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        product_name: 'Áo thun YAHWEH YIREH',
+        product_number: 10,
+        product_type_fk: '',
+        product_size_fk: '',
+        product_unit_price: 200000,
+        product_paid_price: 200000,
+        product_discount: 20,
+        product_description: 'Đây là 1 sản phẩm'
+    },
+]

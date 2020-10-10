@@ -1,0 +1,13 @@
+<form class="example-form">
+    <button mat-button><span class="material-icons">
+            search
+        </span></button>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nhập sản phẩm bạn quan tâm" [(ngModel)]="data.textSearch" (keyup.enter)="onEnter()"
+            [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <button mat-button *ngIf="data.textSearch!=''" (click)="handleDelete()"><span class="material-icons">
+            clear
+        </span></button>
+
+</form>

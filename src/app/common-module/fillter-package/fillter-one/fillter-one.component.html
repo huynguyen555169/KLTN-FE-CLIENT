@@ -1,0 +1,49 @@
+<div class="fillter-container">
+    <div class="fillter-seller">
+        <div class="fillter-seller--title">
+            CHÍNH SÁCH BÁN HÀNG
+        </div>
+        <div class="fillter-seller--description mt-4">
+            Khi mua hàng tại Fashi bạn sẽ được giao
+            hàng tận nhà trên toàn quốc dù bạn có ở
+            vùng núi hay xa xôi nhất.
+        </div>
+    </div>
+    <div class="fillter-list--product mt-4">
+        <div class="fillter-product--title">
+            DANH SÁCH SẢN PHẨM
+        </div>
+        <div class="fillter-product-content mt-4">
+            <div class="fillter-product--type d-flex justify-content-between mt-2" *ngFor="let item of data">
+                <div class="fillter-type--name">
+                    {{item.type_name}}
+                </div>
+                <div class="fillter-type--total">
+                    ({{item.type_total}})
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fillter-sort mt-4">
+        <div class="fillter-sort--title">
+            LỌC THEO GIÁ
+        </div>
+        <div class="fillter-sort--slider d-flex justify-content-start">
+            <div class="sort-container w-100">
+                <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ng5-slider>
+                <div class="sort-container--content d-flex w-100 justify-content-between">
+                    <div class="sort-container--label">
+                        {{ value | moneyFormat | postfix: "VND" }}
+                    </div>
+                    <div class="sort-container--label">
+                        {{ highValue | moneyFormat | postfix: "VND" }}
+                    </div>
+                </div>
+                <div class="sort-container--button w-100 d-flex justify-content-center">
+                    <button mat-raised-button color="warn" (click)="handleClick()">LỌC</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

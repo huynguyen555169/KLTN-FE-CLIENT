@@ -1,0 +1,35 @@
+<a
+  mat-list-item
+  [ngStyle]="{ 'padding-left': depth + 1 + 'rem' }"
+  (click)="onItemSelected(item)"
+  [ngClass]="{
+    active: item.url ? router.isActive(item.url, false) : false,
+    expanded: expanded,
+    'info-item': item.url === '' && depth > 0
+  }"
+  class="menu-list-item d-flex align-items-center justify-content-between"
+>
+  <div
+    class="d-flex align-items-center route-text"
+    [ngClass]="{ 'child-route': depth > 0 }"
+  >
+    <mat-icon class="route-icon">{{ item.icon }}</mat-icon>
+    {{ item.name }}
+  </div>
+  <div
+    class="d-flex align-items-center"
+    *ngIf="item.children && item.children.length"
+  >
+    <mat-icon [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'">
+      expand_more
+    </mat-icon>
+  </div>
+</a>
+<div *ngIf="expanded">
+  <app-menu-three-nav-item
+    *ngFor="let child of item.children"
+    [item]="child"
+    [depth]="depth + 1"
+  >
+  </app-menu-three-nav-item>
+</div>

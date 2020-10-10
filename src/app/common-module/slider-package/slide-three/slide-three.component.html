@@ -1,0 +1,17 @@
+<div class="slide-three-container w-100" [id]="slideId" #slideTrack>
+  <!-- Slide items -->
+  <div
+    class="slide-three-item"
+    *ngFor="let item of dataList"
+    [ngStyle]="{
+      width: elementWidth + 'px',
+      margin: '0px ' + elementGutter + 'px',
+      padding: elementHeight / 20 + 'px 0px'
+    }"
+  >
+    <app-slide-three-item
+      [data]="item"
+      (actionClick)="actionItemClick.emit($event)"
+    ></app-slide-three-item>
+  </div>
+</div>

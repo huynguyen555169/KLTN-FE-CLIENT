@@ -1,0 +1,69 @@
+<div class="notification-one-container">
+  <!-- start bell -->
+  <button
+    mat-icon-button
+    aria-label="Open menu button"
+    [matBadge]="getNotificationCount()"
+    [matBadgeHidden]="!getNotificationCount()"
+    matBadgeColor="warn"
+    class="notify-icon"
+    [matMenuTriggerFor]="notifyListMenu"
+  >
+    <mat-icon [ngStyle]="{ color: iconColor }">notifications</mat-icon>
+  </button>
+  <!-- end bell -->
+  <!-- start menu list notify -->
+  <mat-menu
+    #notifyListMenu="matMenu"
+    xPosition="before"
+    backdropClass="custom__menu"
+  >
+    <div
+      class="notify-list-container d-flex flex-column"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- start menu head -->
+      <div class="head-action clearfix position-sticky d-flex">
+        <div class="head-action--noti">
+          Thông báo
+        </div>
+        <div class="head-action--check" (click)="handleAllReaded()">
+          Đánh dấu tất cả là đã đọc
+        </div>
+      </div>
+      <!-- end menu head -->
+
+      <!-- start menu content -->
+      <div class="notify-list-content">
+        <div *ngFor="let notificationItem of notificationList">
+          <!-- start menu list item -->
+          <div
+            class="notify-item position-relative d-flex align-items-center"
+            [ngClass]="{ unread: !notificationItem.mark }"
+            (click)="handleItemClick(notificationItem)"
+          >
+            <img
+              src="{{ notificationItem.avatar }}"
+              alt="avt"
+              class="notify-item-avatar"
+            />
+            <div class="notify-item-content">
+              <div class="notify-content--title">
+                {{ notificationItem.content }}
+              </div>
+              <div class="notify-content--time">
+                {{ notificationItem.time }}
+              </div>
+            </div>
+          </div>
+          <!-- end menu list item -->
+        </div>
+      </div>
+      <!-- end menu content -->
+      <div class="footer-action d-flex justify-content-center">
+        <a href="{{ pageNoti }}">Xem tấc cả</a>
+      </div>
+    </div>
+  </mat-menu>
+  <!-- end menu list notify -->
+</div>

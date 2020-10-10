@@ -1,0 +1,132 @@
+.slide-three-item-container {
+  &,
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+  .item-image-background {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .info-layer {
+    top: 0;
+    left: 0;
+    padding: 40px;
+    background-image: linear-gradient(
+      90deg,
+      rgba(2, 64, 109, 1) 0%,
+      rgba(2, 64, 109, 0.8) 50%,
+      rgba(2, 64, 109, 0) 100%
+    );
+
+    .info-row {
+      display: flex;
+    }
+    .top-info {
+      .rate-container {
+        color: #f7c149;
+        .start-wrapper {
+          margin-right: 0.5rem;
+
+          mat-icon.rate-icon {
+            color: #ddd;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 20px;
+          }
+
+          span.fill-start {
+            display: inline-block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            & mat-icon.rate-icon {
+              color: #f7c149;
+            }
+          }
+        }
+        .total-rating {
+          margin-left: 10px;
+          color: rgba($color: #000000, $alpha: 0.7);
+        }
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .sub-title {
+        font-size: 15px;
+        color: #b9b9b9;
+        margin-right: 3%;
+      }
+      margin-bottom: 50px;
+    }
+
+    .bottom-info {
+      padding-left: 20px;
+      .description {
+        max-width: 440px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 17px;
+        line-height: 17px;
+        max-height: 69px;
+        margin-bottom: 20px;
+      }
+      .chips {
+        margin-bottom: 15px;
+        .chip-item {
+          border: 1px solid white;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          margin-right: 5px;
+          padding: 8px;
+          max-width: 100px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+    .action {
+      left: 60px;
+      bottom: 25px;
+      button {
+        border: unset;
+        font-size: 17px;
+        font-weight: bold;
+        padding: 10px 25px;
+        background-color: #2286b6;
+        &:hover {
+          background-color: #2cbaff;
+        }
+      }
+    }
+    .title,
+    .description,
+    .chip-item,
+    .action button {
+      color: white;
+    }
+  }
+}
+
+*:focus {
+  outline: unset !important;
+}

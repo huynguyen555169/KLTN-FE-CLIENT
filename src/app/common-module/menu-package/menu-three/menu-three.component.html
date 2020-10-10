@@ -1,0 +1,31 @@
+<div class="menu-three-container d-flex flex-column">
+  <div
+    class="user-info d-flex flex-column align-items-center"
+    [ngStyle]="{
+      background:
+        'url(' + data.backgroundUserImage + ') center/100%100% no-repeat'
+    }"
+  >
+    <img [src]="data.userInfo.avatar" alt="User avater" />
+    <span class="user-name">{{ data.userInfo.fullName }}</span>
+    <span class="user-email">{{ data.userInfo.email }}</span>
+  </div>
+
+  <div class="list-action d-flex flex-column">
+    <div
+      class="nav-item w-100 d-flex flex-column align-items-center"
+      *ngFor="let item of data.urls"
+    >
+      <div class="division my-2"></div>
+      <app-menu-three-nav-item [item]="item"></app-menu-three-nav-item>
+    </div>
+  </div>
+
+  <div class="action-footer d-flex flex-column align-items-center">
+    <div class="division my-2"></div>
+    <app-menu-three-nav-item
+      *ngFor="let item of data.footActions"
+      [item]="item"
+    ></app-menu-three-nav-item>
+  </div>
+</div>

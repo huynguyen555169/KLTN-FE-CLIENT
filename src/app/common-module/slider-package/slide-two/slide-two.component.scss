@@ -1,0 +1,44 @@
+.slide-two-container {
+  .slide-two-item {
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+
+::ng-deep {
+  .slide-two-container,
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
+
+  .slide-two-container {
+    .custom-arrow {
+      width: 105px;
+      height: 105px;
+      position: absolute;
+      top: calc(50% - 52px);
+      display: flex;
+      border: 2px solid #054d71;
+      border-radius: 50%;
+      outline: none;
+      background: transparent;
+      z-index: 20;
+      align-items: center;
+      justify-content: center;
+      &.next-arrow {
+        right: 25px;
+      }
+
+      &.previous-arrow {
+        left: 25px;
+      }
+
+      .material-icons {
+        font-size: 40px;
+        color: #054d71;
+      }
+    }
+  }
+}

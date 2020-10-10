@@ -1,0 +1,11 @@
+<div class="card-label-container">
+  <div class="card-label-body d-flex">
+    <div class="content-wrapper d-flex flex-wrap">
+      <div class="content-item d-flex" *ngFor="let item of data">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <div class="item-title">{{ item.title }}</div>
+        <div class="item-body">{{ item.content }}</div>
+      </div>
+    </div>
+  </div>
+</div>

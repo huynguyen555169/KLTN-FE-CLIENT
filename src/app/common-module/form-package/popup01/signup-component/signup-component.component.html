@@ -1,0 +1,71 @@
+<form novalidate [formGroup]="rfContact" class="form-container">
+    <div class="form-title">
+        Đăng Ký
+    </div>
+    <div class="form-group--container">
+        <div class="form-group">
+            <input class="form-control" type="text" id="example-text-input" formControlName="phoneNumber"
+                placeholder="Email/Số điện thoại/Tên đăng nhập" [(ngModel)]="data.data" disabled />
+            <div class="form-error" *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                <span *ngIf="phoneNumber.errors?.message">
+                    {{ phoneNumber.errors.message }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="example-text-input" formControlName="fullName"
+                placeholder="Họ và tên" />
+            <div class="form-error" *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                <span *ngIf="fullName.errors?.message">
+                    {{ fullName.errors.message }}
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="password" id="example-text-input" formControlName="passWord"
+                placeholder="Mật khẩu" />
+            <div class="form-error" *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)">
+                <span *ngIf="passWord.errors.message">
+                    {{ passWord.errors.message }}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" id="example-text-input" formControlName="rePass"
+                placeholder="Xác nhận mật khẩu" />
+            <div class="form-error" *ngIf="rePass.invalid && (rePass.dirty || rePass.touched)">
+                <span *ngIf="rePass.errors.message">
+                    {{ rePass.errors.message }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-footer">
+        <button style="width: 100%;" mat-raised-button color="warn" (click)="handleClick()">Xác nhận</button>
+
+        <div class="footer-line">
+            HOẶC
+        </div>
+        <div class="footer-end d-flex">
+            <div class="col-6  d-flex justify-content-between">
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+                    <mat-icon>facebook</mat-icon>
+                </button>
+                <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon">
+                    <mat-icon>email</mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+                    <mat-icon>sms</mat-icon>
+                </button>
+            </div>
+            <div class="col-6 footer-create d-flex justify-content-end align-items-center">
+                <span> Bạn đã có?</span>
+                <button mat-button color="primary" (click)="handleSignup()">Đăng Nhập</button>
+            </div>
+
+        </div>
+
+    </div>
+</form>

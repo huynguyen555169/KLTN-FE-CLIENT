@@ -1,0 +1,29 @@
+<div class="header-page d-flex justify-content-between">
+    <div class="col header-left">
+        <app-menu-one [menus]="menus" [logo]="logo" (itemClick)="handleItemClick($event)"></app-menu-one>
+    </div>
+    <div class="col header-right d-flex justify-content-end align-items-center">
+        <div class="header-notify">
+            <app-notic-one [notificationList]="notificationList" [iconColor]="iconColor" [pageNoti]="pageNoti"
+                (itemClick)="handleItemClick($event)"></app-notic-one>
+        </div>
+
+        <div class="header-menu02" *ngIf="isCheck == true ; else elseBlock">
+            <app-menu-two [data]="data" [position]="position" (actionClick)="menuClick($event)"></app-menu-two>
+        </div>
+        <ng-template #elseBlock>
+            <div class="header-">
+                <app-popup01 (isLog)="handleCheck($event)"></app-popup01>
+            </div>
+        </ng-template>
+        <div class="header-search">
+            <app-search-one></app-search-one>
+        </div>
+
+
+    </div>
+</div>
+<router-outlet></router-outlet>
+<div class="footer-01">
+    <app-footer-one [data]="footerData"></app-footer-one>
+</div>

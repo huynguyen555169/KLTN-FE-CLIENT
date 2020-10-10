@@ -1,0 +1,63 @@
+.card-six-container {
+  box-shadow: 2px 2px 5px 0px #00000059;
+  background-color: white;
+  cursor: pointer;
+  .avatar {
+    width: 20%;
+    min-width: 13rem;
+  }
+  .title {
+    color: #186192;
+    font-weight: bold;
+  }
+  .sumary {
+    color: #186192;
+    font-weight: bold;
+  }
+  .star {
+    color: orange;
+    padding-right: 1rem;
+  }
+  .text-bold {
+    font-weight: bold;
+    color: orange;
+  }
+  .total-point {
+    color: #186192;
+  }
+  .skill {
+    background-color: #095b8a;
+    font-weight: 500;
+    color: white;
+    padding: 0.25rem;
+    margin-right: 5px;
+  }
+  .skills {
+    padding: 5px 0px 10px 0px;
+  }
+  .rate-container {
+    align-items: center;
+    .start-wrapper {
+      mat-icon.rate-icon {
+        color: #ddd;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+      }
+
+      span.fill-start {
+        display: inline-block;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        & mat-icon.rate-icon {
+          color: #f7c149;
+        }
+      }
+    }
+  }
+}

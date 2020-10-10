@@ -1,0 +1,11 @@
+.fashion-container {
+    margin-top: 120px;
+    margin-bottom: 50px;
+    .fashion-container--list {
+        display: grid;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+    }
+}

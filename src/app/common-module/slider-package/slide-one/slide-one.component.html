@@ -1,0 +1,9 @@
+<div class="slide-one-container w-100" [id]="slideId" #slideTrack>
+  <!-- List slide item -->
+  <div class="slide-one-item" *ngFor="let item of dataList">
+    <app-slide-one-item
+      [data]="item"
+      (actionClick)="actionItemClick.emit($event)"
+    ></app-slide-one-item>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="slide-two-container w-100" [id]="slideId" #slideTrack>
+  <div
+    class="slide-two-item"
+    *ngFor="let item of dataList"
+    [ngStyle]="{
+      width: elementWidth + 'px',
+      margin: '0px ' + elementGutter + 'px',
+      padding: elementHeight / 20 + 'px 0px'
+    }"
+  >
+    <app-slide-two-item [data]="item"></app-slide-two-item>
+  </div>
+</div>

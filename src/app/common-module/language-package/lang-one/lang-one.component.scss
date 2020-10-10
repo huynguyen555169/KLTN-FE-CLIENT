@@ -1,0 +1,70 @@
+$showHideDuration: 0.2s;
+
+.language-container {
+  color: white;
+  cursor: pointer;
+  padding: 5px 12px;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  img.logo {
+    margin-right: 16px;
+    border-radius: 3px;
+  }
+  .lang-name {
+    margin-right: 16px;
+    font-size: 16px;
+    display: inline-block;
+    width: 105px;
+  }
+
+  .lang-menu {
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .lang-item {
+      padding: 4px 12px;
+      margin-bottom: 4px;
+      color: white;
+      height: fit-content;
+
+      &:hover {
+        background: rgba(#216eaa, 0.7);
+      }
+    }
+    max-height: 200px;
+    padding: 5px 0px;
+    visibility: hidden;
+    left: 0;
+    right: 0;
+    top: calc(100% + 1px);
+    opacity: 0;
+    border: 1px solid #fff;
+    overflow: auto;
+    background: rgba(#000, 0.7);
+    transition: visibility $showHideDuration linear,
+      opacity $showHideDuration linear;
+    -webkit-transition: visibility $showHideDuration linear,
+      opacity $showHideDuration linear;
+    -moz-transition: visibility $showHideDuration linear,
+      opacity $showHideDuration linear;
+    -ms-transition: visibility $showHideDuration linear,
+      opacity $showHideDuration linear;
+    -o-transition: visibility $showHideDuration linear,
+      opacity $showHideDuration linear;
+  }
+
+  & * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
+}

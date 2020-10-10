@@ -1,0 +1,80 @@
+<div class="slide-three-item-container w-100 h-100 position-relative">
+  <!-- Image background -->
+  <div class="item-image-background w-100 h-100" [ngStyle]="{
+      background: 'url(' + data.img + ')  center/100% no-repeat'
+    }"></div>
+  <!-- End image background -->
+
+  <!-- Info layer -->
+  <div class="info-layer w-100 h-100 position-absolute position-relative d-flex flex-column justify-content-center">
+    <!-- Title row -->
+    <div class="title info-row text-overflow">
+      {{ data.title }}
+    </div>
+    <!-- End title row -->
+
+    <!-- Class info row -->
+    <div class="info-row content-line d-flex flex-column">
+      <div class="sub-title text-overflow">
+        {{ data.subTitle }}
+      </div>
+
+      <div class="content-wrapper d-flex align-items-center">
+        <div class="rate-container d-inline-flex align-items-center">
+          <div class="start-wrapper d-inline-flex" *ngFor="let star of arrayStars">
+            <span class="material-icons rate-icon">star
+              <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                <span class="material-icons rate-icon">star</span>
+              </span>
+            </span>
+          </div>
+          <span class="total-rating"> ({{ data.totalRating }}) </span>
+        </div>
+        <span class="content-item" *ngFor="let content of data.contents">
+          {{ content }}
+        </span>
+      </div>
+    </div>
+    <!-- End class info row -->
+
+    <!-- Description row -->
+    <div class="description info-row">
+      {{ data.description }}
+    </div>
+    <!-- End description row -->
+
+    <!-- Chips row -->
+    <div class="chips info-row">
+      <div class="chip-item text-overflow" *ngFor="let chip of data.chips">
+        {{ chip }}
+      </div>
+    </div>
+    <!-- End chips row -->
+
+    <!-- Price row -->
+    <div class="price-area d-flex align-items-center flex-column">
+      <div class="new-price">
+        {{ data.price | moneyFormat | postfix: "VNĐ" }}
+      </div>
+
+      <div class="old-price">
+        {{ data.oldPrice | moneyFormat | postfix: "VNĐ" }}
+      </div>
+    </div>
+    <!-- End price row -->
+
+    <!-- Action button row -->
+    <div class="action-wrapper position-relative">
+      <span class="d-inline-block position-absolute position-relative"></span>
+      <span class="d-inline-block position-absolute position-relative"></span>
+      <span class="d-inline-block position-absolute position-relative"></span>
+      <span class="d-inline-block position-absolute position-relative"></span>
+      <div class="action position-relative d-flex align-items-center justify-content-center"
+        (click)="actionClick.emit(data)">
+        Xem ngay
+      </div>
+    </div>
+    <!-- End action button row -->
+  </div>
+  <!-- End info layer -->
+</div>

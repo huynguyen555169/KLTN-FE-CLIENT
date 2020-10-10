@@ -1,0 +1,109 @@
+.menu-two-container {
+  .avatar-img,
+  .avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    outline: none !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+::ng-deep {
+  .menu-two-menu-backdrop + .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane {
+    margin-top: 10px !important;
+    width: 235px !important;
+    .mat-menu-panel {
+      width: 100%;
+    }
+  }
+  .user-info {
+    padding-top: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0px;
+    width: 100%;
+  }
+  .menu-item {
+    button:focus {
+      outline: none !important;
+    }
+  }
+  .email {
+    font-size: 12px;
+    padding: 10px 0px;
+    color: black;
+    opacity: 0.7;
+    width: 100%;
+    position: relative;
+  }
+  .email::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    border-bottom: 1px solid #707070;
+  }
+  .full-name {
+    line-height: 100%;
+    padding-top: 5px;
+    font-size: 17px;
+    color: black;
+  }
+  .avatar-img {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .menu-icon {
+    line-height: 2;
+    padding-left: 16px;
+    padding-right: 10px;
+    color: #373737;
+  }
+  .item {
+    font-size: 12px;
+  }
+}
+.mat-menu-item {
+  height: 40px;
+  &:last-child {
+    margin-bottom: 15px;
+  }
+}
+.menu-item-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #373737;
+  font-size: 12px;
+}
+//animation openend
+.animation1 {
+  animation: opened 0.4s ease-out;
+}
+//animation closed
+.animation2 {
+  animation: closed 0.2s linear;
+}
+@keyframes opened {
+  from {
+    margin-left: 200px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes closed {
+  from {
+    opacity: 1;
+  }
+  to {
+    margin-left: 200px;
+    opacity: 0;
+  }
+}

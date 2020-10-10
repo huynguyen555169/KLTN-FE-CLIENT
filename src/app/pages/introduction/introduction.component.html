@@ -1,0 +1,19 @@
+<div class="intro-container">
+    <div class="intro-header">
+    </div>
+    <div class="intro-content container">
+        <div class="row " *ngFor="let item of data;index as i">
+            <div [ngClass]="{'first': i%2==0,'second': i%2!=0}">
+                <div class="col-5">
+                    <img src={{item.img}} alt="" class="intro-img">
+
+                </div>
+                <div class="col-7">
+                    <div class="intro-title">{{item.title}}</div>
+                    <div class="intro-des">{{item.des}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

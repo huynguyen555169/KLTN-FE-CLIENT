@@ -1,0 +1,54 @@
+<div class="footer-container--one d-flex flex-column" *ngIf="data">
+  <div class="footer-one--title d-flex justify-content-center">
+    <div class="footer-one--title--title">
+      {{ data.title }}
+    </div>
+  </div>
+  <div class="footer-one--content d-flex justify-content-center">
+    <div
+      class="footer-content--col d-flex flex-column justify-content-center"
+      *ngFor="let content of data.content"
+    >
+      <img
+        src="{{ content.icon }}"
+        alt="Content icon"
+        class="footer-col--icon"
+      />
+      <div class="footer-col--title">
+        {{ content.title }}
+      </div>
+      <div class="footer-col--description">
+        {{ content.description }}
+      </div>
+      <a href="{{ content.more }}" class="footer-col--action">SEE MORE ></a>
+    </div>
+  </div>
+  <div class="footer-one--contact d-flex justify-content-between">
+    <div class="footer-contact--left d-flex" *ngFor="let phone of data.phone">
+      <img
+        src="{{ phone.icon }}"
+        alt="Phone icon"
+        class="footer-contact-left--icon"
+      />
+      <div class="footer-contact-left--text">
+        {{ phone.number }}
+      </div>
+    </div>
+    <div class="footer-contact--right d-flex align-items-center">
+      <div class="footer-contact--right--title">
+        {{ data.titleSocial }}
+      </div>
+      <div class="footer-contact--right--list d-flex">
+        <div class="footer-right-list--item" *ngFor="let icon of data.social">
+          <a href="{{ icon.link }}">
+            <img src="{{ icon.icon }}" alt="Social icon" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-one--copyright d-flex justify-content-between">
+    <div class="footer-copyright--left">{{ data.copyright }}</div>
+    <div class="footer-copyright--right">{{ data.moreInfo }}</div>
+  </div>
+</div>

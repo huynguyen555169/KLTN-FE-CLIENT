@@ -1,0 +1,11 @@
+.card-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    .card-image {
+        height: 100px;
+        object-fit: cover;
+    }
+}
+.example-margin {
+    margin: 0 10px;
+}

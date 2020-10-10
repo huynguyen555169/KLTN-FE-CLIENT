@@ -1,0 +1,17 @@
+<div class="slide-four-container w-100" [id]="slideId" #slideTrack>
+  <!-- Slide items -->
+  <div
+    class="slide-four-item"
+    *ngFor="let item of dataList"
+    [ngStyle]="{
+      width: elementWidth + 'px',
+      margin: '0px ' + '0px',
+      padding: elementHeight / 20 + 'px ' + gutter / 2 + 'px'
+    }"
+  >
+    <app-card-one
+      [cardData]="item"
+      (actionClick)="actionItemClick.emit($event)"
+    ></app-card-one>
+  </div>
+</div>

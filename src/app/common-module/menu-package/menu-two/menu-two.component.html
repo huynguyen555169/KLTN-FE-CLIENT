@@ -1,0 +1,51 @@
+<div class="menu-two-container h-100 w-100" *ngIf="data">
+  <!-- Image avatar -->
+  <img
+    mat-icon-button
+    [matMenuTriggerFor]="appMenu"
+    class="avatar-img"
+    [src]="data.userInfo.avatar"
+    alt="User avatar"
+    (menuOpened)="handleOpened()"
+    (menuClosed)="handleClosed()"
+  />
+
+  <!-- End image avatar -->
+  <!-- Start menu item -->
+
+  <mat-menu
+    #appMenu="matMenu"
+    class="menu-item"
+    xPosition="{{ position }}"
+    backdropClass="menu-two-menu-backdrop"
+  >
+    <!-- Start user info -->
+    <div class="d-flex justify-content-between user-info">
+      <div class="w-100 text-center">
+        <img
+          class="avatar-img"
+          [src]="data.userInfo.avatar"
+          alt="User avatar"
+        />
+        <div class="full-name">{{ data.userInfo.fullName }}</div>
+        <div class="email">{{ data.userInfo.email }}</div>
+      </div>
+    </div>
+    <!-- End user info -->
+    <!-- Start each items -->
+    <div
+      mat-menu-item
+      class="d-flex item"
+      [ngClass]="{ animation1: isOpened, animation2: !isOpened }"
+      *ngFor="let item of data.menuItems"
+      (click)="menuItemClick(item)"
+    >
+      <div class="text-center menu-icon material-icons w-25">
+        {{ item.icon }}
+      </div>
+      <div class="w-75 menu-item-text">{{ item.name }}</div>
+    </div>
+    <!-- End each items -->
+  </mat-menu>
+  <!-- End menu item -->
+</div>

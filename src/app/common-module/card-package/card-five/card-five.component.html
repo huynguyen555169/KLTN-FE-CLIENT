@@ -1,0 +1,21 @@
+<div class="card-five-container d-flex flex-column">
+  <div class="card-empty"></div>
+  <div class="card-wrapper w-100 position-relative">
+    <div class="card-name position-absolute">{{ type }}</div>
+
+    <div class="card-content w-100">
+      <div
+        class="card-content-item w-100 d-flex flex-column"
+        *ngFor="let item of slideList"
+      >
+        <div class="item-description">
+          {{ item.description }} - {{ item.percent }}%
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="slider" [ngStyle]="{ width: item.percent + '%' }"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

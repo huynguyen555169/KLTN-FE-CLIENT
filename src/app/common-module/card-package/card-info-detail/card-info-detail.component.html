@@ -1,0 +1,26 @@
+<div class="card-info-detail-container">
+  <div class="card-info-detail-wrapper d-flex">
+    <div
+      class="card-info-detail-image"
+      [ngStyle]="{ 'background-image': 'url(' + data.imageUrl + ')' }"
+    ></div>
+
+    <div class="card-info-detail-body">
+      <div class="body-title pt-2 pb-1">
+        {{ data.title }}
+      </div>
+
+      <div class="content-wrapper d-flex flex-wrap">
+        <div
+          class="content-item position-relative"
+          *ngFor="let info of data.infos"
+        >
+          <div class="item-title position-absolute">{{ info.title }}</div>
+          <div class="item-body">
+            {{ info.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

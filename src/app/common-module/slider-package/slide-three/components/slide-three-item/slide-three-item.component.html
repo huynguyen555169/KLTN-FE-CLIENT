@@ -1,0 +1,62 @@
+<div class="slide-three-item-container w-100 h-100 position-relative">
+  <!-- Image background layer -->
+  <div
+    class="item-image-background w-100 h-100"
+    [ngStyle]="{ background: 'url(' + data.img + ')  center/100% no-repeat' }"
+  ></div>
+  <!-- End Image background layer -->
+
+  <!-- Card info layer -->
+  <div class="info-layer w-100 h-100 position-absolute position-relative">
+    <!-- Top info area (title, subtitle, rating) -->
+    <div class="top-info">
+      <div class="title info-row">
+        {{ data.title }}
+      </div>
+      <div class="info-row">
+        <div class="sub-title">
+          {{ data.subTitle }}
+        </div>
+
+        <div class="rate-container d-inline-flex">
+          <div
+            class="start-wrapper d-inline-flex"
+            *ngFor="let star of arrayStars"
+          >
+            <mat-icon class="rate-icon"
+              >star
+              <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                <mat-icon class="rate-icon">star</mat-icon>
+              </span>
+            </mat-icon>
+          </div>
+
+          {{ data.rating }}
+          <span class="total-rating"> ({{ data.totalRating }}) </span>
+        </div>
+      </div>
+    </div>
+    <!-- End Top info area -->
+
+    <!-- Bottom info area (description, chips) -->
+    <div class="bottom-info">
+      <div class="description">
+        {{ data.description }}
+      </div>
+      <div class="chips info-row">
+        <div class="chip-item" *ngFor="let chip of data.chips">
+          {{ chip }}
+        </div>
+      </div>
+    </div>
+    <!-- End Bottom info area (description, chips) -->
+
+    <!-- Button action -->
+    <div class="action position-absolute">
+      <button class="action-button" (click)="actionClick.emit(data)">
+        Xem thêm
+      </button>
+    </div>
+  </div>
+  <!-- End Card info layer -->
+</div>

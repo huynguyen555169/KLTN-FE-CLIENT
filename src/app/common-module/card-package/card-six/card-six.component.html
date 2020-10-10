@@ -1,0 +1,47 @@
+<div class="w-100 h-100 card-six-container" (click)="cardClick()">
+  <div class="d-flex">
+    <img class="avatar" [src]="cardData.avatar" alt="" />
+    <div class="content w-100 h-100 pt-3 pl-5 pr-3">
+      <h3 class="title">{{ cardData.fullName }}</h3>
+      <p class="sumary mb-0">{{ cardData.sumary }}</p>
+      <!-- Rating -->
+      <div class="d-flex justify-content-start">
+        <div class="rate d-flex">
+          <div class="rate-container d-inline-flex">
+            <div
+              class="start-wrapper d-inline-flex"
+              *ngFor="let star of arrayStars"
+            >
+              <mat-icon class="rate-icon"
+                >star
+                <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                  <mat-icon class="rate-icon">star</mat-icon>
+                </span>
+              </mat-icon>
+            </div>
+          </div>
+        </div>
+        <div class="point d-flex pl-1 pt-1 text-bold">
+          <!-- Fixed int to decimal: ex: 5 => 5.0 -->
+          <span>{{ cardData.point.toFixed(1) }}</span>
+        </div>
+        <div class="total-point d-flex pl-2 pt-1 text-bold">
+          <span>({{ cardData.totalPoint }})</span>
+        </div>
+      </div>
+      <div class="description">
+        <span>
+          {{ cardData.description }}
+        </span>
+      </div>
+      <!-- Skill of teacher -->
+      <div class="skills">
+        <mat-chip-list>
+          <mat-chip color="primary" selected *ngFor="let skill of arraySkills">
+            {{ skill.name }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+  </div>
+</div>
