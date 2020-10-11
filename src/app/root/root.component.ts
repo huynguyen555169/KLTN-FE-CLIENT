@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { menus, logo, iconColor, pageNoti, notificationList, data, position, footerData } from './mockData';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./root.component.scss']
 })
 export class RootComponent implements OnInit {
+  isShow = false;
   menus = menus;
   logo = logo;
   iconColor = iconColor;
@@ -25,6 +26,12 @@ export class RootComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        this.isShow = e.urlAfterRedirects === '/admin'
+      }
+    }
+    );
   }
   handleItemClick(event) {
     this.router.navigate([event.link]);
