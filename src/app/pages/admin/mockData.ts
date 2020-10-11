@@ -1,0 +1,23 @@
+
+export const data = [
+    { id: '1', name: 'Sản phẩm 1', progress: 10, color: 'red' },
+    { id: '2', name: 'Sản phẩm 2', progress: 20, color: 'blue' },
+    { id: '3', name: 'Sản phẩm 3', progress: 30, color: 'red' },
+    { id: '4', name: 'Sản phẩm 4', progress: 40, color: 'green' },
+    { id: '5', name: 'Hydrogen', progress: 50, color: 'red' },
+    { id: '6', name: 'Sản phẩm 1', progress: 10, color: 'red' },
+    { id: '7', name: 'Sản phẩm 2', progress: 20, color: 'blue' },
+    { id: '8', name: 'Sản phẩm 3', progress: 30, color: 'red' },
+    { id: '9', name: 'Sản phẩm 4', progress: 40, color: 'green' },
+    { id: '10', name: 'Hydrogen', progress: 50, color: 'red' },
+    { id: '11', name: 'Sản phẩm 1', progress: 10, color: 'red' },
+    { id: '12', name: 'Sản phẩm 2', progress: 20, color: 'blue' },
+    { id: '13', name: 'Sản phẩm 3', progress: 30, color: 'red' },
+    { id: '14', name: 'Sản phẩm 4', progress: 40, color: 'green' },
+    { id: '15', name: 'Hydrogen', progress: 50, color: 'red' },
+    { id: '16', name: 'Sản phẩm 1', progress: 10, color: 'red' },
+    { id: '17', name: 'Sản phẩm 2', progress: 20, color: 'blue' },
+    { id: '18', name: 'Sản phẩm 3', progress: 30, color: 'red' },
+    { id: '19', name: 'Sản phẩm 4', progress: 40, color: 'green' },
+    { id: '20', name: 'Hydrogen', progress: 50, color: 'red' },
+];
