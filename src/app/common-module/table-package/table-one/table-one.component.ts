@@ -3,11 +3,20 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
+export interface ProductModel {
+  product_id: number;
+  product_name: string;
+  product_image1: string;
+  product_image2: string;
+  product_type_fk: number;
+  product_size_fk: number;
+  product_unit_price: number;
+  product_paid_price: number;
+  product_discount: number;
+  product_desciption: string;
+  product_qty: number;
+
+
 }
 /** Constants used to fill up our data base. */
 
@@ -20,8 +29,8 @@ export interface UserData {
 
 export class TableOneComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() data: any;
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['product_id', 'product_image', 'product_name', 'product_unit_price', 'product_qty', 'action'];
+  dataSource: MatTableDataSource<ProductModel>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -46,5 +55,8 @@ export class TableOneComponent implements OnInit, AfterViewInit, OnChanges {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  handleDelete(e) {
+    console.log(e)
   }
 }
