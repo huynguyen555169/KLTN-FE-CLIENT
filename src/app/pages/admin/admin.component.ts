@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from './mockData';
+import { data, dataInfo, position } from './mockData';
 
 @Component({
   selector: 'app-admin',
@@ -7,11 +7,19 @@ import { data } from './mockData';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  //dataproduct
   data = data;
+  //data user info
+  dataInfo = dataInfo;
+  position = position;
+
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.data)
+  }
+  menuClick(e) {
+
   }
 
 }

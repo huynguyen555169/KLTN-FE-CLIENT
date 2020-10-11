@@ -1,0 +1,9 @@
+.admin-container {
+    .admin-header {
+        box-shadow: 0 5px 6px -6px black;
+        .admin-logo {
+            object-fit: contain;
+            height: 80px;
+        }
+    }
+}

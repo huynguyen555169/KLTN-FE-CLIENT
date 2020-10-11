@@ -5,6 +5,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AdminRoutingModule } from './admin-routing.module';
 import { MenuAdminModule } from 'src/app/common-module/menu-package/menu-admin/menu-admin.module';
 import { TableOneModule } from 'src/app/common-module/table-package/table-one/table-one.module';
+import { MenuTwoModule } from 'src/app/common-module/menu-package/menu-two/menu-two.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -15,7 +17,9 @@ import { TableOneModule } from 'src/app/common-module/table-package/table-one/ta
     MatMenuModule,
     AdminRoutingModule,
     MenuAdminModule,
-    TableOneModule
+    TableOneModule,
+    MenuTwoModule,
+    MatDialogModule
   ],
   exports: [
     AdminComponent

@@ -1,3 +1,4 @@
+import { MenuTwoDataModel } from 'src/app/common-module/menu-package/menu-two/menu-two.component';
 import { ProductModel } from 'src/app/common-module/table-package/table-one/table-one.component';
 
 export const data: ProductModel[] = [
@@ -66,3 +67,31 @@ export const data: ProductModel[] = [
         product_qty: 50
     },
 ];
+//user info
+export const dataInfo: MenuTwoDataModel = {
+    menuItems: [
+        {
+            // Các option trong menu của user
+            icon: "info", // class of material icon,
+            name: "Thông tin cá nhân", // Tên option
+        },
+        {
+            // Các option trong menu của user
+            icon: "school", // class of material icon,
+            name: "Khóa học", // Tên option
+        },
+        {
+            // Các option trong menu của user
+            icon: "sync_alt", // class of material icon,
+            name: "Đăng xuất", // Tên option
+        },
+    ],
+    userInfo: {
+        avatar:
+            "https://images.pexels.com/photos/4838598/pexels-photo-4838598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", // Image url,
+        fullName: "Nguyên Hoàng Minh",
+        email: "minhminh@gmail.com",
+    },
+};
+export const position = "after"; // position of menu dropdown is value of: above, below, before, after
+
