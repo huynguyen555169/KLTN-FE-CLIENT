@@ -15,14 +15,20 @@ import {
 export class MenuThreeComponent implements OnInit, OnChanges {
   expanded: boolean;
   @Input() data: {
-    backgroundUserImage: string;
+    backgroundUserImage?: string;
     userInfo: any;
     urls: MenuTreeNodeModel[];
     footActions: MenuTreeNodeModel[];
   };
+
+  @Input() width: number;
   constructor() {}
 
-  ngOnInit(): void {}
+  isOpen = true;
+
+  ngOnInit(): void {
+    this.width = this.width ? this.width : 300;
+  }
 
   ngOnChanges(changes: SimpleChanges) {}
 }

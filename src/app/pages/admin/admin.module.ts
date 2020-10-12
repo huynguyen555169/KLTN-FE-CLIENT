@@ -7,6 +7,7 @@ import { MenuAdminModule } from 'src/app/common-module/menu-package/menu-admin/m
 import { TableOneModule } from 'src/app/common-module/table-package/table-one/table-one.module';
 import { MenuTwoModule } from 'src/app/common-module/menu-package/menu-two/menu-two.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MenuThreeModule } from 'src/app/common-module/menu-package/menu-three/menu-three.module';
 
 
 
@@ -19,7 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MenuAdminModule,
     TableOneModule,
     MenuTwoModule,
-    MatDialogModule
+    MatDialogModule,
+    MenuThreeModule
   ],
   exports: [
     AdminComponent

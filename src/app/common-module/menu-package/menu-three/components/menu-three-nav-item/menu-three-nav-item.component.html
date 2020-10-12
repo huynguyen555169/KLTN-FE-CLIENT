@@ -5,7 +5,9 @@
   [ngClass]="{
     active: item.url ? router.isActive(item.url, false) : false,
     expanded: expanded,
-    'info-item': item.url === '' && depth > 0
+    'info-item': item.url === '' && depth > 0,
+    child: item.children && item.children.length,
+    'no-child': !item.children || !item.children.length
   }"
   class="menu-list-item d-flex align-items-center justify-content-between"
 >
@@ -13,16 +15,19 @@
     class="d-flex align-items-center route-text"
     [ngClass]="{ 'child-route': depth > 0 }"
   >
-    <mat-icon class="route-icon">{{ item.icon }}</mat-icon>
+    <span class="material-icons route-icon">{{ item.icon }}</span>
     {{ item.name }}
   </div>
   <div
     class="d-flex align-items-center"
     *ngIf="item.children && item.children.length"
   >
-    <mat-icon [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'">
+    <span
+      class="material-icons"
+      [@indicatorRotate]="expanded ? 'expanded' : 'collapsed'"
+    >
       expand_more
-    </mat-icon>
+    </span>
   </div>
 </a>
 <div *ngIf="expanded">

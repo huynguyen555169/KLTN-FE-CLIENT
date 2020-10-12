@@ -1,31 +1,51 @@
-<div class="menu-three-container d-flex flex-column">
-  <div
-    class="user-info d-flex flex-column align-items-center"
-    [ngStyle]="{
-      background:
-        'url(' + data.backgroundUserImage + ') center/100%100% no-repeat'
-    }"
+<div
+  class="menu-three-container d-flex position-relative"
+  [ngClass]="{ 'close-state': !isOpen }"
+>
+  <span
+    class="material-icons not-hide position-absolute"
+    (click)="isOpen = !isOpen"
   >
-    <img [src]="data.userInfo.avatar" alt="User avater" />
-    <span class="user-name">{{ data.userInfo.fullName }}</span>
-    <span class="user-email">{{ data.userInfo.email }}</span>
-  </div>
-
-  <div class="list-action d-flex flex-column">
+    arrow_right_alt
+  </span>
+  <div
+    class="main-content d-flex flex-column"
+    [ngStyle]="{ width: width + 'px' }"
+  >
     <div
-      class="nav-item w-100 d-flex flex-column align-items-center"
-      *ngFor="let item of data.urls"
+      class="user-info d-flex flex-column align-items-center not-hide"
+      [ngStyle]="{
+        background:
+          'url(' + data.backgroundUserImage + ') center/cover no-repeat'
+      }"
     >
-      <div class="division my-2"></div>
-      <app-menu-three-nav-item [item]="item"></app-menu-three-nav-item>
+      <img [src]="data.userInfo.avatar" alt="User avater" class="not-hide" />
+      <span class="user-name">{{ data.userInfo.fullName }}</span>
+      <span class="user-email" *ngIf="data.userInfo.email">
+        {{ data.userInfo.email }}
+      </span>
     </div>
-  </div>
+    <div class="division first"></div>
+    <div class="list-action d-flex flex-column">
+      <div
+        class="nav-item w-100 d-flex flex-column align-items-center pl-1 pr-1 mb-2"
+        *ngFor="let item of data.urls"
+      >
+        <app-menu-three-nav-item [item]="item"></app-menu-three-nav-item>
+      </div>
+    </div>
 
-  <div class="action-footer d-flex flex-column align-items-center">
-    <div class="division my-2"></div>
-    <app-menu-three-nav-item
-      *ngFor="let item of data.footActions"
-      [item]="item"
-    ></app-menu-three-nav-item>
+    <div class="action-footer d-flex flex-column align-items-center">
+      <div class="division"></div>
+      <app-menu-three-nav-item
+        [item]="data.footActions[0]"
+      ></app-menu-three-nav-item>
+
+      <!-- Custom info come here -->
+
+      <app-menu-three-nav-item
+        [item]="data.footActions[1]"
+      ></app-menu-three-nav-item>
+    </div>
   </div>
 </div>

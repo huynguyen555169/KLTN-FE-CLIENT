@@ -94,4 +94,67 @@ export const dataInfo: MenuTwoDataModel = {
     },
 };
 export const position = "after"; // position of menu dropdown is value of: above, below, before, after
+//
+export const dataNav = {
+    backgroundUserImage: 'https://images.pexels.com/photos/5180492/pexels-photo-5180492.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',// image background in user info
+    userInfo: {
+        avatar: 'https://images.pexels.com/photos/3568544/pexels-photo-3568544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', // avatar image url
+        fullName: 'Nguyễn Văn Huy', // tên user
+        email: 'string' // email user
+    },
+    urls: [{
+        id: 'string',
+        name: 'Categories', // tên hiển thị trên sidebar
+        url: 'string', // url để navigate
+        icon: 'category', // icon hiển thị (material icon)
+        children: [{
+            id: 'string',
+            name: 'Fashion', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'shop', // icon hiển thị (material icon)
+        },
+        {
+            id: 'string',
+            name: 'Fashion', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'shop', // icon hiển thị (material icon)
+        }]
+    }, {
+        id: 'string',
+        name: 'Categories', // tên hiển thị trên sidebar
+        url: 'string', // url để navigate
+        icon: 'category', // icon hiển thị (material icon)
+        children: [{
+            id: 'string',
+            name: 'Fashion', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'shop', // icon hiển thị (material icon)
+        },
+        {
+            id: 'string',
+            name: 'Fashion', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'shop', // icon hiển thị (material icon)
+        }]
+    }],
+    footActions: [{
+        id: 'string',
+        name: 'string', // tên hiển thị trên sidebar
+        url: 'string', // url để navigate
+        icon: 'swap_horiz', // icon hiển thị (material icon)
+        children: [{
+            id: 'string',
+            name: 'string', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'string', // icon hiển thị (material icon)
+        },
+        {
+            id: 'string',
+            name: 'string', // tên hiển thị trên sidebar
+            url: 'string', // url để navigate
+            icon: 'string', // icon hiển thị (material icon)
+        },
+        ]
+    }]
+}
 

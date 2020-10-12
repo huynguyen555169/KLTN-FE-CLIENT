@@ -7,44 +7,36 @@
 # Input:
 
     data: {
-      backgroundUserImage: string, // image background in user info
+      backgroundUserImage?: string (optional) // image background in user info
       userInfo: {
         avatar: string, // avatar image url
         fullName: string, // tên user
-        email: string // email user
+        email?: string (optional) // email user
       },
-      urls: [
-        {
+      urls: [{
+        id: string,
+        name: string, // tên hiển thị trên sidebar
+        url: string, // url để navigate
+        icon: string, // icon hiển thị (material icon)
+        children: [{
           id: string,
           name: string, // tên hiển thị trên sidebar
           url: string, // url để navigate
           icon: string, // icon hiển thị (material icon)
-          children: [
-            {
-              id: string,
-              name: string, // tên hiển thị trên sidebar
-              url: string, // url để navigate
-              icon: string, // icon hiển thị (material icon)
-            }
-          ]
-        }
-      ],
-      footActions: [
-        {
+        }]
+      }],
+      footActions: [{
+        id: string,
+        name: string, // tên hiển thị trên sidebar
+        url: string, // url để navigate
+        icon: string, // icon hiển thị (material icon)
+        children: [{
           id: string,
           name: string, // tên hiển thị trên sidebar
           url: string, // url để navigate
           icon: string, // icon hiển thị (material icon)
-          children: [
-            {
-              id: string,
-              name: string, // tên hiển thị trên sidebar
-              url: string, // url để navigate
-              icon: string, // icon hiển thị (material icon)
-            }
-          ]
-        }
-      ]
+        }]
+      }]
     }
 
 # Output:
