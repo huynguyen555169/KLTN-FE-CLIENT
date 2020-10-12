@@ -28,7 +28,7 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        this.isShow = e.urlAfterRedirects === '/admin'
+        this.isShow = e.urlAfterRedirects === '/admin';
       }
     }
     );
