@@ -23,7 +23,7 @@ export const menus: MenuItemModel[] = [
     {
         name: "THANH TOÁN", // Tên hiển thị trên layout
         isActive: false, // link được active
-        link: "/pay", // Đường dẫn tương ứng của item
+        link: "/payment", // Đường dẫn tương ứng của item
     },
     {
         name: "BÀI VIẾT", // Tên hiển thị trên layout
@@ -177,6 +177,6 @@ export const footerData: FooterOneModel = {
             link: "", // link to social types
         },
     ],
-    copyright: "©Copyright CMC 2020", // copyright of footer
+    copyright: "©Copyright HCMUTE 2020", // copyright of footer
     moreInfo: "Điều kiện | Điều khoản", // more info of footer
 };

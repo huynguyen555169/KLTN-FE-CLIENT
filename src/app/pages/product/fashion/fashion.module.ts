@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FashionComponent } from './fashion.component';
-import { FillterOneModule } from 'src/app/common-module/fillter-package/fillter-one/fillter-one.module';
 import { FashionRoutingModule } from './fashion-routing.module';
-import { CardProductModule } from 'src/app/common-module/card-package/card-product/card-product.module';
+import { SearchMaxMinTwoModule } from 'src/app/common-module/search-package/search-max-min-two/search-max-min-two.module';
+import { CardOneModule } from 'src/app/common-module/card-package/card-one/card-one.module';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -11,7 +12,7 @@ import { CardProductModule } from 'src/app/common-module/card-package/card-produ
 @NgModule({
   declarations: [FashionComponent],
   imports: [
-    CommonModule, FillterOneModule, FashionRoutingModule, CardProductModule
+    CommonModule, FashionRoutingModule, CardOneModule, SearchMaxMinTwoModule, MatSelectModule
   ],
   exports: [
     FashionComponent

@@ -9,12 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class SearchComComponent implements OnInit {
   result = '';
-  constructor(public dialogRef: MatDialogRef<SearchComComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<SearchComComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 
   ngOnInit(): void {
   }
   onEnter() {
-    this.dialogRef.close(this.data.textSearch);
+    this.dialogRef.disableClose = true;
+    this.dialogRef.close(this.data.textSearch)
   }
   handleDelete() {
     this.data.textSearch = "";

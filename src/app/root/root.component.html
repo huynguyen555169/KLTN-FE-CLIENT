@@ -3,10 +3,10 @@
         <app-menu-one [menus]="menus" [logo]="logo" (itemClick)="handleItemClick($event)"></app-menu-one>
     </div>
     <div class="col header-right d-flex justify-content-end align-items-center">
-        <div class="header-notify">
-            <app-notic-one [notificationList]="notificationList" [iconColor]="iconColor" [pageNoti]="pageNoti"
-                (itemClick)="handleItemClick($event)"></app-notic-one>
-        </div>
+        <button mat-button class="header-cart d-flex justify-content-center align-items-center">
+            GIỎ HÀNG
+            <mat-icon matBadge="15" matBadgeColor="warn"> shopping_cart</mat-icon>
+        </button>
 
         <div class="header-menu02" *ngIf="isCheck == true ; else elseBlock">
             <app-menu-two [data]="data" [position]="position" (actionClick)="menuClick($event)"></app-menu-two>

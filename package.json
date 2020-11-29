@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.3",
     "@angular/animations": "~9.1.12",
     "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.12",
@@ -27,7 +28,6 @@
     "firebaseui": "^4.6.1",
     "firebaseui-angular": "^5.0.1",
     "jquery": "^3.5.1",
-    "ng5-slider": "^1.2.4",
     "rxjs": "~6.6.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^1.10.0",

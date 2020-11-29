@@ -9,4 +9,4 @@ import { MatButtonModule } from "@angular/material/button";
   imports: [CommonModule, MatIconModule, MatButtonModule],
   exports: [CardOneComponent],
 })
-export class CardOneModule {}
+export class CardOneModule { }

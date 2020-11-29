@@ -23,7 +23,7 @@ export class SlideTwoComponent implements OnInit, OnChanges, AfterViewChecked {
   @Input() gutter = 10;
   @Input() slideId: string;
   @ViewChild('slideTrack', { static: true }) slideTrack: ElementRef;
-  constructor() {}
+  constructor() { }
   elementWidth: number;
   elementHeight: number;
   elementGutter: number;
@@ -33,7 +33,7 @@ export class SlideTwoComponent implements OnInit, OnChanges, AfterViewChecked {
     this.elementWidth = Math.floor(
       ((this.slideTrack.nativeElement.offsetWidth - 1) *
         this.elementWidthPercent) /
-        100
+      100
     );
     this.elementGutter = this.elementWidth / 40 + this.gutter;
     this.elementHeight = this.slideTrack.nativeElement.offsetHeight;

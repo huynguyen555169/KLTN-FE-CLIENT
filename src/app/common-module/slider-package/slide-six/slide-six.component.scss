@@ -1,0 +1,59 @@
+.slide-two-container {
+    .slide-two-item {
+        &:focus {
+            outline: none !important;
+        }
+    }
+}
+
+::ng-deep {
+    .slide-two-container,
+    .slick-list,
+    .slick-track {
+        height: 100%;
+    }
+
+    .slide-two-container {
+        .custom-arrow {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: calc(50% - 52px);
+            display: flex;
+            border: 2px solid rgba($color: #000000, $alpha: 0.3);
+            border-radius: 50%;
+            outline: none;
+            background: transparent;
+            z-index: 20;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                border: 2px solid rgba($color: #000000, $alpha: 0.7);
+                .material-icons {
+                    color: rgba($color: #000000, $alpha: 0.7);
+                }
+            }
+            &.next-arrow {
+                right: 25px;
+            }
+
+            &.previous-arrow {
+                left: 25px;
+            }
+
+            .material-icons {
+                font-size: 40px;
+                color: rgba($color: #000000, $alpha: 0.4);
+            }
+        }
+    }
+}
+.image-content {
+    object-fit: cover;
+}
+
+::ng-deep {
+    .slide-two-item.slick-slide {
+        padding: 0px !important;
+    }
+}

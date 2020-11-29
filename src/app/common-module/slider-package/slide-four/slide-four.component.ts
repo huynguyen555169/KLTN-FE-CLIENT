@@ -27,10 +27,11 @@ export class SlideFourComponent
   @Input() elementWidthPercent = 25; // in percents
   @Input() slideId: string;
   @Output() actionItemClick = new EventEmitter<any>();
+  @Output() actionHeartClick = new EventEmitter<any>();
   @ViewChild("slideTrack", { static: true }) slideTrack: ElementRef;
   @ViewChild("leftArrow") leftArrow: ElementRef;
   @ViewChild("rightArrow") rightArrow: ElementRef;
-  constructor() {}
+  constructor() { }
   elementWidth: number;
   elementHeight: number;
   elementGutter: number;
@@ -40,7 +41,7 @@ export class SlideFourComponent
     this.elementWidth = Math.floor(
       ((this.slideTrack.nativeElement.offsetWidth - 1) *
         this.elementWidthPercent) /
-        100
+      100
     );
     this.elementHeight = this.slideTrack.nativeElement.offsetHeight;
   }

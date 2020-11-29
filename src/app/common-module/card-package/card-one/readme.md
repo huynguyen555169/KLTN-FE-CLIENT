@@ -17,18 +17,30 @@ app-card-one
     		description: string // description of card
     		subContent: string, // price of currently
     		subReContent: string, // price before discount
+    		isFavorite: boolean, // to show heart/full heart
     		more: string, // name of action
     	}
 
 # Output:
 
-actionClick: CardOneModel // trả ra cardData
+    	actionClick: CardOneModel // trả ra cardData
+    	heartClick: boolean // trigger when user click heart
 
 # Module:
 
 { MatIconModule } from "@angular/material/icon";
 { MatButtonModule } from "@angular/material/button";
 
+# Note
+
+```sh
+min-height container layout recommended: 490px
+```
+
 # Example:
 
-    <app-card-one [cardData]="cardData" (actionClick)="actionClick($event)"></app-card-one>
+    <app-card-one
+    	[cardData]="cardData"
+    	(actionClick)="actionClick($event)"
+    	(heartClick)="heartClick($event)"
+    ></app-card-one>

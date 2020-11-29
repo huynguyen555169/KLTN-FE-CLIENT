@@ -25,13 +25,13 @@ export class SlideOneComponent implements OnInit, OnChanges, AfterViewChecked {
   @Input() slideId: string;
   @Output() actionItemClick = new EventEmitter<SlideOneItemModel>();
   @ViewChild('slideTrack', { static: true }) slideTrack: ElementRef;
-  constructor() {}
+  constructor() { }
   elementWidth: number;
   elementHeight: number;
   elementGutter: number;
   isInitSlide = false;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (

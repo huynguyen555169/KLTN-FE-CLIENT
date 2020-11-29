@@ -6,6 +6,7 @@ import { LabelOneModel } from "src/app/common-module/label-package/label-one/lab
 import { SlideTwoItemModel } from "src/app/common-module/slider-package/slide-two/components/slide-two-item/slide-two-item.component";
 import { FooterOneModel } from "src/app/common-module/footer-package/footer-one/footer-one.component";
 import { CardTenModel } from "src/app/common-module/card-package/card-ten/card-ten.component";
+import { CardOneModel } from 'src/app/common-module/card-package/card-one/card-one.component';
 
 
 
@@ -67,108 +68,93 @@ export const dataLabel = {
   count_intructor: 5124,
 };
 //
-export const dataList = {
-  list_my_course: [
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-    {
-      // data will show in card
-      course_title: "Áo thun cao cấp",
-      percentage: 20,
-      course_tag: ["Áo thun"],
-      course_description: "đây là áo thun",
-      instructor_name: "Made in VietNam",
-      avg_rating: 4.5,
-      count_rating: 1200,
-      price_course: 200000,
-      discount_price: 200000,
-      image:
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    },
-  ],
-};
+export const dataList: CardOneModel[] = [
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  }
+  ,
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+    discount: '20', // percent of discount
+    title: 'Áo thun cao cấp', // title of card
+    chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+    subTitle: 'string', // subTitle of card
+    star: 4, // number of stars in card
+    total: 120, // amount of reviewer for card (star)
+    description: 'string', // description of card
+    subContent: 'string', // price of currently
+    subReContent: 'string', // price before discount
+    isFavorite: true, // to show heart/full heart
+    more: 'Xem thêm', // name of action
+  }
+];
 //card02
 export const dataCard02 = {
   list_best_course: [
@@ -250,10 +236,23 @@ export const direaction = {
 export const slider03Data = {
   list_best_intructor: [
     {
-      instructor_name: "Áo thun",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
+      instructor_name: "Belts",
+      workplace: "Bán tấc cả các loại sản phẩm về Belts",
+      tags: ["Thắt lưng"],
+      introduce: "Tấc cả sản phẩm được xuất xứ rõ ràng",
+      avg_rating: 3,
+      count_rating: 10,
+      price: 12012,
+      percentage: 20,
+      price_discount: 10000,
+      avatar:
+        "../../../../assets/images/wallets.jpeg",
+    },
+    {
+      instructor_name: "Fashion",
+      workplace: "Bán tấc cả các loại sản phẩm về fashion",
+      tags: ["Quần", "Áo", "Khác"],
+      introduce: "Tấc cả sản phẩm được xuất xứ rõ ràng",
       avg_rating: 3,
       count_rating: 10,
       price: 12012,
@@ -263,70 +262,44 @@ export const slider03Data = {
         "https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80",
     },
     {
-      instructor_name: "Áo sơ mi",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
+      instructor_name: "Shoes",
+      workplace: "Bán tấc cả các loại Giày",
+      tags: ["Giày"],
+      introduce: "Tấc cả sản phẩm được xuất xứ rõ ràng",
       avg_rating: 3,
       count_rating: 10,
       price: 12012,
       percentage: 20,
       price_discount: 10000,
       avatar:
-        "https://images.unsplash.com/flagged/photo-1564468781192-f023d514222d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+        "../../../../assets/images/shoes.jpeg",
     },
     {
-      instructor_name: "Quần tây",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
+      instructor_name: "Watch",
+      workplace: "Bán tấc cả các loại sản phẩm về fashion",
+      tags: ["Đồng hồ"],
+      introduce: "Tấc cả sản phẩm được xuất xứ rõ ràng",
       avg_rating: 3,
       count_rating: 10,
       price: 12012,
       percentage: 20,
       price_discount: 10000,
       avatar:
-        "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+        "../../../../assets/images/watch.jpeg",
     },
     {
-      instructor_name: "Quần sort",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
+      instructor_name: "Wallets",
+      workplace: "Bán tấc cả các loại sản phẩm về fashion",
+      tags: ["Ví"],
+      introduce: "Tấc cả sản phẩm được xuất xứ rõ ràng",
       avg_rating: 3,
       count_rating: 10,
       price: 12012,
       percentage: 20,
       price_discount: 10000,
       avatar:
-        "https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80",
+        "https://images.unsplash.com/photo-1531190260877-c8d11eb5afaf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80",
     },
-    {
-      instructor_name: "Áo khoát",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
-      avg_rating: 3,
-      count_rating: 10,
-      price: 12012,
-      percentage: 20,
-      price_discount: 10000,
-      avatar:
-        "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=656&q=80",
-    },
-    {
-      instructor_name: "Giày tây",
-      workplace: "Bán tấc cả các loại sản phẩm",
-      tags: ["1", "2", "3"],
-      introduce: "SADASDSADSADSADSADASDSADSA",
-      avg_rating: 3,
-      count_rating: 10,
-      price: 12012,
-      percentage: 20,
-      price_discount: 10000,
-      avatar:
-        "https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    }
   ]
 
 };
@@ -339,29 +312,29 @@ export const slider02Data: SlideTwoItemModel[] = [
       "https://images.pexels.com/photos/2108769/pexels-photo-2108769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", // image of slide item
     star: 3, // rating of slide item
     description:
-      "It also has a built-in backing track player that pulls in videos from YouTube, which are categorized into musical genres, key and scale. When a user choose a backing track, it shows a draggable and resizable thumbnail of the video, and it sets the fretboard in the right key and scale. This gives the user the ability to learn chords, scales, 3 notes per string (3nps) and CAGED fingering patterns for lead guitar playing. ", // description of slide item
-    title: "A Comprehensive RxJS Tutorial", // title of slide item
-    subtitle: "Giaso viên", // subtitle of slide item
+      "Sản phẩm rất chất lượng, giao hàng lại nhanh", // description of slide item
+    title: "Chất lượng sản phẩm", // title of slide item
+    subtitle: "Nguyễn Văn Huy", // subtitle of slide item
   },
   {
     // Array data item will show in slide
     img:
-      "https://images.pexels.com/photos/4873819/pexels-photo-4873819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", // image of slide item
+      "https://images.pexels.com/photos/2108769/pexels-photo-2108769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", // image of slide item
     star: 3, // rating of slide item
     description:
-      "It also has a built-in backing track player that pulls in videos from YouTube, which are categorized into musical genres, key and scale. When a user choose a backing track, it shows a draggable and resizable thumbnail of the video, and it sets the fretboard in the right key and scale. This gives the user the ability to learn chords, scales, 3 notes per string (3nps) and CAGED fingering patterns for lead guitar playing.", // description of slide item
-    title: "JIUOP IBFIW", // title of slide item
-    subtitle: "Docker", // subtitle of slide item
+      "Sản phẩm rất chất lượng, giao hàng lại nhanh", // description of slide item
+    title: "Chất lượng sản phẩm", // title of slide item
+    subtitle: "Nguyễn Văn Huy", // subtitle of slide item
   },
   {
     // Array data item will show in slide
     img:
-      "https://images.pexels.com/photos/4926666/pexels-photo-4926666.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", // image of slide item
+      "https://images.pexels.com/photos/2108769/pexels-photo-2108769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", // image of slide item
     star: 3, // rating of slide item
     description:
-      "It also has a built-in backing track player that pulls in videos from YouTube, which are categorized into musical genres, key and scale. When a user choose a backing track, it shows a draggable and resizable thumbnail of the video, and it sets the fretboard in the right key and scale. This gives the user the ability to learn chords, scales, 3 notes per string (3nps) and CAGED fingering patterns for lead guitar playing.", // description of slide item
-    title: "KUKU", // title of slide item
-    subtitle: "KUKU", // subtitle of slide item
+      "Sản phẩm rất chất lượng, giao hàng lại nhanh", // description of slide item
+    title: "Chất lượng sản phẩm", // title of slide item
+    subtitle: "Nguyễn Văn Huy", // subtitle of slide item
   },
 ];
 // footer01

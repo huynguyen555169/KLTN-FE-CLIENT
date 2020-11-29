@@ -1,137 +1,89 @@
-export const data = [
+import { CardOneModel } from 'src/app/common-module/card-package/card-one/card-one.component';
+
+export const dataList: CardOneModel[] = [
     {
-        type_name: 'Áo sơ mi',
-        type_total: 20,
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
     },
     {
-        type_name: 'Áo thun',
-        type_total: 20,
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
     },
     {
-        type_name: 'Quần tây',
-        type_total: 20,
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
     },
     {
-        type_name: 'Quần JEAN',
-        type_total: 20,
-    },
-]
-export const dataProduct = [
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
     },
     {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
     },
     {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-    {
-        product_id: '',
-        product_image1: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_image2: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-        product_name: 'Áo thun YAHWEH YIREH',
-        product_number: 10,
-        product_type_fk: '',
-        product_size_fk: '',
-        product_unit_price: 200000,
-        product_paid_price: 200000,
-        product_discount: 20,
-        product_description: 'Đây là 1 sản phẩm'
-    },
-]
+        img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80', // background of card
+        discount: '20', // percent of discount
+        title: 'Áo thun cao cấp', // title of card
+        chips: ["Fashion"], // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
+        subTitle: 'string', // subTitle of card
+        star: 4, // number of stars in card
+        total: 120, // amount of reviewer for card (star)
+        description: 'string', // description of card
+        subContent: 'string', // price of currently
+        subReContent: 'string', // price before discount
+        isFavorite: true, // to show heart/full heart
+        more: 'Xem thêm', // name of action
+    }
+];
+

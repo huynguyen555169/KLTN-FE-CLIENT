@@ -1,53 +1,61 @@
-<div class="d-flex w-100 h-100">
-  <div class="card-container--discount">
-    <img src="../../../assets/images/discount.svg" alt="discount_img" class="card-discount--img" />
+<div class="card-one-container d-flex w-100 h-100" *ngIf="!!cardData">
+  <div class="card-container--discount" *ngIf="!!cardData.discount">
+    <img src="../../../../assets/images/discount.svg" alt="discount_img" class="card-discount--img" />
     <div class="card-discount--text">{{ cardData.discount }}</div>
   </div>
-  <div class="card-one-container">
+  <div class="card-one-content-container w-100 h-100">
     <img src="{{ cardData.img }}" alt="background" class="card-main--img w-100 h-100" />
     <div class="card-container--hide w-100 h-100">
-      <div class="row heart" (click)="heartClick()">
-        <span class="material-icons" *ngIf="!checkClick; else elseBlock">
+      <div class="heart position-absolute" (click)="handleHeartClick()" data-toggle="tooltip" data-placement="left"
+        title="Add to your wish list">
+        <span class="material-icons" *ngIf="!cardData.isFavorite; else elseBlock">
           favorite_border
         </span>
-        <ng-template #elseBlock><span class="material-icons"> favorite </span></ng-template>
+        <ng-template #elseBlock><span class="material-icons">
+            favorite
+          </span></ng-template>
       </div>
-      <div class="row">
-        <div class="col-12 card-hide--title d-flex flex-column">
-          <div class="card-title--title">
-            {{ cardData.title }}
+      <div class="card-hide--content d-flex flex-column">
+        <div class="card-content--title">
+          {{ cardData.title }}
+        </div>
+        <div class="card-content--chips">
+          <div *ngFor="let item of cardData.chips; last as isLast" class="card-chips--item"
+            [ngClass]="{ 'card-chips--item1': isLast }">
+            {{ item }}
           </div>
-          <div class="card-title--chips">
-            <div *ngFor="let item of cardData.chips" class="card-chips--item">
-              {{ item }}
+        </div>
+        <div class="card-content--sub">
+          Sub title
+        </div>
+        <div class="card-content--stars">
+          <div class="rate-container d-inline-flex">
+            <div class="start-wrapper d-inline-flex mr-0" *ngFor="let star of arrayStars">
+              <span class="rate-icon material-icons">star
+                <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                  <span class="rate-icon material-icons">star</span>
+                </span>
+              </span>
             </div>
+            ({{ cardData.total }})
           </div>
-          <div class="card-title--sub">{{ cardData.subTitle }}</div>
-          <div class="card-hide--stars">
-            <div class="rate-container d-inline-flex">
-              <div class="start-wrapper d-inline-flex mr-0" *ngFor="let star of arrayStars">
-                <mat-icon class="rate-icon">star
-                  <span class="fill-start" [ngStyle]="{ width: star + '%' }">
-                    <mat-icon class="rate-icon">star</mat-icon>
-                  </span>
-                </mat-icon>
-              </div>
-              ({{ cardData.total }})
-            </div>
-          </div>
-          <div class="card-hide--description">
-            {{ cardData.description }}
-          </div>
-          <div class="card-hide--price">
+        </div>
+        <div class="card-content--description">
+          {{ cardData.description }}
+        </div>
+        <div class="card-content--price-wrapper">
+          <div class="card-content--price">
             {{ cardData.subContent }}
           </div>
-          <del class="card-hide--dis-price">
+          <del class="card-content--dis-price d-block">
             {{ cardData.subReContent }}
           </del>
         </div>
       </div>
-      <div class="row action">
-        <button mat-button (click)="handleClick()">{{ cardData.more }}</button>
+      <div class="action position-absolute">
+        <button mat-button (click)="handleClick()">
+          {{ cardData.more }}
+        </button>
       </div>
     </div>
   </div>

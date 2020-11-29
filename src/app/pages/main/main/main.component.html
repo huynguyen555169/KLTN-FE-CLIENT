@@ -4,11 +4,6 @@
     <app-slide-one [dataList]="dataListSlide1" [slideId]="'slide01-1'" (actionItemClick)="handle($event)">
     </app-slide-one>
   </div>
-  <div class="label1-header d-flex justify-content-center">
-    <div class="label1-content">
-      <app-label-one [labels]="labels" [startCount]="'true'"></app-label-one>
-    </div>
-  </div>
   <div class="course-header">
     <div class="course-header--title">Sản phẩm đang được giảm giá</div>
     <div class="course-header--content">
@@ -34,7 +29,7 @@
       </app-slide-three>
     </div>
   </div>
-  <div class="service-body d-flex justify-content-around flex-column">
+  <div class="service-body d-flex justify-content-around flex-column pb-4">
     <div class="service-body--title">Tại sao chọn chúng tôi</div>
     <div class="service-body--content d-flex justify-content-around">
       <div class="service-item" *ngFor="let card of card10Data; index as i">
@@ -44,8 +39,11 @@
   </div>
 
 
-  <div class="review-person">
+  <!-- <div class="review-person">
+    <div class="review-header">
+      Nhận xét từ khách hàng
+    </div>
     <app-slide-two [dataList]="slider02Data" [slideId]="'slide02-1'" (actionItemClick)="handle($event)"></app-slide-two>
-  </div>
+  </div> -->
 
 </div>

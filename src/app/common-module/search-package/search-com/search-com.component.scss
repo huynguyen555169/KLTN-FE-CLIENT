@@ -1,6 +1,5 @@
 .example-form {
     min-width: 150px;
-    max-width: 600px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -8,4 +7,35 @@
 
 .example-full-width {
     width: 100%;
+}
+.list-search {
+    height: 300px;
+    overflow: auto;
+}
+
+::ng-deep {
+    mat-dialog-container {
+        height: fit-content !important;
+        max-height: none !important;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

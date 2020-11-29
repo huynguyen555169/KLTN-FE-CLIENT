@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FillterOneComponent } from './fillter-one.component';
+import { SearchMaxMinTwoComponent } from './search-max-min-two.component';
 
-describe('FillterOneComponent', () => {
-  let component: FillterOneComponent;
-  let fixture: ComponentFixture<FillterOneComponent>;
+describe('SearchMaxMinTwoComponent', () => {
+  let component: SearchMaxMinTwoComponent;
+  let fixture: ComponentFixture<SearchMaxMinTwoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FillterOneComponent ]
+      declarations: [ SearchMaxMinTwoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FillterOneComponent);
+    fixture = TestBed.createComponent(SearchMaxMinTwoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

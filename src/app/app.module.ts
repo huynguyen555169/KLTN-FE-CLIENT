@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { CardProductModule } from './common-module/card-package/card-product/card-product.module';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -51,7 +51,7 @@ import { CardProductModule } from './common-module/card-package/card-product/car
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    CardProductModule,
+    MatBadgeModule
 
   ],
   providers: [],

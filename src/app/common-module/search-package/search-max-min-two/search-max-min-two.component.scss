@@ -1,0 +1,22 @@
+::ng-deep {
+  .ngx-slider-selection {
+    background-color: #4623ff !important;
+  }
+
+  .ngx-slider.animate .ngx-slider-bubble {
+    display: none;
+  }
+  .ngx-slider .ngx-slider-pointer {
+    background-color: #4623ff !important ;
+  }
+  .ngx-slider-active {
+    &::after {
+      background-color: #4623ff !important;
+      transform: scale(1.5);
+    }
+  }
+}
+.sort-button {
+  background-color: #4623ff;
+  color: #ffffff;
+}

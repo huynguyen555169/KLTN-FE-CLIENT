@@ -1,0 +1,122 @@
+<div class="payment-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="title">
+                    THÔNG TIN THANH TOÁN
+                </div>
+                <div class="content w-100 mt-3">
+                    <div class="w-100" [formGroup]="InfoForm">
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Họ và tên</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="name">
+                            <mat-error>{{
+                            InfoForm.controls["name"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+                        <div class="w-100 d-flex justify-content-between mb-2">
+                            <mat-form-field appearance="fill" class="w-45">
+                                <mat-label>Số điện thoại</mat-label>
+                                <input matInput placeholder="pat@example.com" formControlName="phone">
+                                <mat-error>{{
+                                InfoForm.controls["phone"].errors?.message
+                              }}
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-45">
+                                <mat-label>Địa chỉ email</mat-label>
+                                <input matInput placeholder="pat@example.com" formControlName="email">
+                                <mat-error>{{
+                                InfoForm.controls["email"].errors?.message
+                              }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Tỉnh/Thành phố</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="province">
+                            <mat-error>{{
+                            InfoForm.controls["province"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Quận/Huyện</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="district">
+                            <mat-error>{{
+                            InfoForm.controls["district"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Xã/Phường/Thị trấn</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="ward">
+                            <mat-error>{{
+                            InfoForm.controls["ward"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Địa chỉ</mat-label>
+                            <input matInput placeholder="pat@example.com" formControlName="address">
+                            <mat-error>{{
+                            InfoForm.controls["address"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="title">ĐƠN HÀNG CỦA BẠN</div>
+                <div class="content mt-3">
+                    <div class="order-product d-flex justify-content-between pb-2">
+                        <span class="">
+                            SẢN PHẨM
+                        </span>
+                        <span class="">
+                            TẠM TÍNH
+                        </span>
+                    </div>
+                    <div class="pb-2 pt-2">
+                        ÁO SƠ MI
+                    </div>
+                    <div class="d-flex justify-content-between pb-2 pt-2 order-product1">
+                        <span class="">
+                            Tạm tính
+                        </span>
+                        <span class="">
+                            Tạm tính
+                        </span>
+                    </div>
+                    <div class="pb-2 pt-2order-product1">
+                        <div class="pt-2">
+                            Giao hàng
+                        </div>
+                        <div class="pt-2">
+                            <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button value="1">Option 1</mat-radio-button>
+                                <mat-radio-button value="2">Option 2</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div class="pb-2 pt-2 d-flex justify-content-between order-product">
+                        <span class="">
+                            Tổng
+                        </span>
+                        <span class="">
+                            Tạm tính
+                        </span>
+                    </div>
+                    <div class="w-100 d-flex justify-content-center mt-3">
+                        <button mat-stroked-button color="warn">ĐẶT HÀNG</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

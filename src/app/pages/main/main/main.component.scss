@@ -17,22 +17,13 @@
   .slider-header {
     height: 900px;
   }
-  .label1-header {
-    .label1-content {
-      margin-top: -90px;
-      z-index: 1;
-      width: 70%;
-      height: 190px;
-      background: url("../../../../assets/images/label01.svg") center/100% no-repeat;
-    }
-  }
   .course-header {
     .course-header--title {
       width: 100%;
       text-align: center;
-      font-size: 52px;
+      font-size: 30px;
       font-weight: bold;
-      padding: 50px 0px;
+      padding: 25px 0px;
     }
     .course-header--content {
       padding: 0px 100px;
@@ -43,9 +34,9 @@
     margin: 80px 0px;
     background-color: #f1f8fc;
     .care-header--title {
-      padding: 50px 0px;
+      padding: 25px 0px;
       text-align: center;
-      font-size: 52px;
+      font-size: 30px;
       font-weight: bold;
     }
     .care-header--content {
@@ -55,29 +46,11 @@
   .service-body {
     width: 100%;
     .service-body--title {
-      font-size: 52px;
+      font-size: 30px;
       font-weight: bold;
       text-align: center;
       position: relative;
-      padding-bottom: 20px;
-      &::before {
-        position: absolute;
-        content: "";
-        bottom: 10px;
-        right: 0;
-        height: 1px;
-        width: 200px;
-        background: red;
-      }
-      &::after {
-        position: absolute;
-        content: "";
-        bottom: 0;
-        left: 0;
-        height: 1px;
-        width: 200px;
-        background-color: red;
-      }
+      padding: 25px 0px;
     }
 
     .service-body--content {
@@ -97,10 +70,10 @@
   }
   .team--instrutor {
     .team-instructor--title {
-      font-size: 52px;
+      font-size: 30px;
       font-weight: bold;
       text-align: center;
-      padding: 80px 0px;
+      padding: 25px 0px;
     }
     .team-instructor--content {
       height: 500px;
@@ -109,5 +82,11 @@
   .review-person {
     height: 900px;
     padding: 80px 0px;
+    .review-header {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding: 25px 0px;
+    }
   }
 }

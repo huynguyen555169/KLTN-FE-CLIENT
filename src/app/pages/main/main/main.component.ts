@@ -90,10 +90,10 @@ export class MainComponent implements OnInit {
         this.labels[2].number = res.count_intructor;
       });
 
-    const dataGetMyCourse = new HttpRequestModel();
-    dataGetMyCourse.params = { userId: 1 };
-    this.landingPageService.getMyCourse(dataGetMyCourse).subscribe((res) => {
-      this.slider04 = res.list_my_course.map((data) => new CardOneModel(data));
+    const dataGetMyList = new HttpRequestModel();
+    dataGetMyList.params = {};
+    this.landingPageService.getMyCourse(dataGetMyList).subscribe((res) => {
+      this.slider04 = res.map((data) => new CardOneModel(data));
     });
 
     const dataGetBestCourse = new HttpRequestModel();

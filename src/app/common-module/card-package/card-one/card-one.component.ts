@@ -5,22 +5,25 @@ import {
   SimpleChanges,
   Output,
   EventEmitter,
-} from "@angular/core";
+  OnChanges
+} from '@angular/core';
 
 @Component({
-  selector: "app-card-one",
-  templateUrl: "./card-one.component.html",
-  styleUrls: ["./card-one.component.scss"],
+  selector: 'app-card-one',
+  templateUrl: './card-one.component.html',
+  styleUrls: ['./card-one.component.scss']
 })
-export class CardOneComponent implements OnInit {
+export class CardOneComponent implements OnInit, OnChanges {
   @Input() cardData: CardOneModel;
   @Output() actionClick = new EventEmitter<CardOneModel>();
-  checkClick = false;
+  @Output() heartClick = new EventEmitter<boolean>();
 
-  constructor() {}
   arrayStars = Array<number>();
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void { }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.cardData.currentValue) {
       let rate = this.cardData.star || 0;
@@ -39,8 +42,9 @@ export class CardOneComponent implements OnInit {
   handleClick() {
     this.actionClick.emit(this.cardData);
   }
-  heartClick() {
-    this.checkClick = !this.checkClick;
+  handleHeartClick() {
+    this.cardData.isFavorite = !this.cardData.isFavorite;
+    this.heartClick.emit(this.cardData.isFavorite);
   }
 }
 export class CardOneModel {
@@ -54,36 +58,21 @@ export class CardOneModel {
   description: string; // description of card
   subContent: string; // price of currently
   subReContent: string; // price before discount
+  isFavorite: boolean;
   more: string; // name of action
 
-  constructor(data?: any) {
-    if (data) {
-      this.img = data.image;
-      this.discount = `${data.percentage}%`;
-      this.title = data.course_title;
-      this.chips = data.course_tag;
-      this.subTitle = `with  ${data.instructor_name}`;
-      this.star = data.avg_rating;
-      this.total = data.count_rating;
-      this.description = data.course_description;
-      this.subContent = data.price_course;
-      this.subReContent = data.discount_price;
-      this.more = "MORE";
-    }
-  }
-  parseData(data: any) {
-    return {
-      img: data.image,
-      discount: data.percentage,
-      title: data.title,
-      chips: data.tag,
-      subTitle: data.subTitle,
-      star: data.avgRating,
-      total: data.countRating,
-      description: data.description,
-      subContent: data.price,
-      subReContent: data.priceDiscount,
-      more: "MORE",
-    };
+  constructor(data: any) {
+    this.img = data.img;
+    this.discount = data.discount;
+    this.title = data.title;
+    this.chips = data.chips;
+    this.subTitle = data.subTitle;
+    this.star = data.star;
+    this.total = data.total;
+    this.description = data.description;
+    this.subContent = data.subContent;
+    this.subReContent = data.subReContent;
+    this.isFavorite = data.isFavorite;
+    this.more = data.more;
   }
 }

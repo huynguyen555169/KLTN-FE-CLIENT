@@ -1,0 +1,82 @@
+<div class="mt-8">
+    <div class="container">
+        <div class="row ">
+            <div class="col-8 mt-5">
+                <div class="row" style="width: 100%; height: 500px;">
+                    <div class="col-3 h-100" style="background-color: red;">
+                        <!-- <app-slide-five [dataList]="dataTest" [slideId]="'test1'"></app-slide-five> -->
+                    </div>
+                    <div class="col-9 h-100">
+                        <app-slide-six [dataList]="dataTest" [slideId]="'test2'"></app-slide-six>
+                    </div>
+                </div>
+                <div class="row mb-5 mt-3">
+                    <mat-accordion>
+                        <!-- #enddocregion basic-panel -->
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    SIZE GUIDE
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <img src="../../../assets/images/guide.jpg" alt="" class="w-100">
+
+                        </mat-expansion-panel>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    CHÍNH SÁCH ĐỔI TRẢ
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <img src="../../../assets/images/guide.jpg" alt="" class="w-100">
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                </div>
+            </div>
+            <div class="col-4 mt-5">
+                <div class="title-card mb-2">
+                    {{data.product_name}}
+                </div>
+                <div class="price-card mb-2">
+                    {{data.product_unit_price | currency: "VND"}}
+                </div>
+                <div class="d-flex mb-1">
+                    <div class="select-size d-flex flex-column mr-2">
+                        <div class="">Size</div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select</mat-label>
+                            <mat-select [(ngModel)]="data.product_size" name="type">
+                                <mat-option *ngFor="let type of dataType" [value]="type.key">
+                                    {{type.value}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="select-number d-flex flex-column">
+                        <div class="">
+                            Quatity
+                        </div>
+                        <div class="">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Input</mat-label>
+                                <input matInput [(ngModel)]="data.product_qty" name="number" appNumbersOnly
+                                    type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="description-card mb-2">
+                    {{data.product_description}}
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button mat-button style="background-color:#FA574F ; color:#ffffff" (click)="addToCart()"><span
+                            class="material-icons justify-content-center align-items-center">
+                            add_shopping_cart
+                        </span>ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

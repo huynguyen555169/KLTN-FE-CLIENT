@@ -1,12 +1,39 @@
 <div class="container fashion-container">
+    <div class="d-flex justify-content-end">
+        <mat-form-field appearance="fill">
+            <mat-label>Giá</mat-label>
+            <mat-select disableRipple (selectionChange)="handleValue($event)">
+                <mat-option value="1">Giá: Thấp đến cao</mat-option>
+                <mat-option value="2">Giá: Cao đến thấp</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
     <div class="row">
         <div class="col-3">
-            <app-fillter-one [data]="data"></app-fillter-one>
+            <div class="">
+                <div class="title-content">
+                    CHÍNH SÁCH BÁN HÀNG
+                </div>
+                <p class="content">
+                    Khi mua hàng tại Men's Clothing bạn sẽ được giao hàng tận nhà trên toàn quốc dù bạn có ở vùng núi
+                    hay xa xôi nhất
+                </p>
+            </div>
+            <div class="">
+                <div class="title-content">
+                    DANH MỤC SẢN PHẨM
+                </div>
+                <div class="content">
+
+                </div>
+            </div>
+
         </div>
         <div class="col-9">
             <div class="fashion-container--list">
-                <div class="" *ngFor="let item of dataProduct">
-                    <app-card-product [dataProduct]="item"></app-card-product>
+                <div class="product" *ngFor="let item of dataProduct">
+                    <app-card-one [cardData]="item" (actionClick)="handleProduct($event)"
+                        (heartClick)="actionHeartClick.emit($event)"></app-card-one>
                 </div>
             </div>
 
