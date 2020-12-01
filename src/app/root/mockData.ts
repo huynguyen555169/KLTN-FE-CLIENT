@@ -25,11 +25,6 @@ export const menus: MenuItemModel[] = [
         isActive: false, // link được active
         link: "/payment", // Đường dẫn tương ứng của item
     },
-    {
-        name: "BÀI VIẾT", // Tên hiển thị trên layout
-        isActive: false, // link được active
-        link: "/blog", // Đường dẫn tương ứng của item
-    },
 ];
 //
 export const notificationList = [

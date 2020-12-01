@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
 import { CardCartModule } from 'src/app/common-module/card-package/card-cart/card-cart.module';
 import { CartRoutingModule } from './cart-routing.module';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +13,9 @@ import { CartRoutingModule } from './cart-routing.module';
   imports: [
     CommonModule,
     CardCartModule,
-    CartRoutingModule
+    CartRoutingModule,
+    MatCheckboxModule,
+    MatButtonModule
   ]
 })
 export class CartModule { }

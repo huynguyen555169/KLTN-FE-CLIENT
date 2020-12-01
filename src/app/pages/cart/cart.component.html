@@ -1,5 +1,44 @@
-<div class="cart-container">
-    <app-card-cart [data]="data"></app-card-cart>
-    <app-card-cart [data]="data"></app-card-cart>
-    <app-card-cart [data]="data"></app-card-cart>
+<div class="container">
+    <div class="row">
+        <div class="cart-container w-100">
+            <div class="row py-4 mb-5 header-cart">
+                <div class="col-1 text-center">
+                    <mat-checkbox class="example-margin"></mat-checkbox>
+                </div>
+                <div class="col-4">
+                    Sản phẩm
+                </div>
+                <div class="col-2">
+                    Đơn giá
+                </div>
+                <div class="col-2 text-center">
+                    Số lượng
+                </div>
+                <div class="col-2 text-center">
+                    Số tiền
+                </div>
+                <div class="col-1">
+
+                </div>
+            </div>
+            <div class="cart-list">
+                <div class="mb-2" *ngFor="let item of data">
+                    <app-card-cart [data]="item"></app-card-cart>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center px-4 py-4 my-5 header-cart">
+                <div class="">
+                    Số lượng được chọn
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="">
+                        Tổng tiền hàng(2 sản phẩm): 1.300.000đ
+                    </div>
+                    <button mat-raised-button color="warn" class="ml-4" style="width: 100px;">Mua hàng</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>

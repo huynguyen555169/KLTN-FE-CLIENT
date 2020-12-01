@@ -3,10 +3,49 @@
         <app-menu-one [menus]="menus" [logo]="logo" (itemClick)="handleItemClick($event)"></app-menu-one>
     </div>
     <div class="col header-right d-flex justify-content-end align-items-center">
-        <button mat-button class="header-cart d-flex justify-content-center align-items-center">
-            GIỎ HÀNG
-            <mat-icon matBadge="15" matBadgeColor="warn"> shopping_cart</mat-icon>
-        </button>
+        <div class="position-relative">
+            <button mat-button class="header-cart d-flex justify-content-center align-items-center">
+                GIỎ HÀNG
+                <mat-icon matBadge="15" matBadgeColor="warn"> shopping_cart</mat-icon>
+            </button>
+            <div class="item-cart position-absolute">
+                <div class="product-item d-flex flex-column">
+                    <div class="d-flex mb-2">
+                        <img src="https://lucera.vn/wp-content/uploads/2020/03/89037221_1079792122399163_7601090171064287232_n.jpg"
+                            alt="" class="img-item-cart">
+                        <div class="title-item-cart pl-1">
+                            Áo thun cao cấp
+                        </div>
+                    </div>
+                    <div class="d-flex mb-2">
+                        <img src="https://lucera.vn/wp-content/uploads/2020/03/89037221_1079792122399163_7601090171064287232_n.jpg"
+                            alt="" class="img-item-cart">
+                        <div class="title-item-cart pl-1">
+                            Áo thun cao cấp
+                        </div>
+                    </div>
+                    <div class="d-flex mb-2">
+                        <img src="https://lucera.vn/wp-content/uploads/2020/03/89037221_1079792122399163_7601090171064287232_n.jpg"
+                            alt="" class="img-item-cart">
+                        <div class="title-item-cart pl-1">
+                            Áo thun cao cấp
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <img src="https://lucera.vn/wp-content/uploads/2020/03/89037221_1079792122399163_7601090171064287232_n.jpg"
+                            alt="" class="img-item-cart">
+                        <div class="title-item-cart pl-1">
+                            Áo thun cao cấp
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item-action w-100">
+                    <button mat-raised-button color="warn" class="w-100">Xem giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
 
         <div class="header-menu02" *ngIf="isCheck == true ; else elseBlock">
             <app-menu-two [data]="data" [position]="position" (actionClick)="menuClick($event)"></app-menu-two>

@@ -1,4 +1,4 @@
-<div class="card-container" *ngIf="number>0">
+<div class="card-container w-100" *ngIf="number>0">
     <div class="row">
         <div class="col-1 d-flex justify-content-center align-items-center">
             <div class="card-btn--check">
@@ -6,43 +6,41 @@
             </div>
         </div>
         <div class="col-4 d-flex align-items-center">
-            <img src={{data.product_images}} class="card-image w-50">
-            <div class="card-title m-0">
+            <img src={{data.product_images}} class="card-image">
+            <div class="card-title m-0 pl-2">
                 {{data.product_name}}
             </div>
         </div>
         <div class="col-2 d-flex align-items-center">
             <div class="card-price">
-                {{data.product_unit_price}}
+                {{data.product_unit_price |currency:"VND"}}
             </div>
         </div>
         <div class="col-2 d-flex align-items-center">
             <div class="card-amount w-100 d-flex justify-content-between align-items-center">
-                <button mat-raised-button (click)="handlePlus()">
-                    <span class="material-icons">
+                <button mat-icon-button (click)="handlePlus()">
+                    <mat-icon>
                         add
-                    </span>
+                    </mat-icon>
                 </button>
                 <div class="card-amount--text">
                     {{number}}
                 </div>
-                <button mat-raised-button (click)="handleMinus()">
-                    <span class="material-icons">
+                <button mat-icon-button (click)="handleMinus()">
+                    <mat-icon>
                         remove
-                    </span>
+                    </mat-icon>
                 </button>
             </div>
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
             <div class="card-price">
-                {{total}}
+                {{total |currency:"VND"}}
             </div>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-center">
-            <button mat-raised-button (click)="handleDelete()">
-                <span class="material-icons">
-                    delete
-                </span>
+            <button mat-icon-button (click)="handleDelete()">
+                <mat-icon>delete</mat-icon>
             </button>
         </div>
     </div>

@@ -1,12 +1,12 @@
 <div class="sort-container">
   <form class="d-flex">
-    <mat-form-field class="example-full-width">
-      <mat-label>From</mat-label>
+    <mat-form-field class="file-sort">
+      <mat-label>Từ</mat-label>
       <input matInput [value]="value" [(ngModel)]="value" name="from" type="number" />
     </mat-form-field>
     <div class="d-flex align-items-center px-3">---</div>
-    <mat-form-field class="example-full-width">
-      <mat-label>To</mat-label>
+    <mat-form-field class="file-sort">
+      <mat-label>Đến</mat-label>
       <input matInput [value]="highValue" [(ngModel)]="highValue" name="to" type="number" />
     </mat-form-field>
   </form>
@@ -19,9 +19,9 @@
       Max {{ data.maxValue | moneyFormat | postfix: "VND" }}
     </div>
   </div>
-  <div class="sort-container--button w-100 d-flex justify-content-center">
+  <div class="sort-container--button w-100 d-flex justify-content-center mt-4">
     <button mat-raised-button (click)="handleClick()" class="sort-button">
-      <span class="material-icons"> sort </span> Filter
+      <span class="material-icons"> sort </span> Áp dụng
     </button>
   </div>
 </div>

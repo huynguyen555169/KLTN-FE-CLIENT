@@ -3,20 +3,20 @@ import { Router } from '@angular/router';
 import { dataList } from './mockData';
 
 @Component({
-  selector: 'app-fashion',
-  templateUrl: './fashion.component.html',
-  styleUrls: ['./fashion.component.scss']
+  selector: 'app-belt',
+  templateUrl: './belt.component.html',
+  styleUrls: ['./belt.component.scss']
 })
-export class FashionComponent implements OnInit {
+export class BeltComponent implements OnInit {
 
   @Output() actionItemClick = new EventEmitter<any>();
   @Output() actionHeartClick = new EventEmitter<any>();
   // data = data
-  dataProduct = dataList;
   data = {
     minValue: 0,
     maxValue: 10000
   }
+  dataProduct = dataList;
 
   constructor(private router: Router) { }
 

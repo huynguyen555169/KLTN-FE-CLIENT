@@ -1,22 +1,35 @@
 ::ng-deep {
   .ngx-slider-selection {
-    background-color: #4623ff !important;
+    background-color: #f54336 !important;
   }
 
   .ngx-slider.animate .ngx-slider-bubble {
     display: none;
   }
   .ngx-slider .ngx-slider-pointer {
-    background-color: #4623ff !important ;
+    background-color: #f54336 !important ;
+    width: 20px !important;
+    height: 20px !important;
+    top: -9px !important;
+    &::after {
+      top: 6px !important;
+      left: 6px !important;
+    }
   }
   .ngx-slider-active {
     &::after {
-      background-color: #4623ff !important;
+      background-color: #f54336 !important;
       transform: scale(1.5);
     }
   }
 }
 .sort-button {
-  background-color: #4623ff;
+  background-color: #f54336;
   color: #ffffff;
+}
+.file-sort {
+  width: 100px;
+}
+.sort-container {
+  font-size: 15px;
 }

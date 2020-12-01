@@ -12,6 +12,9 @@
     height: 300px;
     overflow: auto;
 }
+button:focus {
+    outline: unset;
+}
 
 ::ng-deep {
     mat-dialog-container {

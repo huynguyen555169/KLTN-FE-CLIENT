@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { dataList } from './mockData';
 
 @Component({
-  selector: 'app-fashion',
-  templateUrl: './fashion.component.html',
-  styleUrls: ['./fashion.component.scss']
+  selector: 'app-shoes',
+  templateUrl: './shoes.component.html',
+  styleUrls: ['./shoes.component.scss']
 })
-export class FashionComponent implements OnInit {
+export class ShoesComponent implements OnInit {
 
   @Output() actionItemClick = new EventEmitter<any>();
   @Output() actionHeartClick = new EventEmitter<any>();
@@ -30,8 +30,8 @@ export class FashionComponent implements OnInit {
     console.log(e)
   }
   handleProduct(e) {
-    console.log(e)
-    this.router.navigate(['detail-product'], { state: { e } })
+    // console.log(e)
+    // this.router.navigate(['detail-product'], { state: { e } })
   }
 
 }
