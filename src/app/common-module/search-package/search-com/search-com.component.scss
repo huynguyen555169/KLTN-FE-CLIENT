@@ -42,3 +42,11 @@ button:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+.image-no {
+    object-fit: contain;
+}
+.image-find {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}

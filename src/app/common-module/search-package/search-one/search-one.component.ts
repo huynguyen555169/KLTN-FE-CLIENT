@@ -9,7 +9,6 @@ import { SearchComComponent } from '../search-com/search-com.component';
 })
 export class SearchOneComponent implements OnInit {
 
-  textSearch: any = '';
 
   constructor(public dialog: MatDialog) { }
 
@@ -20,15 +19,13 @@ export class SearchOneComponent implements OnInit {
     const dialogRef = this.dialog.open(SearchComComponent, {
       width: '50%',
       height: '400px',
-      data: { textSearch: this.textSearch },
       position: {
         top: '90px',
         right: '0px',
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.textSearch = result;
-      console.log(this.textSearch)
+
     });
 
   }

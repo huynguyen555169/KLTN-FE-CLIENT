@@ -4,6 +4,7 @@ import { Component, EventEmitter, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/core/authentication/authentication';
 import { CheckValidatecheckValidateComponent } from '../check-validatecheck-validate/check-validatecheck-validate.component';
 import { SignupComponentComponent } from '../signup-component/signup-component.component';
 import { CustomValidator } from "./../custom-validator";
@@ -18,36 +19,36 @@ export class FormComponent implements OnInit {
   rfContact: FormGroup;
 
   @Output() isLog = new EventEmitter<boolean>();
-  constructor(private router: Router, public dialogRef: MatDialogRef<FormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
+  constructor(private router: Router, public dialogRef: MatDialogRef<FormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,
+    private authentication: AuthenticationService) { }
 
   ngOnInit(): void {
     this.rfContact = new FormGroup({
-      oldPass: new FormControl("", [
-        CustomValidator.required,
-        CustomValidator.maxLength(12),
-        CustomValidator.numberOnly,
-      ]),
-      newPass: new FormControl("", [
-        CustomValidator.required,
-        CustomValidator.maxLength(36),
-      ])
+      userID: new FormControl(""),
+      userPass: new FormControl("")
     });
   }
-  get oldPass() {
-    return this.rfContact.get("oldPass");
+  get userID() {
+    return this.rfContact.get("userID");
   }
-  get newPass() {
-    return this.rfContact.get("newPass");
+  get userPass() {
+    return this.rfContact.get("userPass");
   }
 
 
   handleClick() {
     if (this.rfContact.valid) {
-      this.dialogRef.close(!this.data.checkIs);
-      console.log(this.oldPass.value)
+
+      const formValue = this.rfContact.value;
+      console.log(formValue)
+      this.authentication.login(formValue.userID, formValue.userPass).subscribe(res => {
+        localStorage.setItem('currentUser1', JSON.stringify(res));
+        this.authentication.currentUserSubject.next(res);
+        this.dialogRef.close(!this.data.checkIs);
+      }, () => {
+      });
 
     } else {
-      console.log('That bai');
     }
   }
   onNoClick(): void {

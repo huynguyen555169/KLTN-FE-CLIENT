@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import {
 
   dataLabel,
-  dataList,
   dataCard02,
   slider03Data,
   slider02Data,
@@ -93,7 +92,8 @@ export class MainComponent implements OnInit {
     const dataGetMyList = new HttpRequestModel();
     dataGetMyList.params = {};
     this.landingPageService.getMyCourse(dataGetMyList).subscribe((res) => {
-      this.slider04 = res.map((data) => new CardOneModel(data));
+      console.log(res.data)
+      this.slider04 = res.data.map((data) => new CardOneModel(data));
     });
 
     const dataGetBestCourse = new HttpRequestModel();
@@ -117,11 +117,12 @@ export class MainComponent implements OnInit {
       });
 
     const dataGetPopularCourse = new HttpRequestModel();
-    dataGetPopularCourse.params = { limit: 3 };
+    dataGetPopularCourse.params = {};
     this.landingPageService
       .getPopularCourse(dataGetPopularCourse)
       .subscribe((res) => {
-        this.dataListSlide1 = res.list_popular_course.map(
+        console.log(res)
+        this.dataListSlide1 = res.data.map(
           (item) => new SlideOneItemModel(item)
         );
       });

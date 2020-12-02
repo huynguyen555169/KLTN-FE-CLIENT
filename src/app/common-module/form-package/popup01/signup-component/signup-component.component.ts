@@ -4,6 +4,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/core/services/api/register/register.service';
+import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 import { CustomValidator } from '../custom-validator';
 import { FormComponent } from '../form/form.component';
 
@@ -18,7 +20,7 @@ export class SignupComponentComponent implements OnInit {
 
   rfContact: FormGroup;
 
-  constructor(private router: Router, public dialogRef: MatDialogRef<SignupComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { }
+  constructor(private router: Router, public dialogRef: MatDialogRef<SignupComponentComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog, private register: RegisterService) { }
 
   ngOnInit(): void {
 
@@ -59,7 +61,13 @@ export class SignupComponentComponent implements OnInit {
 
   handleClick() {
     if (this.rfContact.valid) {
-      this.dialogRef.close(!this.data.checkIs);
+      let user = this.rfContact.value;
+      const dataRegister = new HttpRequestModel();
+      dataRegister.body = { user }
+      console.log(dataRegister)
+      this.register.createUser(dataRegister).subscribe((res) => {
+        this.dialogRef.close(!this.data.checkIs);
+      })
     } else {
       console.log('That bai');
     }

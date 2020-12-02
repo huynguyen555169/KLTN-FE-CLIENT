@@ -1,5 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardOneModel } from 'src/app/common-module/card-package/card-one/card-one.component';
+import { FashionService } from 'src/app/core/services/api/fashion/fashion.service';
+import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 import { dataList } from './mockData';
 
 @Component({
@@ -16,11 +19,20 @@ export class BeltComponent implements OnInit {
     minValue: 0,
     maxValue: 10000
   }
+  totalPage = 9;
   dataProduct = dataList;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private getListFashion: FashionService) { }
 
   ngOnInit(): void {
+    const dataGetListFashion = new HttpRequestModel();
+    dataGetListFashion.params = { type: 4 };
+    this.getListFashion.getListFashion(dataGetListFashion).subscribe((res) => {
+      this.totalPage = res.countPage
+      this.dataProduct = res.data.map((data) => new CardOneModel(data));
+      console.log(res)
+    }, (error) => {
+    })
   }
 
   handleRangeValue(e) {
@@ -32,6 +44,9 @@ export class BeltComponent implements OnInit {
   handleProduct(e) {
     console.log(e)
     this.router.navigate(['detail-product'], { state: { e } })
+  }
+  handlePageChange(e) {
+
   }
 
 }

@@ -1,0 +1,28 @@
+<div class="pagination-container d-inline-flex">
+  <span class="d-inline-flex align-items-center justify-content-center pagination-items controls previous"
+    (click)="nextPage(1)">
+    <img src="../../../assets/images/last.svg" alt="Icon pagination" *ngIf="!isDisablePrevious" />
+    <img src="../../../assets/images/last-disable.svg" alt="Icon pagination" *ngIf="isDisablePrevious" />
+  </span>
+  <span class="d-inline-flex align-items-center justify-content-center pagination-items controls previous"
+    [ngClass]="{ disable: isDisablePrevious }" (click)="nextPage(+currentPage - 1)">
+    <img src="../../../assets/images/next.svg" alt="Icon pagination" *ngIf="!isDisablePrevious" />
+    <img src="../../../assets/images/next-disable.svg" alt="Icon pagination" *ngIf="isDisablePrevious" />
+  </span>
+
+  <span class="d-inline-flex align-items-center justify-content-center pagination-items number"
+    [ngClass]="{ active: page === +currentPage }" (click)="nextPage(page)" *ngFor="let page of pageShowArray">
+    {{ page }}
+  </span>
+
+  <span class="d-inline-flex align-items-center justify-content-center pagination-items controls next"
+    [ngClass]="{ disable: isDisableNext }" (click)="nextPage(+currentPage + 1)">
+    <img src="../../../assets/images/next.svg" alt="Icon pagination" *ngIf="!isDisableNext" />
+    <img src="../../../assets/images/next-disable.svg" alt="Icon pagination" *ngIf="isDisableNext" />
+  </span>
+  <span class="d-inline-flex align-items-center justify-content-center pagination-items controls next"
+    [ngClass]="{ disable: isDisableNext }" (click)="nextPage(+totalPage)">
+    <img src="../../../assets/images/last.svg" alt="Icon pagination" *ngIf="!isDisableNext" />
+    <img src="../../../assets/images/last-disable.svg" alt="Icon pagination" *ngIf="isDisableNext" />
+  </span>
+</div>

@@ -5,6 +5,7 @@ import { BeltRoutingModule } from './belt-routing.module';
 import { MatSelectModule } from '@angular/material/select';
 import { CardOneModule } from 'src/app/common-module/card-package/card-one/card-one.module';
 import { SearchMaxMinTwoModule } from 'src/app/common-module/search-package/search-max-min-two/search-max-min-two.module';
+import { PaginationModule } from 'src/app/shared/pagination/pagination.module';
 
 
 
@@ -13,7 +14,7 @@ import { SearchMaxMinTwoModule } from 'src/app/common-module/search-package/sear
   imports: [
     CommonModule,
     BeltRoutingModule,
-    CardOneModule, SearchMaxMinTwoModule, MatSelectModule
+    CardOneModule, SearchMaxMinTwoModule, MatSelectModule, PaginationModule
 
   ]
 })

@@ -41,20 +41,21 @@
 
                 </div>
                 <div class="item-action w-100">
-                    <button mat-raised-button color="warn" class="w-100">Xem giỏ hàng</button>
+                    <button mat-raised-button color="warn" class="w-100" (click)="handleCartLink()">Xem giỏ
+                        hàng</button>
                 </div>
             </div>
         </div>
 
 
-        <div class="header-menu02" *ngIf="isCheck == true ; else elseBlock">
+        <div class="header-menu02">
             <app-menu-two [data]="data" [position]="position" (actionClick)="menuClick($event)"></app-menu-two>
         </div>
-        <ng-template #elseBlock>
-            <div class="header-">
-                <app-popup01 (isLog)="handleCheck($event)"></app-popup01>
-            </div>
-        </ng-template>
+
+        <div class="header-" *ngIf="!data">
+            <app-popup01 (isLog)="handleCheck($event)"></app-popup01>
+        </div>
+
         <div class="header-search">
             <app-search-one></app-search-one>
         </div>

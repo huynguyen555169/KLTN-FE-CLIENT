@@ -16,9 +16,9 @@ import {
 export class SlideOneItemComponent implements OnInit, OnChanges {
   @Input() data: SlideOneItemModel;
   @Output() actionClick = new EventEmitter<SlideOneItemModel>();
-  constructor() {}
+  constructor() { }
   arrayStars = new Array<number>();
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data.currentValue) {
@@ -43,22 +43,22 @@ export class SlideOneItemModel {
   subTitle: string;
   rating: number;
   totalRating: number;
-  contents: string[];
+  contents: string;
   description: string;
-  chips: string[];
+  chips: string;
   price: number;
   oldPrice: number;
 
   constructor(data: any) {
-    this.img = data.image;
-    this.title = data.course_title;
+    this.img = data.product_images[0];
+    this.title = data.product_name;
     this.subTitle = data.instructor_name;
-    this.rating = data.avg_rating;
-    this.totalRating = data.count_rating;
-    this.description = data.description;
-    this.chips = data.course_tag;
-    this.contents = [data.time, data.lesson, data.count_enrolled];
-    this.price = data.price_course;
-    this.oldPrice = data.discount_price;
+    this.rating = 4;
+    this.totalRating = 1200;
+    this.description = data.product_description;
+    this.chips = data.product_type.product_type_name;
+    this.contents = data.product_size.product_size_title;
+    this.price = data.product_paid_price;
+    this.oldPrice = data.product_unit_price;
   }
 }

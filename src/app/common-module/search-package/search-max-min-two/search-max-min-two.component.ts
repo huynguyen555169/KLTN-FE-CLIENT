@@ -24,8 +24,10 @@ export class SearchMaxMinTwoComponent implements OnInit {
     };
   }
   handleClick() {
-    const newData = {};
-    Object.assign(newData, { min: this.value, max: this.highValue });
-    this.newRangeValue.emit(newData);
+
+    this.newRangeValue.emit(JSON.stringify({
+      minValue: this.value,
+      maxValue: this.highValue
+    }));
   }
 }

@@ -18,7 +18,7 @@
                         <div class="w-100 d-flex justify-content-between mb-2">
                             <mat-form-field appearance="fill" class="w-45">
                                 <mat-label>Số điện thoại</mat-label>
-                                <input matInput placeholder="pat@example.com" formControlName="phone">
+                                <input matInput placeholder="Số điện thoại" formControlName="phone">
                                 <mat-error>{{
                                 InfoForm.controls["phone"].errors?.message
                               }}
@@ -26,7 +26,7 @@
                             </mat-form-field>
                             <mat-form-field appearance="fill" class="w-45">
                                 <mat-label>Địa chỉ email</mat-label>
-                                <input matInput placeholder="pat@example.com" formControlName="email">
+                                <input matInput placeholder="Địa chỉ email" formControlName="email">
                                 <mat-error>{{
                                 InfoForm.controls["email"].errors?.message
                               }}
@@ -35,31 +35,37 @@
                         </div>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Tỉnh/Thành phố</mat-label>
-                            <input matInput placeholder="pat@example.com" formControlName="province">
-                            <mat-error>{{
-                            InfoForm.controls["province"].errors?.message
-                          }}
-                            </mat-error>
+                            <mat-select name="customer_province" formControlName="customer_province"
+                                (selectionChange)="handleChange($event)">
+                                <mat-option *ngFor="let customer_province of provinceList"
+                                    [value]="customer_province.key">
+                                    {{ customer_province.title }}
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
+
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Quận/Huyện</mat-label>
-                            <input matInput placeholder="pat@example.com" formControlName="district">
-                            <mat-error>{{
-                            InfoForm.controls["district"].errors?.message
-                          }}
-                            </mat-error>
+                            <mat-select name="customer_district" formControlName="customer_district"
+                                [disabled]="!this.provinceCheck" (selectionChange)="handleChange1($event)">
+                                <mat-option *ngFor="let customer_district of districtList"
+                                    [value]="customer_district.key">
+                                    {{ customer_district.title }}
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Xã/Phường/Thị trấn</mat-label>
-                            <input matInput placeholder="pat@example.com" formControlName="ward">
-                            <mat-error>{{
-                            InfoForm.controls["ward"].errors?.message
-                          }}
-                            </mat-error>
+                            <mat-select name="customer_ward" formControlName="customer_ward"
+                                [disabled]="!this.districtCheck">
+                                <mat-option *ngFor="let customer_ward of wardList" [value]="customer_ward.key">
+                                    {{ customer_ward.title }}
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Địa chỉ</mat-label>
-                            <input matInput placeholder="pat@example.com" formControlName="address">
+                            <input matInput placeholder="Địa chỉ" formControlName="address">
                             <mat-error>{{
                             InfoForm.controls["address"].errors?.message
                           }}

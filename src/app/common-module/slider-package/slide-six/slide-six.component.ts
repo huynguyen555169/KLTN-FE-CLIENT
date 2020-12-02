@@ -52,7 +52,7 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
 
   ngAfterViewChecked() {
     if (this.isInitSlide) {
-      $(`#${this.slideId}`).slick({
+      $(`#${this.slideId}`).not('.slick-initialized').slick({
         dots: this.showControllDots,
         infinite: true,
         arrows: this.showControllArrows,
@@ -61,6 +61,7 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
         variableWidth: true,
         initialSlide: 0,
         swipeToSlide: true,
+        asNavFor: '#slider-nav',
         prevArrow: `<button type="button" class="previous-arrow custom-arrow">
         <span class="material-icons">
           arrow_back
@@ -74,5 +75,14 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
       });
       this.isInitSlide = false;
     }
+    $('#slider-nav').not('.slick-initialized').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: `#${this.slideId}`,
+      dots: false,
+      centerMode: true,
+      focusOnSelect: true,
+
+    });
   }
 }

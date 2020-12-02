@@ -5,7 +5,7 @@ import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
   providedIn: "root",
 })
 export class HttpRequestService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   get(url: string, params?: {}, body?: any, headers?: HttpHeaders) {
     const fetchOption = new HttpRequestOption();
@@ -37,7 +37,7 @@ export class HttpRequestService {
     return this.http.delete<any>(url, deleteOption);
   }
 
-  post(url: string, body?: any, params?: {}, headers?: HttpHeaders) {
+  post(url: string, params?: {}, body?: any, headers?: HttpHeaders): any {
     const postOption = new HttpRequestOption();
     postOption.params = this.transformParamToHttpParams(params);
 
@@ -46,6 +46,7 @@ export class HttpRequestService {
     }
     return this.http.post<any>(url, body, postOption);
   }
+
 
   put(url: string, body?: any, params?: {}, headers?: HttpHeaders) {
     const putOption = new HttpRequestOption();

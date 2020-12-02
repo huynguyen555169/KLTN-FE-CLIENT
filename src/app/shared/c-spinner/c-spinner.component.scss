@@ -1,0 +1,55 @@
+.spinner {
+  width: 100px;
+  height: 100px;
+
+  background: url("./images/spinner.svg") no-repeat center center;
+  -webkit-animation: spin 0.6s infinite linear;
+  -moz-animation: spin 0.6s infinite linear;
+  -ms-animation: spin 0.6s infinite linear;
+  -o-animation: spin 0.6s infinite linear;
+  animation: spin 0.6s infinite linear;
+}
+
+.undisplayed {
+  display: none;
+}
+
+.spinner-container {
+  z-index: 10000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes spin {
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spin {
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

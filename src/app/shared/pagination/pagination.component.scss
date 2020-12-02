@@ -1,0 +1,32 @@
+.pagination-container {
+  .pagination-items {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+
+    &:not(:last-of-type) {
+      margin-right: 3px;
+    }
+
+    &.controls {
+      font-weight: 800;
+      font-size: 18px;
+
+      &.previous img {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.number {
+      &:hover {
+        background-color: rgba(#15748d, 0.7);
+      }
+      &.active {
+        background-color: #15748d;
+        color: white;
+      }
+    }
+  }
+}

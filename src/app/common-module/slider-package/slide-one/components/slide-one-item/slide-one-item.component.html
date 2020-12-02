@@ -30,8 +30,8 @@
           </div>
           <span class="total-rating"> ({{ data.totalRating }}) </span>
         </div>
-        <span class="content-item" *ngFor="let content of data.contents">
-          {{ content }}
+        <span class="content-item">
+          {{ data.contents }}
         </span>
       </div>
     </div>
@@ -45,8 +45,8 @@
 
     <!-- Chips row -->
     <div class="chips info-row">
-      <div class="chip-item text-overflow" *ngFor="let chip of data.chips">
-        {{ chip }}
+      <div class="chip-item text-overflow">
+        {{ data.chips }}
       </div>
     </div>
     <!-- End chips row -->

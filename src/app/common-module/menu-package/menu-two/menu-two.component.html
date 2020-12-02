@@ -1,45 +1,24 @@
 <div class="menu-two-container h-100 w-100" *ngIf="data">
   <!-- Image avatar -->
-  <img
-    mat-icon-button
-    [matMenuTriggerFor]="appMenu"
-    class="avatar-img"
-    [src]="data.userInfo.avatar"
-    alt="User avatar"
-    (menuOpened)="handleOpened()"
-    (menuClosed)="handleClosed()"
-  />
+  <img mat-icon-button [matMenuTriggerFor]="appMenu" class="avatar-img" [src]="data.customer_avatar" alt="User avatar"
+    (menuOpened)="handleOpened()" (menuClosed)="handleClosed()" />
 
   <!-- End image avatar -->
   <!-- Start menu item -->
 
-  <mat-menu
-    #appMenu="matMenu"
-    class="menu-item"
-    xPosition="{{ position }}"
-    backdropClass="menu-two-menu-backdrop"
-  >
+  <mat-menu #appMenu="matMenu" class="menu-item" xPosition="{{ position }}" backdropClass="menu-two-menu-backdrop">
     <!-- Start user info -->
     <div class="d-flex justify-content-between user-info">
       <div class="w-100 text-center">
-        <img
-          class="avatar-img"
-          [src]="data.userInfo.avatar"
-          alt="User avatar"
-        />
-        <div class="full-name">{{ data.userInfo.fullName }}</div>
-        <div class="email">{{ data.userInfo.email }}</div>
+        <img class="avatar-img" [src]="data.customer_avatar" alt="User avatar" />
+        <div class="full-name">{{ data.customer_fullName }}</div>
+        <div class="email">{{ data.customer_phone }}</div>
       </div>
     </div>
     <!-- End user info -->
     <!-- Start each items -->
-    <div
-      mat-menu-item
-      class="d-flex item"
-      [ngClass]="{ animation1: isOpened, animation2: !isOpened }"
-      *ngFor="let item of data.menuItems"
-      (click)="menuItemClick(item)"
-    >
+    <div mat-menu-item class="d-flex item" [ngClass]="{ animation1: isOpened, animation2: !isOpened }"
+      *ngFor="let item of dataItem" (click)="menuItemClick(item)">
       <div class="text-center menu-icon material-icons w-25">
         {{ item.icon }}
       </div>

@@ -8,27 +8,27 @@ import {
   dataLabel,
   dataCard02,
   slider03Data,
-  dataList,
   serviceData,
   dataListSlide1_1,
 } from "./../../../pages/main/main/mockData";
 import { delay } from "rxjs/operators";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: "root",
 })
 export class CourseService {
-  baseUrl = "http://192.168.50.42:8080/";
+  baseUrl = environment.baseUrl
   constructor(private http: HttpRequestService) { }
 
   getPopularCourse(data: HttpRequestModel) {
-    const apiUrl = `${this.baseUrl}course/popularCourse`;
+    const apiUrl = `${this.baseUrl}product/get-product-random`;
     const params = data.params;
     const body = data.body;
     const headers = data.headers;
 
-    // return this.http.get(apiUrl, params, body, headers);
-    return of(dataListSlide1_1);
+    return this.http.get(apiUrl, params, body, headers);
+    // return of(dataListSlide1_1);
 
   }
   countMasterUser(data: HttpRequestModel) {
@@ -41,13 +41,13 @@ export class CourseService {
     return of(dataLabel);
   }
   getMyCourse(data: HttpRequestModel) {
-    const apiUrl = `${this.baseUrl}course/mycourse`;
+    const apiUrl = `${this.baseUrl}product/get-product-discount`;
     const params = data.params;
     const body = data.body;
     const headers = data.headers;
 
-    // return this.http.get(apiUrl, params, body, headers);
-    return of(dataList).pipe(delay(1000));
+    return this.http.get(apiUrl, params, body, headers);
+    // return of(dataList).pipe(delay(1000));
   }
   getBestCourse(data: HttpRequestModel) {
     const apiUrl = `${this.baseUrl}course/bestCourse`;

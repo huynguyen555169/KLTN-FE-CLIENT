@@ -31,6 +31,10 @@
                         (heartClick)="actionHeartClick.emit($event)"></app-card-one>
                 </div>
             </div>
+            <div class="text-center mt-4">
+                <app-pagination [currentPage]="'1'" [totalPage]="totalPage" (pageChange)="handlePageChange($event)"
+                    *ngIf="totalPage>1"></app-pagination>
+            </div>
 
         </div>
     </div>

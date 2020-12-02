@@ -123,22 +123,22 @@ export const footerData: FooterOneModel = {
             icon: "../../../assets/images/about1.svg", // img of column
             title: "ABOUT US", // title of colum
             description:
-                "It also has a built-in backing track player that pulls in videos from YouTube, which are categorized into musical genres, key and scale. When a user choose a backing track, it shows a draggable and resizable thumbnail of the video, and it sets the fretboard in the right key and scale. This gives the user the ability to learn chords, scales, 3 notes per string (3nps) and CAGED fingering patterns for lead guitar playing.", // description of column
+                "Shop được thành lập vào đầu năm 2020,", // description of column
             more: "SEE MORE", // link to website (or page)
         },
         {
             // data of some columns
             icon: "../../../assets/images/services.svg", // img of column
-            title: "SERVICES", // title of colum
+            title: "PRODUCT", // title of colum
             description:
-                "It also has a built-in backing track player that pulls in videos from YouTube, which are categorized into musical genres, key and scale. When a user choose a backing track, it shows a draggable and resizable thumbnail of the video, and it sets the fretboard in the right key and scale. This gives the user the ability to learn chords, scales, 3 notes per string (3nps) and CAGED fingering patterns for lead guitar playing.", // description of column
+                "Tấc cả sản phẩm được xuất xứ rõ ràng", // description of column
             more: "SEE MORE", // link to website (or page)
         },
         {
             // data of some columns
             icon: "../../../assets/images/request.svg", // img of column
-            title: "REQUEST", // title of colum
-            description: "SADASDSADSADSADASDAS", // description of column
+            title: "ADDRESS", // title of colum
+            description: "01, Võ Văn Ngân, Quận Thủ Đức, TP.HCM", // description of column
             more: "SEE MORE", // link to website (or page)
         },
     ],
@@ -158,19 +158,15 @@ export const footerData: FooterOneModel = {
         },
         {
             // list social of socials
-            icon: "../../../assets/images/facebook.svg", // img of social
+            icon: "../../../assets/images/youtube.svg", // img of social
             link: "", // link to social types
         },
         {
             // list social of socials
-            icon: "../../../assets/images/facebook.svg", // img of social
+            icon: "../../../assets/images/tuvit.svg", // img of social
             link: "", // link to social types
         },
-        {
-            // list social of socials
-            icon: "../../../assets/images/facebook.svg", // img of social
-            link: "", // link to social types
-        },
+
     ],
     copyright: "©Copyright HCMUTE 2020", // copyright of footer
     moreInfo: "Điều kiện | Điều khoản", // more info of footer

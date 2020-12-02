@@ -4,20 +4,20 @@
   </div>
   <div class="form-group--container">
     <div class="form-group">
-      <input class="form-control" type="text" id="example-text-input" formControlName="oldPass"
+      <input class="form-control" type="text" id="example-text-input" formControlName="userID"
         placeholder="Email/Số điện thoại/Tên đăng nhập" />
-      <div class="form-error" *ngIf="oldPass.invalid && (oldPass.dirty || oldPass.touched)">
-        <span *ngIf="oldPass.errors?.message">
-          {{ oldPass.errors.message }}
+      <div class="form-error" *ngIf="userID.invalid && (userID.dirty || userID.touched)">
+        <span *ngIf="userID.errors?.message">
+          {{ userID.errors.message }}
         </span>
       </div>
     </div>
     <div class="form-group">
-      <input class="form-control" type="password" id="example-text-input" formControlName="newPass"
+      <input class="form-control" type="password" id="example-text-input" formControlName="userPass"
         placeholder="Mật khẩu" />
-      <div class="form-error" *ngIf="newPass.invalid && (newPass.dirty || newPass.touched)">
-        <span *ngIf="newPass.errors.message">
-          {{ newPass.errors.message }}
+      <div class="form-error" *ngIf="userPass.invalid && (userPass.dirty || userPass.touched)">
+        <span *ngIf="userPass.errors.message">
+          {{ userPass.errors.message }}
         </span>
       </div>
     </div>

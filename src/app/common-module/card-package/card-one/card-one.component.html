@@ -20,9 +20,8 @@
           {{ cardData.title }}
         </div>
         <div class="card-content--chips">
-          <div *ngFor="let item of cardData.chips; last as isLast" class="card-chips--item"
-            [ngClass]="{ 'card-chips--item1': isLast }">
-            {{ item }}
+          <div class="card-chips--item">
+            {{ cardData.chips }}
           </div>
         </div>
         <div class="card-content--sub">
@@ -45,16 +44,16 @@
         </div>
         <div class="card-content--price-wrapper">
           <div class="card-content--price">
-            {{ cardData.subContent }}
+            {{ cardData.subContent |currency:"VND" }}
           </div>
           <del class="card-content--dis-price d-block">
-            {{ cardData.subReContent }}
+            {{ cardData.subReContent |currency:"VND" }}
           </del>
         </div>
       </div>
       <div class="action position-absolute">
         <button mat-button (click)="handleClick()">
-          {{ cardData.more }}
+          Xem thêm
         </button>
       </div>
     </div>

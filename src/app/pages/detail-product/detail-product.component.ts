@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DetailService } from 'src/app/core/services/api/detail/detail.service';
+import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -24,10 +26,22 @@ export class DetailProductComponent implements OnInit {
     key: '2',
     value: 'L'
   }]
-  dataTest = ['https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80', 'https://images.unsplash.com/photo-1523199455310-87b16c0eed11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', 'https://images.unsplash.com/photo-1527519124254-9dafd8b3533b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80']
+  dataTest = ['https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',]
   panelOpenState = false;
-  constructor(private router: Router) {
-    console.log(this.router.getCurrentNavigation().extras.state); // should log out 'bar'
+
+  productCurrent;
+
+  constructor(private router: Router, private detailService: DetailService) {
+    this.productCurrent = this.router.getCurrentNavigation().extras.state
+    let productItem = this.router.getCurrentNavigation().extras.state
+
+    const dataGetItem = new HttpRequestModel();
+    dataGetItem.params = { id: productItem.e.id };
+    console.log(dataGetItem)
+    this.detailService.getListFashion(dataGetItem).subscribe((res) => {
+      console.log(res)
+      this.data = res
+    })
   }
 
   ngOnInit(): void {
@@ -35,7 +49,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   addToCart() {
-
+    localStorage.setItem('currentProduct', JSON.stringify(this.productCurrent));
   }
 
 }

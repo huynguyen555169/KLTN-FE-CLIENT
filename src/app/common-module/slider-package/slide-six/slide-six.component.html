@@ -1,9 +1,20 @@
-<div class="slide-two-container w-100 h-100" [id]="slideId" #slideTrack>
-  <div class="slide-two-item" *ngFor="let item of dataList" [ngStyle]="{
-        width: elementWidth + 'px',
-        margin: '0px ' + elementGutter + 'px',
-        padding: elementHeight / 20 + 'px 0px'
-      }">
-    <img src="{{item}}" alt="" class="w-100 h-100 image-content">
+<div class="w-100 h-100">
+  <div class="slide-two-container w-100 h-80" [id]="slideId" #slideTrack>
+    <div class="slide-two-item" *ngFor="let item of dataList" [ngStyle]="{
+          width: elementWidth + 'px',
+          margin: '0px ' + elementGutter + 'px',
+          padding: elementHeight / 20 + 'px 0px'
+        }">
+      <img src="{{item}}" alt="" class="w-100 h-100 image-content">
+    </div>
+  </div>
+  <div class="slide-two-container w-100 h-20 mt-2" id="slider-nav" #slideTrack1>
+    <div class="slide-two-item" *ngFor="let item of dataList" [ngStyle]="{
+          width: elementWidth + 'px',
+          margin: '0px ' + elementGutter + 'px',
+          padding: elementHeight / 20 + 'px 0px'
+        }">
+      <img src="{{item}}" alt="" class="w-100 h-100 image-content">
+    </div>
   </div>
 </div>

@@ -6,14 +6,27 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./menu-two.component.scss']
 })
 export class MenuTwoComponent implements OnInit {
-  @Input() data: MenuTwoDataModel;
+  @Input() data: any;
   @Input() position = 'after';
   @Output() actionClick = new EventEmitter<MenuTwoMenuItemModel>();
-
+  dataItem = [
+    {
+      icon: 'book',
+      name: 'Đổi mật khẩu',
+      link: ''
+    },
+    {
+      icon: 'exit_to_app',
+      name: 'Đăng xuất',
+      link: ''
+    }
+  ]
   isOpened = false;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.data)
+  }
   menuItemClick(event: MenuTwoMenuItemModel) {
     this.actionClick.emit(event);
   }
