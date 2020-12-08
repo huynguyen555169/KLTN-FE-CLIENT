@@ -11,6 +11,11 @@ export class MenuTwoComponent implements OnInit {
   @Output() actionClick = new EventEmitter<MenuTwoMenuItemModel>();
   dataItem = [
     {
+      // Các option trong menu của user
+      icon: "info", // class of material icon,
+      name: "Thông tin cá nhân", // Tên option
+    },
+    {
       icon: 'book',
       name: 'Đổi mật khẩu',
       link: ''
@@ -25,7 +30,6 @@ export class MenuTwoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
   menuItemClick(event: MenuTwoMenuItemModel) {
     this.actionClick.emit(event);

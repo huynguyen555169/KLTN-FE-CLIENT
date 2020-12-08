@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartServiceService } from 'src/app/core/services/api/cart/cart-service.service';
+import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 
 
 @Component({
@@ -8,25 +11,54 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardCartComponent implements OnInit {
   @Input() data: any;
+  @Output() newItemEvent = new EventEmitter<any>();
+  @Output() totalMax = new EventEmitter<any>()
 
-  number = 1;
   checked = false;
-  total;
 
-  constructor() { }
+  constructor(private cartService: CartServiceService) {
+
+  }
 
   ngOnInit(): void {
-    this.total = this.data.product_unit_price;
   }
   handlePlus() {
-    this.number = this.number + 1;
-    this.total = this.data.product_unit_price * this.number
+    this.data.cart_product_qty = this.data.cart_product_qty + 1;
+    const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    };
+    const getListData = new HttpRequestModel();
+
+    getListData.body = { product_id: this.data.productInfo.product_id, qty: this.data.cart_product_qty };
+    this.cartService.updateQty(getListData, httpOptions).subscribe((res) => {
+      this.data.total = res.total
+      this.totalMax.emit(res.totalCart)
+    })
+
   }
   handleMinus() {
-    this.number = this.number - 1;
-    this.total = this.total - this.data.product_unit_price
+
+    this.data.cart_product_qty = this.data.cart_product_qty - 1;
+    const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    };
+    const getListData = new HttpRequestModel();
+
+    getListData.body = { product_id: this.data.productInfo.product_id, qty: this.data.cart_product_qty };
+    this.cartService.updateQty(getListData, httpOptions).subscribe((res) => {
+      this.data.total = res.total
+      this.totalMax.emit(res.totalCart)
+    })
   }
   handleDelete() {
+    this.newItemEvent.emit(this.data.productInfo.product_id)
+
 
   }
 

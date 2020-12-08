@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="detail-account-container">
+        <div class="account-title">
+            Hồ Sơ Của Tôi
+        </div>
+        <div class="row account-detail mt-5">
+            <div class="col-8" [formGroup]="detailForm" *ngIf="data">
+                <div class="account-id mb-2 row align-items-center">
+                    <div class="col-3">
+                        Tên Đăng Nhập
+                    </div>
+                    <div class="col">
+                        <mat-form-field [floatLabel]="'never'" class="w-100">
+                            <input matInput formControlName="customer_phone" />
+                            <mat-error>{{
+                                detailForm.controls["customer_phone"].errors?.message
+                            }}</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="account-name row align-items-center mb-2">
+                    <div class="col-3">
+                        Họ và tên
+                    </div>
+                    <div class="col">
+                        <mat-form-field [floatLabel]="'never'" class="w-100">
+                            <input matInput formControlName="customer_fullName" />
+                            <mat-error>{{
+                                detailForm.controls["customer_fullName"].errors?.message
+                            }}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="account-gender mb-2 row align-items-center">
+                    <div class="col-3">
+                        Giới Tính
+
+                    </div>
+                    <div class="col">
+                        <mat-radio-group formControlName="customer_gender">
+                            <mat-radio-button value="nam" class="pr-2">Nam</mat-radio-button>
+                            <mat-radio-button value="nu" class="pr-2">Nữ</mat-radio-button>
+                            <mat-radio-button value="khac" class="pr-2">Khác</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+
+                </div>
+                <div class="account-date mb-2 row align-items-center">
+                    <div class="col-3">
+                        Ngày Sinh
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="fill" class="w-100">
+                            <input matInput [matDatepicker]="picker1" formControlName="customer_birthday" />
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1> </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="account-date mb-2 row align-items-center">
+                    <div class="col-3">
+                        Tỉnh/Thành phố
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Tỉnh/Thành phố</mat-label>
+                            <mat-select name="customer_province" formControlName="customer_province"
+                                (selectionChange)="handleChange($event)">
+                                <mat-option *ngFor="let customer_province of provinceList"
+                                    [value]="customer_province.key">
+                                    {{ customer_province.title }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="account-date mb-2 row align-items-center">
+                    <div class="col-3">
+                        Quận/Huyện
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Quận/Huyện</mat-label>
+                            <mat-select name="customer_district" formControlName="customer_district"
+                                [disabled]="!this.provinceCheck" (selectionChange)="handleChange1($event)">
+                                <mat-option *ngFor="let customer_district of districtList"
+                                    [value]="customer_district.key">
+                                    {{ customer_district.title }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="account-date mb-2 row align-items-center">
+                    <div class="col-3">
+                        Xã/Phường/Thị trấn
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Xã/Phường/Thị trấn</mat-label>
+                            <mat-select name="customer_ward" formControlName="customer_ward"
+                                [disabled]="!this.districtCheck">
+                                <mat-option *ngFor="let customer_ward of wardList" [value]="customer_ward.key">
+                                    {{ customer_ward.title }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="account-date mb-2 row align-items-center">
+                    <div class="col-3">
+                        Địa chỉ
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                            <mat-label>Địa chỉ</mat-label>
+                            <input matInput placeholder="Địa chỉ" formControlName="customer_address">
+                            <mat-error>{{
+                                detailForm.controls["customer_address"].errors?.message
+                          }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <div class="pt-4">
+                    <app-c-discussion-attach (filesAttach)="handleFile($event)" [avatar]="data.customer_avatar">
+                    </app-c-discussion-attach>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5 mt-3 ml-15">
+            <button mat-button (click)="handleDataAccount()" class="save-btn"
+                [disabled]="!detailForm.dirty">Lưu</button>
+        </div>
+    </div>
+</div>

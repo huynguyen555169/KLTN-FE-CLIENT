@@ -57,6 +57,5 @@ export class TableOneComponent implements OnInit, AfterViewInit, OnChanges {
     }
   }
   handleDelete(e) {
-    console.log(e)
   }
 }

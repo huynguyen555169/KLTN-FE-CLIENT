@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/authentication/authentication';
+import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 import { CheckValidatecheckValidateComponent } from '../check-validatecheck-validate/check-validatecheck-validate.component';
 import { SignupComponentComponent } from '../signup-component/signup-component.component';
 import { CustomValidator } from "./../custom-validator";
@@ -19,8 +20,8 @@ export class FormComponent implements OnInit {
   rfContact: FormGroup;
 
   @Output() isLog = new EventEmitter<boolean>();
-  constructor(private router: Router, public dialogRef: MatDialogRef<FormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,
-    private authentication: AuthenticationService) { }
+  constructor(private router: Router, public dialogRef: MatDialogRef<FormComponent>, public dialog: MatDialog,
+    private authentication: AuthenticationService, private spinner: CSpinnerService) { }
 
   ngOnInit(): void {
     this.rfContact = new FormGroup({
@@ -37,14 +38,15 @@ export class FormComponent implements OnInit {
 
 
   handleClick() {
+    this.spinner.show()
     if (this.rfContact.valid) {
 
       const formValue = this.rfContact.value;
-      console.log(formValue)
       this.authentication.login(formValue.userID, formValue.userPass).subscribe(res => {
+        this.spinner.hide()
         localStorage.setItem('currentUser1', JSON.stringify(res));
         this.authentication.currentUserSubject.next(res);
-        this.dialogRef.close(!this.data.checkIs);
+        this.dialogRef.close();
       }, () => {
       });
 

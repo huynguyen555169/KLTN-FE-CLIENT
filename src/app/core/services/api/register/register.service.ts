@@ -6,7 +6,7 @@ import { HttpRequestModel, HttpRequestService } from '../../http-request-service
   providedIn: 'root'
 })
 export class RegisterService {
-  baseUrl = 'http://192.168.0.108:8080/'
+  baseUrl = 'http://localhost:8080/'
 
   constructor(private http: HttpRequestService) { }
   createUser(parram: HttpRequestModel) {

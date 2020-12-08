@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 
 import { FormComponent } from "./form/form.component";
 
@@ -9,20 +10,11 @@ import { FormComponent } from "./form/form.component";
   styleUrls: ["./popup01.component.scss"],
 })
 export class Popup01Component implements OnInit {
-  checkis = false;
-  @Output() isLog = new EventEmitter<boolean>();
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private spinner: CSpinnerService) { }
 
   ngOnInit(): void { }
   openDialog(): void {
-    const dialogRef = this.dialog.open(FormComponent, {
-      data: { data: this.checkis }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.checkis = result;
-      this.isLog.emit(this.checkis)
-    });
+    const dialogRef = this.dialog.open(FormComponent);
   }
 
 }

@@ -48,7 +48,7 @@ export class HttpRequestService {
   }
 
 
-  put(url: string, body?: any, params?: {}, headers?: HttpHeaders) {
+  put(url: string, params?: {}, body?: any, headers?: HttpHeaders) {
     const putOption = new HttpRequestOption();
     putOption.params = this.transformParamToHttpParams(params);
 

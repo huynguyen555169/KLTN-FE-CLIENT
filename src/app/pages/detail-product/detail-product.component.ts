@@ -1,7 +1,10 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartServiceService } from 'src/app/core/services/api/cart/cart-service.service';
 import { DetailService } from 'src/app/core/services/api/detail/detail.service';
 import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
+import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -10,15 +13,8 @@ import { HttpRequestModel } from 'src/app/core/services/http-request-service/htt
 })
 export class DetailProductComponent implements OnInit {
 
-  data = {
-    product_images: [],
-    product_name: 'Sản phẩm A',
-    product_qty: 10,
-    product_unit_price: 200000,
-    product_type: 'fashion',
-    product_size: '1',
-    product_description: 'Sản phẩm đạt chất lượng cao'
-  }
+  data: any;
+  qty = 1;
   dataType = [{
     key: '1',
     value: 'M'
@@ -31,25 +27,37 @@ export class DetailProductComponent implements OnInit {
 
   productCurrent;
 
-  constructor(private router: Router, private detailService: DetailService) {
-    this.productCurrent = this.router.getCurrentNavigation().extras.state
-    let productItem = this.router.getCurrentNavigation().extras.state
-
-    const dataGetItem = new HttpRequestModel();
-    dataGetItem.params = { id: productItem.e.id };
-    console.log(dataGetItem)
-    this.detailService.getListFashion(dataGetItem).subscribe((res) => {
-      console.log(res)
-      this.data = res
-    })
+  constructor(private router: Router, private detailService: DetailService, private route: ActivatedRoute, private cartService: CartServiceService, private spinner: CSpinnerService) {
   }
 
   ngOnInit(): void {
+    this.spinner.show()
+    const routeParams = this.route.snapshot.params;
+    let name = routeParams.id.split('-').join(' ');
+    const dataGetItem = new HttpRequestModel();
+    dataGetItem.params = { name: name };
+    this.detailService.getListFashion(dataGetItem).subscribe((res) => {
+      this.spinner.hide()
+      this.data = res.data[0]
+    })
 
   }
 
   addToCart() {
-    localStorage.setItem('currentProduct', JSON.stringify(this.productCurrent));
+    this.spinner.show()
+    const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    };
+    const dataAdd = new HttpRequestModel();
+    dataAdd.body = { product_id: this.data.product_id, qty: this.qty };
+    this.cartService.addProduct(dataAdd, httpOptions).subscribe((res) => {
+      this.spinner.hide()
+
+    })
+
   }
 
 }

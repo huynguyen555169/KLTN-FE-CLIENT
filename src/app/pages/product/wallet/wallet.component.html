@@ -3,8 +3,8 @@
         <mat-form-field appearance="fill">
             <mat-label>Giá</mat-label>
             <mat-select disableRipple (selectionChange)="handleValue($event)">
-                <mat-option value="1">Giá: Thấp đến cao</mat-option>
-                <mat-option value="2">Giá: Cao đến thấp</mat-option>
+                <mat-option value="asc">Giá: Thấp đến cao</mat-option>
+                <mat-option value="desc">Giá: Cao đến thấp</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -19,8 +19,17 @@
                     hay xa xôi nhất
                 </p>
             </div>
+            <div class="">
+                <div class="title-content">
+                    DANH MỤC SẢN PHẨM
+                </div>
+                <div class="content">
+
+                </div>
+            </div>
             <div class="w-100">
-                <app-search-max-min-two [data]="data"></app-search-max-min-two>
+                <app-search-max-min-two [data]="data" (newRangeValue)="handleRangeValue($event)">
+                </app-search-max-min-two>
             </div>
 
         </div>
@@ -32,8 +41,8 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <app-pagination [currentPage]="'1'" [totalPage]="totalPage" (pageChange)="handlePageChange($event)"
-                    *ngIf="totalPage>1"></app-pagination>
+                <app-pagination [currentPage]="currentPage" [totalPage]="totalPage"
+                    (pageChange)="handlePageChange($event)" *ngIf="totalPage>1"></app-pagination>
             </div>
 
         </div>

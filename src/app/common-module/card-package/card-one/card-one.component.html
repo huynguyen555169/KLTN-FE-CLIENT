@@ -4,7 +4,7 @@
     <div class="card-discount--text">{{ cardData.discount }}</div>
   </div>
   <div class="card-one-content-container w-100 h-100">
-    <img src="{{ cardData.img }}" alt="background" class="card-main--img w-100 h-100" />
+    <img src="{{ cardData.img[0] }}" alt="background" class="card-main--img w-100 h-100" />
     <div class="card-container--hide w-100 h-100">
       <div class="heart position-absolute" (click)="handleHeartClick()" data-toggle="tooltip" data-placement="left"
         title="Add to your wish list">

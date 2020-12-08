@@ -26,7 +26,6 @@ export class PaymentComponent implements OnInit {
     dataGetListProvince.params = {};
     this.paymentService.getListProvince(dataGetListProvince).subscribe((res) => {
       this.provinceList = res
-      console.log(res)
     })
     this.InfoForm = new FormGroup({
       name: new FormControl("", [

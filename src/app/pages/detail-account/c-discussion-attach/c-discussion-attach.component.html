@@ -1,0 +1,10 @@
+<div class="d-flex flex-column">
+  <div class="text-center">
+    <img [src]="url" class="fix-image">
+  </div>
+  <div class="d-flex justify-content-center align-items-center border-dot mb-3 p-4">
+    <input class="custom-input-file" type="file" #fileDropRef id="fileDropRef"
+      (change)="fileBrowseHandler($event.target.files)" />
+    <label class="text-hover mb-0" for="fileDropRef">Chọn Ảnh</label>
+  </div>
+</div>

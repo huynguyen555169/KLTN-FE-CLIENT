@@ -1,27 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import {
-
-  dataLabel,
-  dataCard02,
-  slider03Data,
   slider02Data,
-
-  dataListSlide1_1,
   card10Data,
   direaction,
-  serviceData,
 } from "./mockData";
 import { LabelOneModel } from "src/app/common-module/label-package/label-one/label-one.component";
-import { of } from "rxjs";
 import { CardOneModel } from "src/app/common-module/card-package/card-one/card-one.component";
 import { CardTwoModel } from "src/app/common-module/card-package/card-two/card-two.component";
 import { SlideThreeItemModel } from "src/app/common-module/slider-package/slide-three/components/slide-three-item/slide-three-item.component";
 import { SlideOneItemModel } from "src/app/common-module/slider-package/slide-one/components/slide-one-item/slide-one-item.component";
-import { SlideOneItemModule } from "src/app/common-module/slider-package/slide-one/components/slide-one-item/slide-one-item.module";
-import { delay } from "rxjs/operators";
 import { CourseService } from "src/app/core/services/landing-page-service/course.service";
 import { HttpRequestModel } from "src/app/core/services/http-request-service/http-request.service";
-import { HttpClientModule } from "@angular/common/http";
+import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 
 @Component({
   selector: "app-main",
@@ -34,24 +24,7 @@ export class MainComponent implements OnInit {
 
   //slide01
   dataListSlide1: SlideOneItemModel[];
-  // label01
-  labels: LabelOneModel[] = [
-    {
-      icon: "../../../../assets/images/product.svg",
-      unit: "Đơn hàng",
-      number: 0,
-    },
-    {
-      icon: "../../../../assets/images/membership.svg",
-      unit: "Thành viên",
-      number: 0,
-    },
-    {
-      icon: "../../../../assets/images/clothing.svg",
-      unit: "Sản phẩm",
-      number: 0,
-    },
-  ];
+
   // slider04
   slider04: CardOneModel[];
   showControllDots = false;
@@ -76,23 +49,14 @@ export class MainComponent implements OnInit {
   serviceTypes = ["course", "instructor", "class"];
   currentServiceIndex = -1;
 
-  constructor(private landingPageService: CourseService) { }
+  constructor(private landingPageService: CourseService, private spinner: CSpinnerService) { }
 
   ngOnInit(): void {
-
-    const dataGetCountMasterUser = new HttpRequestModel();
-    this.landingPageService
-      .countMasterUser(dataGetCountMasterUser)
-      .subscribe((res) => {
-        this.labels[0].number = res.count_course;
-        this.labels[1].number = res.count_user;
-        this.labels[2].number = res.count_intructor;
-      });
-
+    this.spinner.show()
     const dataGetMyList = new HttpRequestModel();
     dataGetMyList.params = {};
     this.landingPageService.getMyCourse(dataGetMyList).subscribe((res) => {
-      console.log(res.data)
+      this.spinner.hide()
       this.slider04 = res.data.map((data) => new CardOneModel(data));
     });
 
@@ -121,7 +85,6 @@ export class MainComponent implements OnInit {
     this.landingPageService
       .getPopularCourse(dataGetPopularCourse)
       .subscribe((res) => {
-        console.log(res)
         this.dataListSlide1 = res.data.map(
           (item) => new SlideOneItemModel(item)
         );
@@ -129,13 +92,10 @@ export class MainComponent implements OnInit {
   }
 
   menuClick($event) {
-    console.log($event);
   }
   handle($event) {
-    console.log($event);
   }
   handleSlider4($event) {
-    console.log($event);
   }
 
 }

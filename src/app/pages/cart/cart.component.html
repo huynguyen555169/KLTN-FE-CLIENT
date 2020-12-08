@@ -23,7 +23,9 @@
             </div>
             <div class="cart-list">
                 <div class="mb-2" *ngFor="let item of data">
-                    <app-card-cart [data]="item"></app-card-cart>
+                    <app-card-cart [data]="item" (newItemEvent)="handleDeleteItem($event)"
+                        (totalMax)="handleTotalMax($event)">
+                    </app-card-cart>
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center px-4 py-4 my-5 header-cart">
@@ -32,7 +34,7 @@
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="">
-                        Tổng tiền hàng(2 sản phẩm): 1.300.000đ
+                        Tổng tiền hàng của ( {{count}} sản phẩm ) : {{totalMax|currency:'VND'}}
                     </div>
                     <button mat-raised-button color="warn" class="ml-4" style="width: 100px;">Mua hàng</button>
                 </div>

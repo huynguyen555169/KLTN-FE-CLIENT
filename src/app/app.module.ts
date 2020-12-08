@@ -25,6 +25,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CSpinnerService } from './shared/c-spinner/c-spinner.service';
+import { CSpinnerModule } from './shared/c-spinner/c-spinner.module';
 
 
 
@@ -51,7 +54,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatNativeDateModule,
+    CSpinnerModule
 
   ],
   providers: [],

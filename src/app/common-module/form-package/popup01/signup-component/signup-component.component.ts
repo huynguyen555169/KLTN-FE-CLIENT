@@ -24,7 +24,6 @@ export class SignupComponentComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.data.data);
     this.rfContact = new FormGroup({
       phoneNumber: new FormControl("", [
         CustomValidator.required,
@@ -64,12 +63,10 @@ export class SignupComponentComponent implements OnInit {
       let user = this.rfContact.value;
       const dataRegister = new HttpRequestModel();
       dataRegister.body = { user }
-      console.log(dataRegister)
       this.register.createUser(dataRegister).subscribe((res) => {
         this.dialogRef.close(!this.data.checkIs);
       })
     } else {
-      console.log('That bai');
     }
   }
   onNoClick(): void {

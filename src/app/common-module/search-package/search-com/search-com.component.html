@@ -14,7 +14,7 @@
 
     <div class="w-100 list-search" *ngIf="dataList">
         <div class="" *ngIf="dataList[0];else elseBlock">
-            <div class="mb-1 d-flex" *ngFor="let item of dataList">
+            <div class="mb-1 d-flex hover-link" *ngFor="let item of dataList" (click)="handleSearchClick(item)">
                 <img src="{{item.product_images[0]}}" alt="" class="image-find mr-2">
                 <div class="">
                     <div class="">

@@ -49,7 +49,7 @@ export class CardOneComponent implements OnInit, OnChanges {
 }
 export class CardOneModel {
   id: string;
-  img: string; // background of card
+  img: any; // background of card
   discount: string; // percent of discount
   title: string; // title of card
   chips: string; // tối đa 3 chips sẽ hiện, chip thứ 4 sẽ là +N (N: số còn lại)
