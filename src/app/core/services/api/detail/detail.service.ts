@@ -15,4 +15,12 @@ export class DetailService {
     const headers = parram.headers;
     return this.http.get(apiUrl, params, body, headers);
   }
+
+  getListComment(parram: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}comment/get-by-product`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = parram.headers;
+    return this.http.get(apiUrl, params, body, headers);
+  }
 }

@@ -52,13 +52,14 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
 
   ngAfterViewChecked() {
     if (this.isInitSlide) {
+      this.isInitSlide = false;
+      $(`#${this.slideId}`).slick('unslick');
       $(`#${this.slideId}`).not('.slick-initialized').slick({
         dots: this.showControllDots,
         infinite: true,
         arrows: this.showControllArrows,
         centerMode: true,
         focusOnSelect: true,
-        variableWidth: true,
         initialSlide: 0,
         swipeToSlide: true,
         asNavFor: '#slider-nav',
@@ -73,16 +74,16 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
         </span>
       </button>`
       });
-      this.isInitSlide = false;
+      $('#slider-nav').slick('unslick');
+      $('#slider-nav').not('.slick-initialized').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: `#${this.slideId}`,
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+      });
     }
-    $('#slider-nav').not('.slick-initialized').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: `#${this.slideId}`,
-      dots: false,
-      centerMode: true,
-      focusOnSelect: true,
 
-    });
   }
 }

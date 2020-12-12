@@ -16,9 +16,9 @@ import {
 export class SlideThreeItemComponent implements OnInit, OnChanges {
   @Input() data: SlideThreeItemModel;
   @Output() actionClick = new EventEmitter<SlideThreeItemModel>();
-  constructor() {}
+  constructor() { }
   arrayStars = new Array<number>();
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data.currentValue) {
@@ -45,6 +45,7 @@ export class SlideThreeItemModel {
   totalRating: number;
   description: string;
   chips: string[];
+  link: string;
 
   constructor(data: any) {
     this.img = data.avatar;
@@ -54,5 +55,6 @@ export class SlideThreeItemModel {
     this.totalRating = data.count_rating;
     this.description = data.workplace;
     this.chips = data.tags;
+    this.link = data.link
   }
 }

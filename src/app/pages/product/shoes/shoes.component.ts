@@ -73,7 +73,7 @@ export class ShoesComponent implements OnInit {
   }
   handleProduct(e) {
     let nameInRoute: String = e.title.split(' ').join('-');
-    this.router.navigate(['detail-product', nameInRoute])
+    this.router.navigate(['detail-product'], { queryParams: { name: nameInRoute } })
   }
 
   handlePageChange(e) {

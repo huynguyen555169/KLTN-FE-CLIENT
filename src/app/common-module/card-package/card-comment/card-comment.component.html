@@ -1,0 +1,30 @@
+<div class="card-comment d-flex align-items-center justify-content-between w-100">
+    <div class="info-user d-flex align-items-center">
+        <img src="{{data.image}}" alt="" class="image-user mr-4">
+        <div class="d-flex flex-column">
+            <div class="rating">
+                <div class="rate-container d-inline-flex">
+                    <div class="start-wrapper d-inline-flex" *ngFor="let star of arrayStars">
+                        <mat-icon class="rate-icon">star
+                            <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                                <mat-icon class="rate-icon">star</mat-icon>
+                            </span>
+                        </mat-icon>
+                    </div>
+
+                    {{ data.point }}
+                </div>
+            </div>
+
+            <div class="name">
+                {{data.name}}
+            </div>
+            <div class="comment ">
+                {{data.comment}}
+            </div>
+        </div>
+    </div>
+    <div class="time-cmt w-20 ">
+        {{data.time}} phút trước
+    </div>
+</div>

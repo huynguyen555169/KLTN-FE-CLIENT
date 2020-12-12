@@ -25,4 +25,12 @@ export class DetailAccountService {
     const headers = header.headers;
     return this.http.put(apiUrl, params, body, headers);
   }
+
+  changePassword(parram: HttpRequestModel, header: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}customer/change-password`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = header.headers;
+    return this.http.put(apiUrl, params, body, headers);
+  }
 }

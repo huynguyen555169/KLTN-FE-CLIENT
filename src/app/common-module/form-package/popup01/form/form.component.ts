@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/authentication/authentication';
+import { CartRootService } from 'src/app/core/services/cart-root/cart-root.service';
 import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 import { CheckValidatecheckValidateComponent } from '../check-validatecheck-validate/check-validatecheck-validate.component';
 import { SignupComponentComponent } from '../signup-component/signup-component.component';
@@ -21,7 +22,7 @@ export class FormComponent implements OnInit {
 
   @Output() isLog = new EventEmitter<boolean>();
   constructor(private router: Router, public dialogRef: MatDialogRef<FormComponent>, public dialog: MatDialog,
-    private authentication: AuthenticationService, private spinner: CSpinnerService) { }
+    private authentication: AuthenticationService, private spinner: CSpinnerService, private cartRootService: CartRootService) { }
 
   ngOnInit(): void {
     this.rfContact = new FormGroup({
@@ -43,6 +44,7 @@ export class FormComponent implements OnInit {
 
       const formValue = this.rfContact.value;
       this.authentication.login(formValue.userID, formValue.userPass).subscribe(res => {
+        this.cartRootService.isLogin.next(true)
         this.spinner.hide()
         localStorage.setItem('currentUser1', JSON.stringify(res));
         this.authentication.currentUserSubject.next(res);

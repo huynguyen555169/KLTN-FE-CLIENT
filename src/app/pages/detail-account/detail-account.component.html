@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="detail-account-container">
+    <div class="detail-account-container" *ngIf="data">
         <div class="account-title">
             Hồ Sơ Của Tôi
         </div>
         <div class="row account-detail mt-5">
-            <div class="col-8" [formGroup]="detailForm" *ngIf="data">
+            <div class="col-8" [formGroup]="detailForm">
                 <div class="account-id mb-2 row align-items-center">
                     <div class="col-3">
                         Tên Đăng Nhập
@@ -68,7 +68,7 @@
                             <mat-select name="customer_province" formControlName="customer_province"
                                 (selectionChange)="handleChange($event)">
                                 <mat-option *ngFor="let customer_province of provinceList"
-                                    [value]="customer_province.key">
+                                    [value]='customer_province.key'>
                                     {{ customer_province.title }}
                                 </mat-option>
                             </mat-select>
@@ -83,7 +83,7 @@
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Quận/Huyện</mat-label>
                             <mat-select name="customer_district" formControlName="customer_district"
-                                [disabled]="!this.provinceCheck" (selectionChange)="handleChange1($event)">
+                                (selectionChange)="handleChange1($event)">
                                 <mat-option *ngFor="let customer_district of districtList"
                                     [value]="customer_district.key">
                                     {{ customer_district.title }}
@@ -99,8 +99,7 @@
                     <div class="col">
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Xã/Phường/Thị trấn</mat-label>
-                            <mat-select name="customer_ward" formControlName="customer_ward"
-                                [disabled]="!this.districtCheck">
+                            <mat-select name="customer_ward" formControlName="customer_ward">
                                 <mat-option *ngFor="let customer_ward of wardList" [value]="customer_ward.key">
                                     {{ customer_ward.title }}
                                 </mat-option>
@@ -133,7 +132,7 @@
         </div>
         <div class="mb-5 mt-3 ml-15">
             <button mat-button (click)="handleDataAccount()" class="save-btn"
-                [disabled]="!detailForm.dirty">Lưu</button>
+                [disabled]="!detailForm.dirty &&!isChange">Lưu</button>
         </div>
     </div>
 </div>

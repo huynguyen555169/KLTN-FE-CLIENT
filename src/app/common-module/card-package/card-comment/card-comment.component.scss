@@ -1,0 +1,63 @@
+.card-comment {
+    position: relative;
+    height: fit-content;
+    .info-user {
+        .image-user {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .name {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .comment {
+            font-size: 15px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: -10px;
+        left: 5%;
+        width: 90%;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+.rate-container {
+    align-items: center;
+    .start-wrapper {
+        mat-icon.rate-icon {
+            color: #ddd;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 20px;
+        }
+
+        span.fill-start {
+            display: inline-block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            & mat-icon.rate-icon {
+                color: #f7c149;
+            }
+        }
+    }
+}
+.w-80 {
+    width: 80%;
+}
+.w-20 {
+    width: 20%;
+}
+.time-cmt {
+    text-align: end;
+}

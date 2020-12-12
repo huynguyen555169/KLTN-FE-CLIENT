@@ -31,12 +31,12 @@
         </div>
 
 
-        <div class="header-menu02" *ngIf="data">
+        <div class="header-menu02" *ngIf="isLogin === true">
             <app-menu-two [data]="data" [position]="position" (actionClick)="menuClick($event)">
             </app-menu-two>
         </div>
 
-        <div class="header-" *ngIf="!data">
+        <div class="header-" *ngIf="isLogin ===false">
             <app-popup01 (isLog)="handleCheck($event)"></app-popup01>
         </div>
 

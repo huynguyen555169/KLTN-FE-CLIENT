@@ -10,6 +10,8 @@ import { NumbersOnlyDirective } from './numbers-only.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SlideSixModule } from 'src/app/common-module/slider-package/slide-six/slide-six.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CardCommentModule } from 'src/app/common-module/card-package/card-comment/card-comment.module';
 
 
 
@@ -25,7 +27,9 @@ import { SlideSixModule } from 'src/app/common-module/slider-package/slide-six/s
     ReactiveFormsModule,
     MatButtonModule,
     MatExpansionModule,
-    SlideSixModule
+    SlideSixModule,
+    MatSnackBarModule,
+    CardCommentModule
 
   ],
   exports: [

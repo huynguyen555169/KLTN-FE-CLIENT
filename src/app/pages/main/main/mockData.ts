@@ -161,6 +161,7 @@ export const slider03Data = {
       price_discount: 10000,
       avatar:
         "../../../../assets/images/wallets.jpeg",
+      link: 'product/belt'
     },
     {
       instructor_name: "Fashion",
@@ -174,6 +175,7 @@ export const slider03Data = {
       price_discount: 10000,
       avatar:
         "https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80",
+      link: 'product/fashion'
     },
     {
       instructor_name: "Shoes",
@@ -187,6 +189,7 @@ export const slider03Data = {
       price_discount: 10000,
       avatar:
         "../../../../assets/images/shoes.jpeg",
+      link: 'product/shoes'
     },
     {
       instructor_name: "Watch",
@@ -200,6 +203,7 @@ export const slider03Data = {
       price_discount: 10000,
       avatar:
         "../../../../assets/images/watch.jpeg",
+      link: 'product/watch'
     },
     {
       instructor_name: "Wallets",
@@ -213,6 +217,7 @@ export const slider03Data = {
       price_discount: 10000,
       avatar:
         "https://images.unsplash.com/photo-1531190260877-c8d11eb5afaf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80",
+      link: 'product/wallet'
     },
   ]
 

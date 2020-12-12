@@ -4,7 +4,7 @@
     </div>
     <div class="form-group--container">
         <div class="form-group">
-            <input class="form-control" type="text" id="example-text-input" formControlName="phoneNumber"
+            <input class="form-control" type="text" id="example-text-input1" formControlName="phoneNumber"
                 placeholder="Email/Số điện thoại/Tên đăng nhập" [(ngModel)]="data.data" disabled />
             <div class="form-error" *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
                 <span *ngIf="phoneNumber.errors?.message">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="password" id="example-text-input" formControlName="passWord"
+            <input class="form-control" type="password" id="example-text-input2" formControlName="passWord"
                 placeholder="Mật khẩu" />
             <div class="form-error" *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)">
                 <span *ngIf="passWord.errors.message">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" id="example-text-input" formControlName="rePass"
+            <input class="form-control" type="password" id="example-text-input3" formControlName="rePass"
                 placeholder="Xác nhận mật khẩu" />
             <div class="form-error" *ngIf="rePass.invalid && (rePass.dirty || rePass.touched)">
                 <span *ngIf="rePass.errors.message">

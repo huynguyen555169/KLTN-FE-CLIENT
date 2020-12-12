@@ -4,7 +4,7 @@
   </div>
   <div class="form-group--container">
     <div class="form-group">
-      <input class="form-control" type="text" id="example-text-input" formControlName="userID"
+      <input class="form-control" type="text" id="example-text-input1" formControlName="userID"
         placeholder="Email/Số điện thoại/Tên đăng nhập" />
       <div class="form-error" *ngIf="userID.invalid && (userID.dirty || userID.touched)">
         <span *ngIf="userID.errors?.message">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="form-group">
-      <input class="form-control" type="password" id="example-text-input" formControlName="userPass"
+      <input class="form-control" type="password" id="example-text-input2" formControlName="userPass"
         placeholder="Mật khẩu" />
       <div class="form-error" *ngIf="userPass.invalid && (userPass.dirty || userPass.touched)">
         <span *ngIf="userPass.errors.message">

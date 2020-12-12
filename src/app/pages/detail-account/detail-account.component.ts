@@ -1,11 +1,13 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomValidator } from 'src/app/common-module/form-package/popup01/custom-validator';
 import { DetailAccountService } from 'src/app/core/services/api/account/detail-account.service';
 import { PaymentService } from 'src/app/core/services/api/payment/payment.service';
 import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
+import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-detail-account',
@@ -16,6 +18,7 @@ export class DetailAccountComponent implements OnInit {
 
   detailForm: FormGroup;
   image;
+  isChange = 0;
   data: any;
   dataUser: any;
   provinceList: any;
@@ -26,7 +29,7 @@ export class DetailAccountComponent implements OnInit {
   districtCheck: any;
 
   wardList: any;
-  constructor(private detailAccountService: DetailAccountService, private paymentService: PaymentService, private spinner: CSpinnerService) {
+  constructor(private detailAccountService: DetailAccountService, private paymentService: PaymentService, private spinner: CSpinnerService, private _snackBar: MatSnackBar) {
 
   }
 
@@ -38,36 +41,52 @@ export class DetailAccountComponent implements OnInit {
         'Authorization': token
       })
     };
-    this.detailAccountService.getInfoAccount(httpOptions).subscribe((res) => {
-      this.spinner.hide()
-      this.data = res.user
-      this.image = this.data.customer_avatar
-      const dataGetListProvince = new HttpRequestModel();
-      dataGetListProvince.params = {};
-      this.paymentService.getListProvince(dataGetListProvince).subscribe((res) => {
-        this.provinceList = res
+    const dataGetListProvince = new HttpRequestModel();
+    dataGetListProvince.params = {};
+    this.paymentService.getListProvince(dataGetListProvince).subscribe((res) => {
+      this.provinceList = res;
+      this.detailAccountService.getInfoAccount(httpOptions).subscribe((res) => {
+        this.spinner.hide()
+        this.data = res.user
+        this.image = this.data.customer_avatar
+        const dataGetListDistrict = new HttpRequestModel();
+        dataGetListDistrict.params = { province: res.user.customer_province };
+        this.paymentService.getListDistrict(dataGetListDistrict).subscribe((res) => {
+          this.districtList = res
+        })
+        const dataGetListWard = new HttpRequestModel();
+        dataGetListWard.params = { province: res.user.customer_province, district: res.user.customer_district };
+        this.paymentService.getListWard(dataGetListWard).subscribe((res) => {
+          this.wardList = res
+        })
+        this.innitForm();
+
       })
 
-
-      this.detailForm = new FormGroup({
-        customer_phone: new FormControl(this.data.customer_phone),
-        customer_fullName: new FormControl(this.data.customer_fullName, [
-          CustomValidator.required,
-          CustomValidator.maxLength(50),
-        ]),
-        customer_gender: new FormControl(this.data.customer_gender),
-        customer_avatar: new FormControl(this.data.customer_avatar),
-        customer_birthday: new FormControl(this.data.customer_birthday),
-        customer_province: new FormControl(this.data.customer_province),
-        customer_district: new FormControl(this.data.customer_district),
-        customer_ward: new FormControl(this.data.customer_ward),
-        customer_address: new FormControl(this.data.customer_address, [
-          CustomValidator.required,
-          CustomValidator.maxLength(40)
-        ])
-      });
     })
 
+
+  }
+
+  innitForm() {
+    console.log(this.data.customer_province)
+    this.detailForm = new FormGroup({
+      customer_phone: new FormControl(this.data.customer_phone),
+      customer_fullName: new FormControl(this.data.customer_fullName, [
+        CustomValidator.required,
+        CustomValidator.maxLength(50),
+      ]),
+      customer_gender: new FormControl(this.data.customer_gender),
+      customer_avatar: new FormControl(this.data.customer_avatar),
+      customer_birthday: new FormControl(new Date(this.data.customer_birthday)),
+      customer_province: new FormControl(this.data.customer_province),
+      customer_district: new FormControl(this.data.customer_district),
+      customer_ward: new FormControl(this.data.customer_ward),
+      customer_address: new FormControl(this.data.customer_address, [
+        CustomValidator.required,
+        CustomValidator.maxLength(40)
+      ])
+    });
   }
 
   handleDataAccount() {
@@ -82,33 +101,38 @@ export class DetailAccountComponent implements OnInit {
     this.dataUser = this.detailForm.value;
     const dataGetInfo = new HttpRequestModel();
 
-    dataGetInfo.body = { data: this.dataUser };
+    dataGetInfo.body = { data: this.dataUser, isChange: this.isChange };
 
     this.detailAccountService.editInfoAccount(dataGetInfo, httpOptions).subscribe((res) => {
       this.spinner.hide()
+      this._snackBar.openFromComponent(SnackBarComponent, {
+        data: 'Đổi thông tin thành công',
+        duration: 2000,
+        panelClass: ['blue-snackbar'],
+        verticalPosition: 'top',
+      });
 
+    }, (error) => {
+      this._snackBar.openFromComponent(SnackBarComponent, {
+        data: 'Đổi thông tin thất bại',
+        duration: 2000,
+        panelClass: ['red-snackbar'],
+        verticalPosition: 'top',
+      });
     })
   }
   handleFile(e) {
+    if (e) {
+      this.isChange = 1;
+    }
     this.image = e
   }
   handleChange(e) {
-    this.provinceCheck = e;
-    this.provinceID = e.value
-    const dataGetListDistrict = new HttpRequestModel();
-    dataGetListDistrict.params = { province: e.value };
-    this.paymentService.getListDistrict(dataGetListDistrict).subscribe((res) => {
-      this.districtList = res
-    })
+
 
   }
   handleChange1(e) {
-    this.districtCheck = e;
-    const dataGetListWard = new HttpRequestModel();
-    dataGetListWard.params = { province: this.provinceID, district: e.value };
-    this.paymentService.getListWard(dataGetListWard).subscribe((res) => {
-      this.wardList = res
-    })
+
   }
 
 }

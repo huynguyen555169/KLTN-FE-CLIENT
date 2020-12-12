@@ -19,12 +19,14 @@ export class SearchComComponent implements OnInit {
   ngOnInit(): void {
   }
   onEnter() {
+    this.dialogRef.disableClose = true;
     const searchListProduct = new HttpRequestModel();
     searchListProduct.params = { search: this.result };
     this.searchService.getListSearch(searchListProduct).subscribe((res) => {
       this.dataList = res.data;
+      this.dialogRef.disableClose = false;
     })
-    this.dialogRef.disableClose = true;
+
     // this.dialogRef.close(this.data.textSearch)
   }
   handleDelete() {
@@ -33,7 +35,7 @@ export class SearchComComponent implements OnInit {
   handleSearchClick(e) {
     this.dialogRef.close()
     let nameInRoute: String = e.product_name.split(' ').join('-');
-    this.router.navigate(['detail-product', nameInRoute])
+    this.router.navigate(['detail-product'], { queryParams: { name: nameInRoute } })
 
   }
 
