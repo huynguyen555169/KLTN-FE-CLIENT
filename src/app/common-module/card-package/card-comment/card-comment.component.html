@@ -1,6 +1,6 @@
 <div class="card-comment d-flex align-items-center justify-content-between w-100">
     <div class="info-user d-flex align-items-center">
-        <img src="{{data.image}}" alt="" class="image-user mr-4">
+        <img src="{{data.customer_info.customer_avatar}}" alt="" class="image-user mr-4">
         <div class="d-flex flex-column">
             <div class="rating">
                 <div class="rate-container d-inline-flex">
@@ -12,19 +12,18 @@
                         </mat-icon>
                     </div>
 
-                    {{ data.point }}
                 </div>
             </div>
 
             <div class="name">
-                {{data.name}}
+                {{data.customer_info.customer_fullName}}
             </div>
             <div class="comment ">
-                {{data.comment}}
+                {{data.product_rating_review}}
             </div>
         </div>
     </div>
     <div class="time-cmt w-20 ">
-        {{data.time}} phút trước
+        {{data.createdAt}}
     </div>
 </div>

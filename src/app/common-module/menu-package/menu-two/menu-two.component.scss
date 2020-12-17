@@ -10,6 +10,10 @@
   }
 }
 ::ng-deep {
+  .mat-focus-indicator.d-flex.item.mat-menu-item {
+    display: flex !important;
+    align-items: center;
+  }
   .menu-two-menu-backdrop + .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane {
     margin-top: 10px !important;
     width: 235px !important;

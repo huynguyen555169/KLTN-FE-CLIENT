@@ -1,9 +1,12 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CartServiceService } from 'src/app/core/services/api/cart/cart-service.service';
 import { CartRootService } from 'src/app/core/services/cart-root/cart-root.service';
 import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
+import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-cart',
@@ -11,11 +14,13 @@ import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  dataPay = []
   data = [];
   total: any;
   count: any;
   totalMax: any;
-  constructor(private cartService: CartServiceService, private spinner: CSpinnerService, private cartRootService: CartRootService) { }
+  isAll;
+  constructor(private router: Router, private cartService: CartServiceService, private spinner: CSpinnerService, private cartRootService: CartRootService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.spinner.show()
@@ -41,6 +46,7 @@ export class CartComponent implements OnInit {
     })
 
   }
+
   handleDeleteItem(e) {
     this.spinner.show()
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
@@ -64,8 +70,50 @@ export class CartComponent implements OnInit {
 
     })
   }
+
   handleTotalMax(e) {
     this.totalMax = e
   }
 
+  handleCheckAll(e) {
+    if (e.checked) {
+      this.isAll = true
+    } else {
+      this.isAll = false
+    }
+  }
+
+  handleBuy() {
+    if (this.isAll) {
+      this.data.map((res) => {
+        const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Authorization': token
+          })
+        };
+        const getListData = new HttpRequestModel();
+
+        getListData.body = { data: this.data };
+        this.cartService.updateToBuy(getListData, httpOptions).subscribe((res) => {
+          this.router.navigate(['payment'])
+        })
+      })
+      this.cartRootService.listOrder.next(this.data)
+      this.router.navigate(['payment'])
+    } else {
+      if (this.dataPay.length < 1) {
+        this._snackBar.openFromComponent(SnackBarComponent, {
+          data: 'Chưa chọn sản phẩm nào',
+          duration: 3000,
+          panelClass: ['red-snackbar'],
+          verticalPosition: 'top',
+        });
+      }
+    }
+  }
+
+  handleChangeCheck(e) {
+    this.dataPay.push(e)
+  }
 }

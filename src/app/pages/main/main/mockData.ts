@@ -117,7 +117,7 @@ export const dataCard02 = {
 export const card10Data: CardTenModel[] = [
   {
     // data will show in card
-    img: "../../../assets/images/Group 24.svg", // avatar of card
+    img: "../../../assets/images/free-ship.svg", // avatar of card
     title: "Free ship", // title of card
     description:
       "Điều kiện và điều khoản trên có thể thay đổi tùy thuộc vào các chương trình khuyến mãi tại từng thời điểm khác nhau Bạn có thể xem chi tiết ưu đãi miễn phí vận chuyển tại mục Tôi > Ví Voucher > bấm xem Điều kiện của từng mã miễn phí vận chuyển", // description of card
@@ -125,7 +125,7 @@ export const card10Data: CardTenModel[] = [
   },
   {
     // data will show in card
-    img: "../../../assets/images/Group 24.svg", // avatar of card
+    img: "../../../assets/images/affordable.svg", // avatar of card
     title: "Giá rẻ", // title of card
     description:
       "Điều kiện và điều khoản trên có thể thay đổi tùy thuộc vào các chương trình khuyến mãi tại từng thời điểm khác nhau Bạn có thể xem chi tiết ưu đãi miễn phí vận chuyển tại mục Tôi > Ví Voucher > bấm xem Điều kiện của từng mã miễn phí vận chuyển", // description of card
@@ -133,7 +133,7 @@ export const card10Data: CardTenModel[] = [
   },
   {
     // data will show in card
-    img: "../../../assets/images/Group 24.svg", // avatar of card
+    img: "../../../assets/images/money.svg", // avatar of card
     title: "Bảo hành", // title of card
     description:
       "Điều kiện và điều khoản trên có thể thay đổi tùy thuộc vào các chương trình khuyến mãi tại từng thời điểm khác nhau Bạn có thể xem chi tiết ưu đãi miễn phí vận chuyển tại mục Tôi > Ví Voucher > bấm xem Điều kiện của từng mã miễn phí vận chuyển", // description of card

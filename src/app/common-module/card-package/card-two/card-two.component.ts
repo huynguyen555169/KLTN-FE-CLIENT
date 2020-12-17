@@ -11,7 +11,7 @@ export class CardTwoComponent implements OnInit {
   @Input() actions = false; // Show button More
   @Output() actionClick = new EventEmitter<any>(); // Button More click
 
-  constructor() {}
+  constructor() { }
 
   arrayStars = Array<number>();
 
@@ -41,13 +41,13 @@ export class CardTwoModel {
   rate: number;
 
   constructor(data: any) {
-    this.imageUrl = data.image;
-    this.title = data.course_title;
+    this.imageUrl = data.product_images;
+    this.title = data.product_name;
     this.master = data.instructor_name;
-    this.description = data.course_description;
+    this.description = data.product_description;
     this.sessions = data.lesson;
-    this.price = data.price_course;
-    this.countStudent = data.count_enrolled;
-    this.rate = data.avg_rating;
+    this.price = data.product_unit_price;
+    this.countStudent = data.total;
+    this.rate = 5;
   }
 }

@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { SlideSixModule } from 'src/app/common-module/slider-package/slide-six/slide-six.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CardCommentModule } from 'src/app/common-module/card-package/card-comment/card-comment.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -29,7 +30,8 @@ import { CardCommentModule } from 'src/app/common-module/card-package/card-comme
     MatExpansionModule,
     SlideSixModule,
     MatSnackBarModule,
-    CardCommentModule
+    CardCommentModule,
+    MatIconModule
 
   ],
   exports: [

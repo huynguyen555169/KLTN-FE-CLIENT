@@ -52,7 +52,7 @@ export class MainComponent implements OnInit {
   constructor(private router: Router, private landingPageService: CourseService, private spinner: CSpinnerService) { }
 
   ngOnInit(): void {
-    this.spinner.show()
+    // this.spinner.show()
     const dataGetMyList = new HttpRequestModel();
     dataGetMyList.params = {};
     this.landingPageService.getMyCourse(dataGetMyList).subscribe((res) => {
@@ -61,11 +61,12 @@ export class MainComponent implements OnInit {
     });
 
     const dataGetBestCourse = new HttpRequestModel();
-    dataGetBestCourse.params = { limit: 2 };
+    dataGetBestCourse.params = {};
     this.landingPageService
       .getBestCourse(dataGetBestCourse)
       .subscribe((res) => {
-        this.dataCard02 = res.list_best_course.map(
+        console.log(res.data)
+        this.dataCard02 = res.data.map(
           (item) => new CardTwoModel(item)
         );
       });

@@ -69,7 +69,7 @@ export class DetailAccountComponent implements OnInit {
   }
 
   innitForm() {
-    console.log(this.data.customer_province)
+    this.provinceID = this.data.customer_province
     this.detailForm = new FormGroup({
       customer_phone: new FormControl(this.data.customer_phone),
       customer_fullName: new FormControl(this.data.customer_fullName, [
@@ -128,10 +128,26 @@ export class DetailAccountComponent implements OnInit {
     this.image = e
   }
   handleChange(e) {
-
+    this.detailForm.get('customer_district').setValue('')
+    this.detailForm.get('customer_ward').setValue('')
+    this.provinceCheck = e;
+    this.provinceID = e.value
+    const dataGetListDistrict = new HttpRequestModel();
+    dataGetListDistrict.params = { province: e.value };
+    this.paymentService.getListDistrict(dataGetListDistrict).subscribe((res) => {
+      this.districtList = res
+      console.log(this.districtList)
+    })
 
   }
   handleChange1(e) {
+    this.detailForm.get('customer_ward').setValue('')
+    this.districtCheck = e;
+    const dataGetListWard = new HttpRequestModel();
+    dataGetListWard.params = { province: this.provinceID, district: e.value };
+    this.paymentService.getListWard(dataGetListWard).subscribe((res) => {
+      this.wardList = res
+    })
 
   }
 

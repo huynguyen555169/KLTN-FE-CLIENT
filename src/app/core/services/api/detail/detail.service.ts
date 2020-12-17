@@ -17,10 +17,18 @@ export class DetailService {
   }
 
   getListComment(parram: HttpRequestModel) {
-    const apiUrl = `${this.baseUrl}comment/get-by-product`;
+    const apiUrl = `${this.baseUrl}rating/get-by-product`;
     const params = parram.params;
     const body = parram.body;
     const headers = parram.headers;
     return this.http.get(apiUrl, params, body, headers);
+  }
+
+  postRating(parram: HttpRequestModel, token: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}rating/rate-by-customer`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = token.headers;
+    return this.http.post(apiUrl, params, body, headers);
   }
 }

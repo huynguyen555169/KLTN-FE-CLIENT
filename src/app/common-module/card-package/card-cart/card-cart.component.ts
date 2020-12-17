@@ -11,8 +11,10 @@ import { HttpRequestModel } from 'src/app/core/services/http-request-service/htt
 })
 export class CardCartComponent implements OnInit {
   @Input() data: any;
+  @Input() isAll: any
   @Output() newItemEvent = new EventEmitter<any>();
   @Output() totalMax = new EventEmitter<any>()
+  @Output() newItemCheck = new EventEmitter<any>();
 
   checked = false;
 
@@ -60,6 +62,11 @@ export class CardCartComponent implements OnInit {
     this.newItemEvent.emit(this.data.productInfo.product_id)
 
 
+  }
+  handleChangeCheck(e) {
+    if (e.checked) {
+      this.newItemCheck.emit(this.data)
+    }
   }
 
 }

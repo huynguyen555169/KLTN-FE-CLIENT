@@ -17,11 +17,12 @@ import { SnackBarComponent } from 'src/app/shared/snack-bar/snack-bar.component'
   styleUrls: ['./detail-product.component.scss']
 })
 export class DetailProductComponent implements OnInit {
-
+  rate = 0;
+  review = ''
   dataStar = [
     {
       name: 'Tấc cả',
-      type: 'all',
+      type: '',
       isActive: true
     },
     {
@@ -51,37 +52,8 @@ export class DetailProductComponent implements OnInit {
     }
   ]
 
-  dataComment = [
-    {
-      image: 'https://highlandscoffee.com.vn/vnt_upload/news/09_2020/117893497_3384030921677728_5150032367808787141_o.jpg',
-      name: 'Nguyễn Văn Huy',
-      comment: 'Sản phẩm thật tuyệt vời',
-      time: '4',
-      point: 4
-    },
-    {
-      image: 'https://highlandscoffee.com.vn/vnt_upload/news/09_2020/117893497_3384030921677728_5150032367808787141_o.jpg',
-      name: 'Nguyễn Văn Huy',
-      comment: 'Sản phẩm thật tuyệt vời',
-      time: '4',
-      point: 4
-    },
-    {
-      image: 'https://highlandscoffee.com.vn/vnt_upload/news/09_2020/117893497_3384030921677728_5150032367808787141_o.jpg',
-      name: 'Nguyễn Văn Huy',
-      comment: 'Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời Sản phẩm thật tuyệt vời',
-      time: '4',
-      point: 4
-    },
-    {
-      image: 'https://highlandscoffee.com.vn/vnt_upload/news/09_2020/117893497_3384030921677728_5150032367808787141_o.jpg',
-      name: 'Nguyễn Văn Huy',
-      comment: 'Sản phẩm thật tuyệt vời',
-      time: '4',
-      point: 4
-    }
-  ]
-
+  dataComment: any;
+  arrayStars = []
   dataListSize = []
   data: any;
   qty = 1;
@@ -116,10 +88,24 @@ export class DetailProductComponent implements OnInit {
         const dataGetComment = new HttpRequestModel();
         dataGetComment.params = { product_id: this.data.product_id }
         this.detailService.getListComment(dataGetComment).subscribe((res) => {
-          console.log(res)
+          this.dataComment = res.data;
         })
       })
       //
+      this.cartRootService.rateChange.subscribe((res) => {
+        this.rate = res
+        for (let i = 0; i < 5; i++) {
+          if (this.rate > 1) {
+            this.arrayStars.push(100);
+          } else if (this.rate > 0) {
+            this.arrayStars.push(this.rate * 100);
+          } else {
+            this.arrayStars.push(0);
+          }
+          this.rate--;
+        }
+      })
+
     })
 
 
@@ -129,6 +115,11 @@ export class DetailProductComponent implements OnInit {
       menu.isActive = menu === item;
       return menu;
     });
+    const dataGetComment = new HttpRequestModel();
+    dataGetComment.params = { product_id: this.data.product_id, number_star: item.type }
+    this.detailService.getListComment(dataGetComment).subscribe((res) => {
+      this.dataComment = res.data;
+    })
   }
   handleClickSize(size) {
     const index = this.dataListSize.indexOf(size)
@@ -152,15 +143,17 @@ export class DetailProductComponent implements OnInit {
           this.cartRootService.countChange.next(res.count)
           this.spinner.hide()
           this._snackBar.openFromComponent(SnackBarComponent, {
-            data: 'Thành công',
+            data: res.message,
             duration: 2000,
             panelClass: ['blue-snackbar'],
             verticalPosition: 'top',
           });
 
         }, (err) => {
+          console.log(err)
+          this.spinner.hide()
           this._snackBar.openFromComponent(SnackBarComponent, {
-            data: 'Thất bại',
+            data: err.error.message,
             duration: 2000,
             panelClass: ['red-snackbar'],
             verticalPosition: 'top',
@@ -172,6 +165,35 @@ export class DetailProductComponent implements OnInit {
     })
 
 
+  }
+  sendReview() {
+
+    this.spinner.show()
+    const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    };
+    const dataPostComment = new HttpRequestModel();
+    dataPostComment.body = { product_id: this.data.product_id, value: 4, review: this.review }
+    this.detailService.postRating(dataPostComment, httpOptions).subscribe((res) => {
+      this.spinner.hide()
+      const dataGetComment = new HttpRequestModel();
+      dataGetComment.params = { product_id: this.data.product_id }
+      this.detailService.getListComment(dataGetComment).subscribe((res) => {
+        this.dataComment = res.data;
+        this.review = ''
+      })
+
+    }, (err) => {
+      this.spinner.hide()
+    })
+
+  }
+  handleRateing(i) {
+    this.arrayStars = []
+    this.cartRootService.rateChange.next(i + 1)
   }
 
 }

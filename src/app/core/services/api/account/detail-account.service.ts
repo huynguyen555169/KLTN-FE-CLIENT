@@ -33,4 +33,12 @@ export class DetailAccountService {
     const headers = header.headers;
     return this.http.put(apiUrl, params, body, headers);
   }
+
+  getOrder(parram: HttpRequestModel, header: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}order/get-by-customer`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = header.headers;
+    return this.http.get(apiUrl, params, body, headers);
+  }
 }

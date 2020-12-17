@@ -1,0 +1,17 @@
+.user-product {
+    margin-top: 100px;
+    .user-title {
+        position: relative;
+        font-size: 18px;
+        font-weight: bold;
+        &::before {
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            width: 10%;
+            content: "";
+            height: 1px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
+}

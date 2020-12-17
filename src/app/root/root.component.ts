@@ -88,6 +88,9 @@ export class RootComponent implements OnInit {
     if ($event.name === "Thông tin cá nhân") {
       this.router.navigate(['/detail-account']);
     }
+    if ($event.name === "Đơn hàng của bạn") {
+      this.router.navigate(['/user-product']);
+    }
     if ($event.name === "Đổi mật khẩu") {
       this.router.navigate(['/change-password']);
     }

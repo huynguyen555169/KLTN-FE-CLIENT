@@ -28,6 +28,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CSpinnerService } from './shared/c-spinner/c-spinner.service';
 import { CSpinnerModule } from './shared/c-spinner/c-spinner.module';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
@@ -56,7 +57,9 @@ import { CSpinnerModule } from './shared/c-spinner/c-spinner.module';
     AngularFireAuthModule,
     MatBadgeModule,
     MatNativeDateModule,
-    CSpinnerModule
+    CSpinnerModule,
+    NgxQRCodeModule
+
 
   ],
   providers: [],

@@ -1,0 +1,21 @@
+<div class="card-order d-flex w-100" *ngIf="data">
+    <img src="{{data.productInfo.product_images[0]}}" alt="" style="width:90px;height:110px" class="mr-2 image-order">
+    <div class="d-flex justify-content-between w-100 ">
+        <div class="">
+            <div class="">
+                {{data.productInfo.product_name}}
+            </div>
+            <div class="">
+                x{{data.order_detail_qty}}
+            </div>
+        </div>
+        <div class="">
+            <div class="">
+                {{data.total | currency: "VND"}}
+            </div>
+            <div class="status">
+                Đã giao
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@ export class CardCommentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    let rate = this.data.point || 0;
+    let rate = this.data.product_rating_value || 0;
     for (let i = 0; i < 5; i++) {
       if (rate > 1) {
         this.arrayStars.push(100);

@@ -36,7 +36,7 @@
                 <div class="title-card mb-2">
                     {{data.product_name}}
                 </div>
-                <div class="price-card mb-2">
+                <div class="price-card mb-4">
                     {{data.product_unit_price | currency: "VND"}}
                 </div>
                 <div class="d-flex mb-1">
@@ -45,7 +45,7 @@
                             Số lượng
                         </div>
                         <div class="">
-                            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="fill" class="number-input">
                                 <mat-label></mat-label>
                                 <input matInput [(ngModel)]="qty" name="number" appNumbersOnly type="number">
                             </mat-form-field>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <div class="">
+                    <div class="mb-2">
                         Chọn Size
                     </div>
                     <div class="">
@@ -70,7 +70,7 @@
                     <button mat-button style="background-color:#FA574F ; color:#ffffff" (click)="addToCart()"><span
                             class="material-icons justify-content-center align-items-center">
                             add_shopping_cart
-                        </span>ADD TO CART</button>
+                        </span>Thêm vào giỏ hàng</button>
                 </div>
             </div>
         </div>
@@ -95,12 +95,26 @@
                     Để lại bình luận:
                 </div>
                 <div class="px-5">
+                    <div class="mb-2">
+                        <div class="rate-container d-inline-flex">
+                            <button mat-icon-button class="start-wrapper d-inline-flex"
+                                *ngFor="let star of arrayStars;index as i" (click)="handleRateing(i)">
+                                <mat-icon class="rate-icon">star
+                                    <span class="fill-start" [ngStyle]="{ width: star + '%' }">
+                                        <mat-icon class="rate-icon">star</mat-icon>
+                                    </span>
+                                </mat-icon>
+                            </button>
+
+                        </div>
+                    </div>
                     <mat-form-field appearance="fill" class="w-100">
-                        <textarea matInput placeholder="Đánh giá sản phẩm"></textarea>
+                        <textarea matInput placeholder="Đánh giá sản phẩm" [(ngModel)]="review"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="pl-5">
-                    <button mat-raised-button style="background-color: #FB584F;color:#ffffff;">Gửi bình luận</button>
+                    <button mat-raised-button style="background-color: #FB584F;color:#ffffff;"
+                        (click)="sendReview()">Gửi bình luận</button>
                 </div>
             </div>
         </div>

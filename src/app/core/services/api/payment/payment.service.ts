@@ -29,4 +29,11 @@ export class PaymentService {
     const headers = parram.headers;
     return this.http.get(apiUrl, params, body, headers);
   }
+  createOrder(parram: HttpRequestModel, token: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}order/insert-sale-order`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = token.headers;
+    return this.http.post(apiUrl, params, body, headers);
+  }
 }

@@ -50,13 +50,13 @@ export class CourseService {
     // return of(dataList).pipe(delay(1000));
   }
   getBestCourse(data: HttpRequestModel) {
-    const apiUrl = `${this.baseUrl}course/bestCourse`;
+    const apiUrl = `${this.baseUrl}product/get-product-hot`;
     const params = data.params;
     const body = data.body;
     const headers = data.headers;
 
-    // return this.http.get(apiUrl, params, body, headers);
-    return of(dataCard02);
+    return this.http.get(apiUrl, params, body, headers);
+    // return of(dataCard02);
   }
   getCourseAndInstructor(data: HttpRequestModel) {
     const apiUrl = `${this.baseUrl}course/courseAndInstructor`;

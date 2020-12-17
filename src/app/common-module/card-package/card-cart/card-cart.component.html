@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-1 d-flex justify-content-center align-items-center">
             <div class="card-btn--check">
-                <mat-checkbox class="example-margin" [(ngModel)]="checked"></mat-checkbox>
+                <mat-checkbox class="example-margin" [(ngModel)]="checked" [checked]="isAll"
+                    (change)="handleChangeCheck($event)"></mat-checkbox>
             </div>
         </div>
         <div class="col-4 d-flex align-items-center">

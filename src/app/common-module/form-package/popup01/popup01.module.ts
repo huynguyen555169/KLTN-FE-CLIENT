@@ -8,6 +8,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from '@angular/material/icon';
 import { SignupComponentComponent } from './signup-component/signup-component.component';
 import { CheckValidatecheckValidateComponent } from './check-validatecheck-validate/check-validatecheck-validate.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [Popup01Component, FormComponent, SignupComponentComponent, CheckValidatecheckValidateComponent],
@@ -18,6 +19,7 @@ import { CheckValidatecheckValidateComponent } from './check-validatecheck-valid
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    MatSnackBarModule
   ],
   exports: [Popup01Component],
 })

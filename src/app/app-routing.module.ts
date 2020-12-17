@@ -28,7 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'payment',
-    loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule)
+    loadChildren: () => import('./pages/payment/payment.module').then(m => m.PaymentModule),
+    canActivate: [AuthGuard]
 
   },
   {
@@ -41,7 +42,12 @@ const routes: Routes = [
     path: 'change-password',
     loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordModule),
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'user-product',
+    loadChildren: () => import('./pages/user-product/user-product.module').then(m => m.UserProductModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

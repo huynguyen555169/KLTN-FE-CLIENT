@@ -5,22 +5,22 @@
                 <div class="title">
                     THÔNG TIN THANH TOÁN
                 </div>
-                <div class="content w-100 mt-3">
+                <div class="content w-100 mt-3" *ngIf="data">
                     <div class="w-100" [formGroup]="InfoForm">
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Họ và tên</mat-label>
-                            <input matInput placeholder="Họ và tên" formControlName="name">
+                            <input matInput placeholder="Họ và tên" formControlName="customer_fullName">
                             <mat-error>{{
-                            InfoForm.controls["name"].errors?.message
+                            InfoForm.controls["customer_fullName"].errors?.message
                           }}
                             </mat-error>
                         </mat-form-field>
                         <div class="w-100 d-flex justify-content-between mb-2">
                             <mat-form-field appearance="fill" class="w-45">
                                 <mat-label>Số điện thoại</mat-label>
-                                <input matInput placeholder="Số điện thoại" formControlName="phone">
+                                <input matInput placeholder="Số điện thoại" formControlName="customer_phone">
                                 <mat-error>{{
-                                InfoForm.controls["phone"].errors?.message
+                                InfoForm.controls["customer_phone"].errors?.message
                               }}
                                 </mat-error>
                             </mat-form-field>
@@ -47,7 +47,7 @@
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Quận/Huyện</mat-label>
                             <mat-select name="customer_district" formControlName="customer_district"
-                                [disabled]="!this.provinceCheck" (selectionChange)="handleChange1($event)">
+                                (selectionChange)="handleChange1($event)">
                                 <mat-option *ngFor="let customer_district of districtList"
                                     [value]="customer_district.key">
                                     {{ customer_district.title }}
@@ -56,8 +56,7 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Xã/Phường/Thị trấn</mat-label>
-                            <mat-select name="customer_ward" formControlName="customer_ward"
-                                [disabled]="!this.districtCheck">
+                            <mat-select name="customer_ward" formControlName="customer_ward">
                                 <mat-option *ngFor="let customer_ward of wardList" [value]="customer_ward.key">
                                     {{ customer_ward.title }}
                                 </mat-option>
@@ -65,9 +64,9 @@
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Địa chỉ</mat-label>
-                            <input matInput placeholder="Địa chỉ" formControlName="address">
+                            <input matInput placeholder="Địa chỉ" formControlName="customer_address">
                             <mat-error>{{
-                            InfoForm.controls["address"].errors?.message
+                            InfoForm.controls["customer_address"].errors?.message
                           }}
                             </mat-error>
                         </mat-form-field>
@@ -86,8 +85,13 @@
                             TẠM TÍNH
                         </span>
                     </div>
-                    <div class="pb-2 pt-2">
-                        ÁO SƠ MI
+                    <div class="pb-2 pt-2 d-flex justify-content-between" *ngFor="let item of listOrder">
+                        <div class="">
+                            {{item.productInfo.product_name}} x {{item.cart_product_qty}}
+                        </div>
+                        <div class="">
+                            {{item.total|currency:"VND"}}
+                        </div>
                     </div>
                     <div class="d-flex justify-content-between pb-2 pt-2 order-product1">
                         <span class="">
@@ -117,12 +121,19 @@
                         </span>
                     </div>
                     <div class="w-100 d-flex justify-content-center mt-3">
-                        <button mat-stroked-button color="warn">ĐẶT HÀNG</button>
+                        <button mat-stroked-button color="warn" (click)="handleOrder()">ĐẶT HÀNG</button>
                     </div>
 
+
+                </div>
+                <div class="mt-3 d-flex align-items-center flex-column">
+                    <div class="text-center">
+                        Vui lòng quét mã QR bên dưới
+                    </div>
+                    <ngx-qrcode [elementType]="elementType" [value]="value" errorCorrectionLevel="L">
+                    </ngx-qrcode>
 
                 </div>
             </div>
         </div>
     </div>
-</div>

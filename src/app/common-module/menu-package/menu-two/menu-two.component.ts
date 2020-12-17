@@ -16,7 +16,12 @@ export class MenuTwoComponent implements OnInit {
       name: "Thông tin cá nhân", // Tên option
     },
     {
-      icon: 'book',
+      // Các option trong menu của user
+      icon: "view_list", // class of material icon,
+      name: "Đơn hàng của bạn", // Tên option
+    },
+    {
+      icon: 'contact_page',
       name: 'Đổi mật khẩu',
       link: ''
     },
