@@ -98,17 +98,17 @@
                             Tạm tính
                         </span>
                         <span class="">
-                            Tạm tính
+                            {{totalOrder|currency:"VND"}}
                         </span>
                     </div>
                     <div class="pb-2 pt-2order-product1">
                         <div class="pt-2">
-                            Giao hàng
+                            Phương thức thanh toán
                         </div>
                         <div class="pt-2">
-                            <mat-radio-group aria-label="Select an option">
-                                <mat-radio-button value="1">Option 1</mat-radio-button>
-                                <mat-radio-button value="2">Option 2</mat-radio-button>
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="paymentType">
+                                <mat-radio-button value="cod" class="mr-4">Thanh toán khi nhận hàng</mat-radio-button>
+                                <mat-radio-button value="momo">Thanh toán bằng Momo</mat-radio-button>
                             </mat-radio-group>
                         </div>
                     </div>
@@ -117,17 +117,19 @@
                             Tổng
                         </span>
                         <span class="">
-                            Tạm tính
+                            {{totalOrder|currency:"VND"}}
                         </span>
                     </div>
                     <div class="w-100 d-flex justify-content-center mt-3">
-                        <button mat-stroked-button color="warn" (click)="handleOrder()">ĐẶT HÀNG</button>
+                        <button mat-stroked-button color="warn" (click)="handleOrder()"
+                            [disabled]="listOrder.length<1">ĐẶT
+                            HÀNG</button>
                     </div>
 
 
                 </div>
-                <div class="mt-3 d-flex align-items-center flex-column">
-                    <div class="text-center">
+                <div class="mt-3 d-flex align-items-center flex-column" *ngIf="paymentType === 'momo'">
+                    <div class="text-center" *ngIf="value!=''">
                         Vui lòng quét mã QR bên dưới
                     </div>
                     <ngx-qrcode [elementType]="elementType" [value]="value" errorCorrectionLevel="L">

@@ -149,6 +149,7 @@ export class DetailProductComponent implements OnInit {
             verticalPosition: 'top',
           });
 
+
         }, (err) => {
           console.log(err)
           this.spinner.hide()

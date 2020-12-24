@@ -36,4 +36,12 @@ export class PaymentService {
     const headers = token.headers;
     return this.http.post(apiUrl, params, body, headers);
   }
+
+  getIDComplete(parram: HttpRequestModel, token: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}order/get-by-id`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = token.headers;
+    return this.http.get(apiUrl, params, body, headers);
+  }
 }

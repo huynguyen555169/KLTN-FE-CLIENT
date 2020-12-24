@@ -48,6 +48,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/user-product/user-product.module').then(m => m.UserProductModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'order-received',
+    loadChildren: () => import('./pages/complete/complete.module').then(m => m.CompleteModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

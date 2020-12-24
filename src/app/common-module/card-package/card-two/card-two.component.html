@@ -6,7 +6,7 @@
     <div class="card-two-body">
       <div class="title-with-sub pt-2 pb-1">
         {{ data.title }}
-        <div class="sub-title">with {{ data.master }}</div>
+        <div class="sub-title"> {{ data.master }}</div>
       </div>
 
       <div class="before-description d-flex">
@@ -30,7 +30,7 @@
       </div>
 
       <div class="price">
-        <span>{{ data.price }}</span>
+        <span>{{ data.price |currency:'VND' }}</span>
       </div>
 
       <div class="card-two-actions d-flex justify-content-end" *ngIf="actions">

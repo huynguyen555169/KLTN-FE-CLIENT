@@ -1,0 +1,62 @@
+<div class="payment-container" *ngIf="data">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <div class="title">
+                    CHI TIẾT ĐƠN HÀNG
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 mb-5 list-product">
+            <div class="mb-2" *ngFor="let item of dataArr">
+                <app-card-order [data]="item"></app-card-order>
+            </div>
+        </div>
+        <div class="row d-flex flex-column">
+            <div class="w-100 d-flex justify-content-end">
+                <div class="col-9 text-right column-text">
+                    Tổng Tiền Hàng
+                </div>
+                <div class="col-3 column-text1">
+                    {{data.total |currency:"VND"}}
+                </div>
+            </div>
+            <div class=" w-100 d-flex justify-content-end">
+                <div class="col-9 text-right column-text">
+                    Vận chuyển-Giao Hàng Tiết Kiệm
+                </div>
+                <div class="col-3 column-text1">
+                    0
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-end">
+                <div class="col-9 text-right column-text">
+                    Ngày giao hàng
+                </div>
+                <div class="col-3 column-text1">
+                    {{data.createdAt}}
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-end">
+                <div class="col-9 text-right column-text pt-2">
+                    Tổng số tiền
+                </div>
+                <div class="col-3 column-text1 money-text">
+                    {{data.total|currency:"VND"}}
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-5">
+            <div class="col-9 d-flex align-items-center justify-content-end text-pay">
+                <span class="material-icons" style="color:#E6DF76; font-size: 35px;">
+                    anchor
+                </span>
+                Phương thức thanh toán
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end" *ngIf="data.order_is_cod ===1">
+                Thanh toán khi nhận hàng
+            </div>
+        </div>
+
+    </div>

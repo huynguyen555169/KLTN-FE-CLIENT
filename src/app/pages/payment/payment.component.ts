@@ -24,10 +24,12 @@ export class PaymentComponent implements OnInit {
   provinceID: any;
   data;
   listOrder;
+  totalOrder;
   districtList: any;
   districtCheck: any;
   elementType = 'url';
   value = '';
+  paymentType = 'cod'
 
 
   wardList: any;
@@ -35,12 +37,6 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-    this.cartRootService.listOrder.subscribe((res) => {
-      this.listOrder = res
-      console.log(this.listOrder)
-    })
     this.spinner.show()
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
     const httpOptions = {
@@ -50,9 +46,10 @@ export class PaymentComponent implements OnInit {
     };
 
     const dataOrder = new HttpRequestModel();
-    dataOrder.params = { isBuying: 1 };
+    dataOrder.params = {};
     this.cartService.getAllCart(dataOrder, httpOptions).subscribe((res) => {
-      // this.listOrder = res.productInfo
+      this.listOrder = res.cart
+      this.totalOrder = res.total
     })
 
     const dataGetListProvince = new HttpRequestModel();
@@ -115,7 +112,6 @@ export class PaymentComponent implements OnInit {
     dataGetListDistrict.params = { province: e.value };
     this.paymentService.getListDistrict(dataGetListDistrict).subscribe((res) => {
       this.districtList = res
-      console.log(this.districtList)
     })
   }
   handleChange1(e) {
@@ -128,6 +124,7 @@ export class PaymentComponent implements OnInit {
   }
 
   handleOrder() {
+    this.spinner.show()
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -135,9 +132,12 @@ export class PaymentComponent implements OnInit {
       })
     };
     const dataOrder = new HttpRequestModel();
-    dataOrder.body = { customerInfo: this.InfoForm.value, data: this.listOrder, paymentType: 'momo' };
+    dataOrder.body = { customerInfo: this.InfoForm.value, data: this.listOrder, paymentType: this.paymentType };
     this.paymentService.createOrder(dataOrder, httpOptions).subscribe((res) => {
+      console.log(res)
+      this.spinner.hide()
       this.value = res.qrCodeUrl;
+      this.router.navigate(['order-received'], { queryParams: { id: res.orderId } })
       const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
       const httpOptions = {
         headers: new HttpHeaders({

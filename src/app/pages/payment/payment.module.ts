@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaymentComponent } from './payment.component';
 import { PaymentRoutingModule } from './payment-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,7 +23,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     MatRadioModule,
     MatButtonModule,
     MatSelectModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    FormsModule
   ],
   exports: [
     PaymentComponent

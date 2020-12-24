@@ -41,4 +41,12 @@ export class DetailAccountService {
     const headers = header.headers;
     return this.http.get(apiUrl, params, body, headers);
   }
+
+  cancelOrder(parram: HttpRequestModel, header: HttpRequestModel) {
+    const apiUrl = `${this.baseUrl}order/cancel-order`;
+    const params = parram.params;
+    const body = parram.body;
+    const headers = header.headers;
+    return this.http.post(apiUrl, params, body, headers);
+  }
 }

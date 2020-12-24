@@ -31,6 +31,9 @@ export class UserProductComponent implements OnInit {
 
   ]
   data;
+  status;
+  arrStatus;
+  arrId;
 
   constructor(private orderService: DetailAccountService, private spinner: CSpinnerService) { }
 
@@ -50,7 +53,14 @@ export class UserProductComponent implements OnInit {
         return i.order_detail
       });
       this.data = this.data.flat()
-      console.log(this.data)
+      this.arrStatus = res.data.map((i) => {
+        return i.order_status_fk
+      });
+      this.arrId = res.data.map((i) => {
+        return i.order_id
+      });
+      this.arrId = this.arrId.flat()
+      this.arrStatus = this.arrStatus.flat()
     })
   }
   handleChange(e) {
@@ -65,10 +75,25 @@ export class UserProductComponent implements OnInit {
     dataGetOrder.params = { status: e.index }
     this.orderService.getOrder(dataGetOrder, httpOptions).subscribe((res) => {
       this.spinner.hide()
+
       this.data = res.data.map((i) => {
         return i.order_detail
       });
+
       this.data = this.data.flat()
+
+    })
+  }
+  handleCancel(e) {
+    const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    };
+    const dataCancle = new HttpRequestModel();
+    dataCancle.body = { id: e }
+    this.orderService.cancelOrder(dataCancle, httpOptions).subscribe((res) => {
     })
   }
 

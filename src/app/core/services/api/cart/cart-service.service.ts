@@ -49,6 +49,7 @@ export class CartServiceService {
     const apiUrl = `${this.baseUrl}cart/update-to-buy`;
     const params = parram.params;
     const body = parram.body;
+    console.log(body)
     const headers = token.headers;
     return this.http.post(apiUrl, params, body, headers);
   }

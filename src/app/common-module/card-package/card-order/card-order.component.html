@@ -1,5 +1,5 @@
 <div class="card-order d-flex w-100" *ngIf="data">
-    <img src="{{data.productInfo.product_images[0]}}" alt="" style="width:90px;height:110px" class="mr-2 image-order">
+    <img src="{{data.productInfo.product_images[0]}}" alt="" style="width:100px;height:110px" class="mr-2 image-order">
     <div class="d-flex justify-content-between w-100 ">
         <div class="">
             <div class="">
@@ -9,13 +9,14 @@
                 x{{data.order_detail_qty}}
             </div>
         </div>
-        <div class="">
+        <div class="d-flex flex-column justify-content-between">
             <div class="">
                 {{data.total | currency: "VND"}}
             </div>
-            <div class="status">
-                Đã giao
-            </div>
+            <button mat-flat-button color="warn" class="status" style="color:white" [disabled]="arrStatus>2"
+                (click)="handleCancel()">
+                Huỷ đơn hàng
+            </button>
         </div>
     </div>
 </div>

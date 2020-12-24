@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-card-order',
@@ -7,12 +7,17 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class CardOrderComponent implements OnInit, OnChanges {
   @Input() data: any;
+  @Input() arrStatus: any;
+  @Input() arrId: any;
+  @Output() cancel = new EventEmitter<any>();
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.data.currentValue)
   }
 
   ngOnInit(): void {
+  }
+  handleCancel() {
+    this.cancel.emit(this.arrId)
   }
 
 }

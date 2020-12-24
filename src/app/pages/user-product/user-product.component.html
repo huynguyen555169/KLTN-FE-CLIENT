@@ -5,9 +5,11 @@
         </div>
         <div class="mt-5">
             <mat-tab-group mat-align-tabs="start" (selectedTabChange)="handleChange($event)">
-                <mat-tab label="{{item.label}}" *ngFor="let item of dataTab">
-                    <div class="mt-3" *ngFor="let order of data">
-                        <app-card-order [data]="order"></app-card-order>
+                <mat-tab label="{{item.label}}" *ngFor="let item of dataTab;index as i">
+                    <div class=" mt-3" *ngFor="let order of data">
+                        <app-card-order [data]="order" [arrStatus]="arrStatus[i]" [arrId]="arrId[i]"
+                            (cancel)="handleCancel($event)">
+                        </app-card-order>
                     </div>
                 </mat-tab>
             </mat-tab-group>
