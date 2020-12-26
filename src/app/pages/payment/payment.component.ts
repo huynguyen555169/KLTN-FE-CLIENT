@@ -30,6 +30,8 @@ export class PaymentComponent implements OnInit {
   elementType = 'url';
   value = '';
   paymentType = 'cod'
+  id;
+  check
 
 
   wardList: any;
@@ -134,10 +136,11 @@ export class PaymentComponent implements OnInit {
     const dataOrder = new HttpRequestModel();
     dataOrder.body = { customerInfo: this.InfoForm.value, data: this.listOrder, paymentType: this.paymentType };
     this.paymentService.createOrder(dataOrder, httpOptions).subscribe((res) => {
-      console.log(res)
+      this.check = true;
+      this.id = res.orderId
       this.spinner.hide()
       this.value = res.qrCodeUrl;
-      this.router.navigate(['order-received'], { queryParams: { id: res.orderId } })
+      // this.router.navigate(['order-received'], { queryParams: { id: res.orderId } })
       const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
       const httpOptions = {
         headers: new HttpHeaders({
@@ -171,5 +174,9 @@ export class PaymentComponent implements OnInit {
         verticalPosition: 'top',
       });
     })
+  }
+
+  handleDetail() {
+    this.router.navigate(['order-received'], { queryParams: { id: this.id } })
   }
 }

@@ -13,10 +13,10 @@
   <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
   <div class="sort-container--content d-flex w-100 justify-content-between">
     <div class="sort-container--label">
-      Min {{ data.minValue | moneyFormat | postfix: "VND" }}
+      {{ data.minValue | moneyFormat | postfix: "VND" }}
     </div>
     <div class="sort-container--label">
-      Max {{ data.maxValue | moneyFormat | postfix: "VND" }}
+      {{ data.maxValue | moneyFormat | postfix: "VND" }}
     </div>
   </div>
   <div class="sort-container--button w-100 d-flex justify-content-center mt-4">

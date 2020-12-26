@@ -11,8 +11,8 @@
                             <mat-label>Họ và tên</mat-label>
                             <input matInput placeholder="Họ và tên" formControlName="customer_fullName">
                             <mat-error>{{
-                            InfoForm.controls["customer_fullName"].errors?.message
-                          }}
+                                InfoForm.controls["customer_fullName"].errors?.message
+                                }}
                             </mat-error>
                         </mat-form-field>
                         <div class="w-100 d-flex justify-content-between mb-2">
@@ -20,16 +20,16 @@
                                 <mat-label>Số điện thoại</mat-label>
                                 <input matInput placeholder="Số điện thoại" formControlName="customer_phone">
                                 <mat-error>{{
-                                InfoForm.controls["customer_phone"].errors?.message
-                              }}
+                                    InfoForm.controls["customer_phone"].errors?.message
+                                    }}
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="fill" class="w-45">
                                 <mat-label>Địa chỉ email</mat-label>
                                 <input matInput placeholder="Địa chỉ email" formControlName="email">
                                 <mat-error>{{
-                                InfoForm.controls["email"].errors?.message
-                              }}
+                                    InfoForm.controls["email"].errors?.message
+                                    }}
                                 </mat-error>
                             </mat-form-field>
                         </div>
@@ -66,8 +66,8 @@
                             <mat-label>Địa chỉ</mat-label>
                             <input matInput placeholder="Địa chỉ" formControlName="customer_address">
                             <mat-error>{{
-                            InfoForm.controls["customer_address"].errors?.message
-                          }}
+                                InfoForm.controls["customer_address"].errors?.message
+                                }}
                             </mat-error>
                         </mat-form-field>
 
@@ -120,9 +120,11 @@
                             {{totalOrder|currency:"VND"}}
                         </span>
                     </div>
-                    <div class="w-100 d-flex justify-content-center mt-3">
+                    <div class="w-100 d-flex justify-content-between mt-3">
                         <button mat-stroked-button color="warn" (click)="handleOrder()"
                             [disabled]="listOrder.length<1">ĐẶT
+                            HÀNG</button>
+                        <button mat-stroked-button color="warn" (click)="handleDetail()" *ngIf="check">CHI TIẾT ĐƠN
                             HÀNG</button>
                     </div>
 
