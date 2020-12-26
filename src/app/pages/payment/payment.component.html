@@ -122,7 +122,7 @@
                     </div>
                     <div class="w-100 d-flex justify-content-between mt-3">
                         <button mat-stroked-button color="warn" (click)="handleOrder()"
-                            [disabled]="listOrder.length<1">ĐẶT
+                            [disabled]="listOrder.length<1 || check">ĐẶT
                             HÀNG</button>
                         <button mat-stroked-button color="warn" (click)="handleDetail()" *ngIf="check">CHI TIẾT ĐƠN
                             HÀNG</button>
