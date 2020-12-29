@@ -124,7 +124,7 @@ export const footerData: FooterOneModel = {
             title: "ABOUT US", // title of colum
             description:
                 "Shop được thành lập vào đầu năm 2020,", // description of column
-            more: "SEE MORE", // link to website (or page)
+            more: "Xem thêm", // link to website (or page)
         },
         {
             // data of some columns
@@ -132,14 +132,14 @@ export const footerData: FooterOneModel = {
             title: "PRODUCT", // title of colum
             description:
                 "Tấc cả sản phẩm được xuất xứ rõ ràng", // description of column
-            more: "SEE MORE", // link to website (or page)
+            more: "Xem thêm", // link to website (or page)
         },
         {
             // data of some columns
             icon: "../../../assets/images/request.svg", // img of column
             title: "ADDRESS", // title of colum
             description: "01, Võ Văn Ngân, Quận Thủ Đức, TP.HCM", // description of column
-            more: "SEE MORE", // link to website (or page)
+            more: "Xem thêm", // link to website (or page)
         },
     ],
     phone: [

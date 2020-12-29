@@ -5,31 +5,20 @@
     </div>
   </div>
   <div class="footer-one--content d-flex justify-content-center">
-    <div
-      class="footer-content--col d-flex flex-column justify-content-center"
-      *ngFor="let content of data.content"
-    >
-      <img
-        src="{{ content.icon }}"
-        alt="Content icon"
-        class="footer-col--icon"
-      />
+    <div class="footer-content--col d-flex flex-column justify-content-center" *ngFor="let content of data.content">
+      <img src="{{ content.icon }}" alt="Content icon" class="footer-col--icon" />
       <div class="footer-col--title">
         {{ content.title }}
       </div>
       <div class="footer-col--description">
         {{ content.description }}
       </div>
-      <a href="{{ content.more }}" class="footer-col--action">SEE MORE ></a>
+      <a href="{{ content.more }}" class="footer-col--action">Xem thêm ></a>
     </div>
   </div>
   <div class="footer-one--contact d-flex justify-content-between">
     <div class="footer-contact--left d-flex" *ngFor="let phone of data.phone">
-      <img
-        src="{{ phone.icon }}"
-        alt="Phone icon"
-        class="footer-contact-left--icon"
-      />
+      <img src="{{ phone.icon }}" alt="Phone icon" class="footer-contact-left--icon" />
       <div class="footer-contact-left--text">
         {{ phone.number }}
       </div>
