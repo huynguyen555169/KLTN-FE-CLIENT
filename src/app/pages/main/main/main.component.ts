@@ -65,7 +65,6 @@ export class MainComponent implements OnInit {
     this.landingPageService
       .getBestCourse(dataGetBestCourse)
       .subscribe((res) => {
-        console.log(res.data)
         this.dataCard02 = res.data.map(
           (item) => new CardTwoModel(item)
         );
@@ -96,7 +95,6 @@ export class MainComponent implements OnInit {
   }
   handle(e) {
     this.router.navigate([e.link]);
-    console.log(e.link)
   }
   handleSlider4($event) {
   }

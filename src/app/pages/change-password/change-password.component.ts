@@ -28,7 +28,6 @@ export class ChangePasswordComponent implements OnInit {
     })
   }
   handleValue() {
-    console.log(this.changeForm.value)
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -40,7 +39,6 @@ export class ChangePasswordComponent implements OnInit {
       data: this.changeForm.value
     }
     this.detailAcoount.changePassword(dataEdit, httpOptions).subscribe((res) => {
-      console.log(res)
       this._snackBar.openFromComponent(SnackBarComponent, {
         data: 'Thành công',
         duration: 2000,

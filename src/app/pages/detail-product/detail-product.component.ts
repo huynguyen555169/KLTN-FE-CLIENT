@@ -81,7 +81,6 @@ export class DetailProductComponent implements OnInit {
       this.detailService.getListFashion(dataGetItem).subscribe((res) => {
         res.data.map((e) => {
           this.dataListSize.push(e)
-          console.log(this.dataListSize)
         })
         this.spinner.hide()
         this.data = res.data[0]
@@ -151,7 +150,6 @@ export class DetailProductComponent implements OnInit {
 
 
         }, (err) => {
-          console.log(err)
           this.spinner.hide()
           this._snackBar.openFromComponent(SnackBarComponent, {
             data: err.error.message,

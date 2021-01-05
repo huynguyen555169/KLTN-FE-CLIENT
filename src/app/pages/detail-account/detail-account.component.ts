@@ -136,7 +136,6 @@ export class DetailAccountComponent implements OnInit {
     dataGetListDistrict.params = { province: e.value };
     this.paymentService.getListDistrict(dataGetListDistrict).subscribe((res) => {
       this.districtList = res
-      console.log(this.districtList)
     })
 
   }
