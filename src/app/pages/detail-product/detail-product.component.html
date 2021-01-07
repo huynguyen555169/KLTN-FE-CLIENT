@@ -16,7 +16,14 @@
                                     SIZE GUIDE
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            <img src="../../../assets/images/guide.jpg" alt="" class="w-100">
+                            <img src="../../../assets/images/giay.jpg" alt="" class="w-100"
+                                *ngIf="data.product_type.product_type_id === 1">
+                            <img src="../../../assets/images/guide.jpg" alt="" class="w-100"
+                                *ngIf="data.product_type.product_type_id === 2">
+                            <img src="../../../assets/images/duongkinhvodongho.jpg" alt="" class="w-100"
+                                *ngIf="data.product_type.product_type_id === 3">
+                            <img src="../../../assets/images/thatlung.jpg" alt="" class="w-100"
+                                *ngIf="data.product_type.product_type_id === 4">
 
                         </mat-expansion-panel>
                         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
@@ -25,7 +32,7 @@
                                     CHÍNH SÁCH ĐỔI TRẢ
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                            <img src="../../../assets/images/guide.jpg" alt="" class="w-100">
+                            <img src="../../../assets/images/chinhsach.jpg" alt="" class="w-100">
 
                         </mat-expansion-panel>
                     </mat-accordion>
@@ -46,7 +53,7 @@
                 </div>
                 <div class="d-flex mb-1">
                     <div class="select-number d-flex flex-column">
-                        <div class="">
+                        <div class="font-weight-bold">
                             Số lượng
                         </div>
                         <div class="">
@@ -58,7 +65,7 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <div class="mb-2">
+                    <div class="mb-2 font-weight-bold">
                         Chọn Size
                     </div>
                     <div class="">
@@ -68,8 +75,15 @@
 
 
                 </div>
-                <div class="description-card mb-2">
-                    {{data.product_description}}
+
+                <div class="description-card mb-2 mt-2">
+                    <div class="mb-2 font-weight-bold">
+                        Mô tả sản phẩm
+                    </div>
+                    <div class="">
+                        {{data.product_description}}
+                    </div>
+
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                     <button mat-button style="background-color:#FA574F ; color:#ffffff" (click)="addToCart()"><span
