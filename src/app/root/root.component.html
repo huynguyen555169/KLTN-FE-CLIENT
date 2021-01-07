@@ -1,4 +1,4 @@
-<div class="header-page d-flex justify-content-between" *ngIf="!isShow">
+<div class="header-page d-flex justify-content-between" *ngIf="!isShow" id="header-page">
     <div class="col header-left">
         <app-menu-one [menus]="menus" [logo]="logo" (itemClick)="handleItemClick($event)"></app-menu-one>
     </div>

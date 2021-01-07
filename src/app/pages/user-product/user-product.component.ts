@@ -12,7 +12,7 @@ import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
 export class UserProductComponent implements OnInit {
   dataTab = [
     {
-      label: 'Tấc cả'
+      label: 'Tất cả'
     },
     {
       label: 'Chờ xác nhận'
