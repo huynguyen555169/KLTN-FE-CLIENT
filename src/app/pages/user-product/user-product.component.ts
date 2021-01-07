@@ -35,6 +35,7 @@ export class UserProductComponent implements OnInit {
   arrStatus;
   arrId;
   dataMaster;
+  statusCheck;
 
   constructor(private orderService: DetailAccountService, private spinner: CSpinnerService) { }
 
@@ -68,6 +69,8 @@ export class UserProductComponent implements OnInit {
     })
   }
   handleChange(e) {
+
+    this.statusCheck = e.index
     this.spinner.show()
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
     const httpOptions = {
@@ -87,6 +90,10 @@ export class UserProductComponent implements OnInit {
     })
   }
   handleCancel(e) {
+    if (this.statusCheck === undefined) {
+      this.statusCheck = ''
+    }
+    this.spinner.show()
     const token = JSON.parse(localStorage.getItem('currentUser1')).token.accessToken;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -96,6 +103,29 @@ export class UserProductComponent implements OnInit {
     const dataCancle = new HttpRequestModel();
     dataCancle.body = { id: e }
     this.orderService.cancelOrder(dataCancle, httpOptions).subscribe((res) => {
+      const dataGetOrder = new HttpRequestModel();
+      dataGetOrder.params = { status: this.statusCheck }
+      this.orderService.getOrder(dataGetOrder, httpOptions).subscribe((res) => {
+        this.spinner.hide()
+        this.dataMaster = res.data
+        this.data = res.data.map((i) => {
+          return i.order_detail
+        });
+
+        if (this.statusCheck === '') {
+          this.arrStatus = res.data.map((i) => {
+            return i.order_status_fk
+          });
+
+          this.arrId = res.data.map((i) => {
+            return i.order_id
+          });
+
+          this.arrId = this.arrId.flat()
+          this.arrStatus = this.arrStatus.flat()
+        }
+
+      })
     })
   }
 

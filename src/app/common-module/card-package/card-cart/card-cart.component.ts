@@ -51,7 +51,6 @@ export class CardCartComponent implements OnInit {
       })
     };
     const getListData = new HttpRequestModel();
-
     getListData.body = { product_id: this.data.productInfo.product_id, qty: this.data.cart_product_qty };
     this.cartService.updateQty(getListData, httpOptions).subscribe((res) => {
       this.data.total = res.total

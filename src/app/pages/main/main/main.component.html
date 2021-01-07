@@ -1,7 +1,7 @@
 <div class="landing-page">
 
   <div class="slider-header">
-    <app-slide-one [dataList]="dataListSlide1" [slideId]="'slide01-1'" (actionItemClick)="handle($event)">
+    <app-slide-one [dataList]="dataListSlide1" [slideId]="'slide01-1'" (actionItemClick)="handleSlide($event)">
     </app-slide-one>
   </div>
   <div class="course-header">
@@ -15,7 +15,7 @@
     <div class="care-header--title">Được quan tâm nhiều</div>
     <div class="care-header--content">
       <div class="card-item" *ngFor="let item of dataCard02; let i = index">
-        <app-card-two [data]="item" [actions]="'true'" [imageBefore]="i % 2 === 0" (actionClick)="handle($event)">
+        <app-card-two [data]="item" [actions]="'true'" [imageBefore]="i % 2 === 0" (actionClick)="handleProduct(item)">
         </app-card-two>
       </div>
     </div>

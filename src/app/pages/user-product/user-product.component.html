@@ -32,7 +32,8 @@
                                     {{ dataMaster[i].order_status.order_status_title_vn}}
                                 </div>
                             </div>
-                            <button mat-raised-button color="warn" (click)="handleCancel(dataMaster[i].order_id)">Huỷ
+                            <button mat-raised-button color="warn" (click)="handleCancel(dataMaster[i].order_id)"
+                                [disabled]="dataMaster[i].order_status.order_status_id !==1 && dataMaster[i].order_status.order_status_id !==2">Huỷ
                                 đơn
                                 hàng</button>
                         </div>

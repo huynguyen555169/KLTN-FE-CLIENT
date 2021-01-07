@@ -91,12 +91,25 @@ export class MainComponent implements OnInit {
       });
   }
 
-  menuClick($event) {
+  menuClick(e) {
+
   }
   handle(e) {
     this.router.navigate([e.link]);
+
   }
-  handleSlider4($event) {
+  handleSlide(e) {
+    let nameInRoute: String = e.title.split(' ').join('-');
+    this.router.navigate(['detail-product'], { queryParams: { name: nameInRoute } })
+  }
+  handleProduct(e) {
+    let nameInRoute: String = e.title.split(' ').join('-');
+    this.router.navigate(['detail-product'], { queryParams: { name: nameInRoute } })
+  }
+  handleSlider4(e) {
+
+    let nameInRoute: String = e.title.split(' ').join('-');
+    this.router.navigate(['detail-product'], { queryParams: { name: nameInRoute } })
   }
 
 }
