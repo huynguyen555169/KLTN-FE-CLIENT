@@ -19,7 +19,11 @@
             </div>
         </div>
         <div class="col-2 d-flex align-items-center">
-            <div class="card-price">
+            <div class="card-price"
+                [ngClass]="{'text-rule':data.productInfo.product_unit_price !== data.productInfo.product_paid_price}">
+                {{data.productInfo.product_unit_price |currency:"VND"}}
+            </div>
+            <div class="card-price" *ngIf="data.productInfo.product_unit_price !== data.productInfo.product_paid_price">
                 {{data.productInfo.product_paid_price |currency:"VND"}}
             </div>
         </div>
