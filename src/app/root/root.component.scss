@@ -64,8 +64,8 @@
     visibility: visible;
 }
 .img-item-cart {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 60px;
     object-fit: cover;
 }
 .product-item {
@@ -77,4 +77,8 @@
 }
 .config-image {
     object-fit: contain;
+}
+.new-product {
+    opacity: 0.3;
+    margin-bottom: 10px;
 }

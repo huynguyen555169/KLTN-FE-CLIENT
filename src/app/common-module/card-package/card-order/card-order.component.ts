@@ -17,6 +17,7 @@ export class CardOrderComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
   handleCancel() {
+
     this.cancel.emit(this.arrId)
   }
 

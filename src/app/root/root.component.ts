@@ -21,6 +21,7 @@ export class RootComponent implements OnInit {
   iconColor = iconColor;
   pageNoti = pageNoti;
   dataCart = [];
+  cart = [];
   //noti01
   notificationList = notificationList;
   // menu02
@@ -71,6 +72,7 @@ export class RootComponent implements OnInit {
     getListData.params = {};
     this.cartService.getAllCart(getListData, httpOptions).subscribe((res) => {
       this.count = res.count;
+      this.cart = res.cart
       this.dataCart = res.cart.map((item) => item.productInfo);
     })
 

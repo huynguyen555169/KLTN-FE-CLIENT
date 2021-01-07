@@ -10,11 +10,23 @@
             </button>
             <div class="item-cart position-absolute" *ngIf="data">
                 <div class="product-item d-flex flex-column" *ngIf="count>0;else blockElse">
-                    <div class="d-flex mb-2" *ngFor="let item of dataCart">
+                    <div class="new-product">
+                        Sản phẩm mới thêm
+                    </div>
+
+                    <div class="d-flex mb-2" *ngFor="let item of dataCart ;index as i">
                         <img src="{{item.product_images[0]}}" alt="" class="img-item-cart">
                         <div class="title-item-cart pl-1">
-                            {{item.product_name}}
+                            <div class="">
+                                {{item.product_name}}
+                            </div>
+                            <div class="" style="color:#F54336">
+                                {{item.product_paid_price |currency: "VND"}}
+                            </div>
+
                         </div>
+
+
                     </div>
 
                 </div>

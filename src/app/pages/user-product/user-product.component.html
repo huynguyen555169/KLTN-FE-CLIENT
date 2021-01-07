@@ -6,10 +6,29 @@
         <div class="mt-5">
             <mat-tab-group mat-align-tabs="start" (selectedTabChange)="handleChange($event)">
                 <mat-tab label="{{item.label}}" *ngFor="let item of dataTab;index as i">
-                    <div class=" mt-3" *ngFor="let order of data">
-                        <app-card-order [data]="order" [arrStatus]="arrStatus[i]" [arrId]="arrId[i]"
-                            (cancel)="handleCancel($event)">
-                        </app-card-order>
+                    <div class="list-card mt-3" *ngFor="let order of data;index as i">
+                        <div class="p-2 font-italic" style="font-size: 13px; opacity: 0.6;">
+                            Ngày tạo: {{dataMaster[i].createdAt}}
+                        </div>
+                        <div class="" *ngFor="let item of order">
+                            <app-card-order [data]="item" [arrStatus]="arrStatus[i]" [arrId]="arrId[i]"
+                                (cancel)="handleCancel($event)">
+                            </app-card-order>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center w-100 pt-2">
+                            Tổng tiền: <div class="pl-1" style="color:#F54336;font-size: 20px;">
+                                {{dataMaster[i].total|currency:"VND"}}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center w-100 pt-2 pb-2">
+                            <div class="d-flex align-items-center font-italic" style="font-size: 13px;">
+                                Tình trạng: <div class="pl-1" style="color:#F54336; font-size: 18px;">
+                                    {{ dataMaster[i].order_status.order_status_title_vn}}
+                                </div>
+                            </div>
+                            <button mat-raised-button color="warn">Huỷ đơn hàng</button>
+                        </div>
+
                     </div>
                 </mat-tab>
             </mat-tab-group>

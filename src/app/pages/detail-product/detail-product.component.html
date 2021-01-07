@@ -36,8 +36,13 @@
                 <div class="title-card mb-2">
                     {{data.product_name}}
                 </div>
-                <div class="price-card mb-4">
-                    {{data.product_unit_price | currency: "VND"}}
+                <div class="price-card mb-4 d-flex">
+                    <div class="" [ngClass]="{'text-rule':data.product_unit_price !== data.product_paid_price}">
+                        {{data.product_unit_price | currency: "VND"}}
+                    </div>
+                    <div class="pl-1" *ngIf="data.product_unit_price !== data.product_paid_price">
+                        {{data.product_paid_price | currency: "VND"}}
+                    </div>
                 </div>
                 <div class="d-flex mb-1">
                     <div class="select-number d-flex flex-column">

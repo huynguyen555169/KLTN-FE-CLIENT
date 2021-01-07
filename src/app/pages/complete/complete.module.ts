@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CompleteComponent } from './complete.component';
 import { CompleteRoutingModule } from './complete-routing.module';
 import { CardOrderModule } from 'src/app/common-module/card-package/card-order/card-order.module';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +12,8 @@ import { CardOrderModule } from 'src/app/common-module/card-package/card-order/c
   imports: [
     CommonModule,
     CompleteRoutingModule,
-    CardOrderModule
+    CardOrderModule,
+    MatButtonModule
   ],
   exports: [
     CompleteComponent

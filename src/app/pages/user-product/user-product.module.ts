@@ -4,6 +4,7 @@ import { UserProductComponent } from './user-product.component';
 import { UserProductRoutingModule } from './user-product-routing.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CardOrderModule } from 'src/app/common-module/card-package/card-order/card-order.module';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -13,7 +14,8 @@ import { CardOrderModule } from 'src/app/common-module/card-package/card-order/c
     CommonModule,
     UserProductRoutingModule,
     MatTabsModule,
-    CardOrderModule
+    CardOrderModule,
+    MatButtonModule
   ],
   exports: [
     UserProductComponent

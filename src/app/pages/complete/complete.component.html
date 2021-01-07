@@ -11,6 +11,10 @@
             <div class="mb-2" *ngFor="let item of dataArr">
                 <app-card-order [data]="item"></app-card-order>
             </div>
+
+            <div class="d-flex justify-content-end align-items-center w-100 pt-2 pb-2">
+                <button mat-raised-button color="warn">Huỷ đơn hàng</button>
+            </div>
         </div>
         <div class="row d-flex flex-column">
             <div class="w-100 d-flex justify-content-end">
@@ -31,7 +35,7 @@
             </div>
             <div class="w-100 d-flex justify-content-end">
                 <div class="col-9 text-right column-text">
-                    Ngày giao hàng
+                    Ngày đặt hàng
                 </div>
                 <div class="col-3 column-text1">
                     {{data.createdAt}}

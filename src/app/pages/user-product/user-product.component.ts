@@ -34,6 +34,7 @@ export class UserProductComponent implements OnInit {
   status;
   arrStatus;
   arrId;
+  dataMaster;
 
   constructor(private orderService: DetailAccountService, private spinner: CSpinnerService) { }
 
@@ -49,16 +50,19 @@ export class UserProductComponent implements OnInit {
     dataGetOrder.params = { status: '' }
     this.orderService.getOrder(dataGetOrder, httpOptions).subscribe((res) => {
       this.spinner.hide()
+      this.dataMaster = res.data
       this.data = res.data.map((i) => {
         return i.order_detail
       });
-      this.data = this.data.flat()
+
       this.arrStatus = res.data.map((i) => {
         return i.order_status_fk
       });
+      console.log(this.arrStatus)
       this.arrId = res.data.map((i) => {
         return i.order_id
       });
+      console.log(this.arrId)
       this.arrId = this.arrId.flat()
       this.arrStatus = this.arrStatus.flat()
     })
