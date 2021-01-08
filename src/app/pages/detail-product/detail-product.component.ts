@@ -86,6 +86,7 @@ export class DetailProductComponent implements OnInit {
         this.spinner.hide()
         this.data = res.data[0]
         this.description = this.data.product_description.split('.')
+        console.log(this.description)
         const dataGetComment = new HttpRequestModel();
         dataGetComment.params = { product_id: this.data.product_id }
         this.detailService.getListComment(dataGetComment).subscribe((res) => {

@@ -53,8 +53,8 @@ export class SlideSixComponent implements OnInit, OnChanges, AfterViewChecked {
   ngAfterViewChecked() {
     if (this.isInitSlide) {
       this.isInitSlide = false;
-      !!$(`#${this.slideId}`).slick() && $(`#${this.slideId}`).slick('unslick');
-      !!$('#slider-nav').slick() && $('#slider-nav').slick('unslick');
+      !!$(`#${this.slideId}`).not('.slick-initialized').slick() && $(`#${this.slideId}`).slick('unslick');
+      !!$('#slider-nav').not('.slick-initialized').slick() && $('#slider-nav').slick('unslick');
 
 
       $(`#${this.slideId}`).not('.slick-initialized').slick({
