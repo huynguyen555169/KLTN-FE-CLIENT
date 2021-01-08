@@ -79,18 +79,14 @@ $transition-duration: 0.6s;
             margin: 0;
           }
         }
-        .card-content--sub {
-          font-size: 16px;
-          margin-top: 15px;
-          height: 16px;
-        }
+
         .card-content--description {
           display: -webkit-box;
           text-overflow: ellipsis;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          margin-top: 15px;
+          margin-top: 20px;
           font-size: 14px;
           line-height: 1.5;
           height: 82px;
