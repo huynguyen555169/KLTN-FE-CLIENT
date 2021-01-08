@@ -56,6 +56,7 @@ export class DetailProductComponent implements OnInit {
   arrayStars = []
   dataListSize = []
   data: any;
+  description;
   qty = 1;
   dataType = [{
     key: '1',
@@ -84,6 +85,7 @@ export class DetailProductComponent implements OnInit {
         })
         this.spinner.hide()
         this.data = res.data[0]
+        this.description = this.data.product_description.split('.')
         const dataGetComment = new HttpRequestModel();
         dataGetComment.params = { product_id: this.data.product_id }
         this.detailService.getListComment(dataGetComment).subscribe((res) => {
