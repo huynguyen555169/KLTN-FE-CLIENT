@@ -69,6 +69,7 @@ export class DetailProductComponent implements OnInit {
   panelOpenState = false;
 
   productCurrent;
+  erro;
 
   constructor(private router: Router, private detailService: DetailService, private route: ActivatedRoute, private cartService: CartServiceService, private spinner: CSpinnerService, private _snackBar: MatSnackBar, private cartRootService: CartRootService, public dialog: MatDialog) {
   }
@@ -184,18 +185,35 @@ export class DetailProductComponent implements OnInit {
       const dataGetComment = new HttpRequestModel();
       dataGetComment.params = { product_id: this.data.product_id }
       this.detailService.getListComment(dataGetComment).subscribe((res) => {
+        this.erro = res.message
         this.dataComment = res.data;
         this.review = ''
       })
 
+      this._snackBar.openFromComponent(SnackBarComponent, {
+
+        data: res.message,
+        duration: 2000,
+        panelClass: ['blue-snackbar'],
+        verticalPosition: 'top',
+      });
+
     }, (err) => {
+
       this.spinner.hide()
+      this._snackBar.openFromComponent(SnackBarComponent, {
+        data: err.error.message,
+        duration: 2000,
+        panelClass: ['blue-snackbar'],
+        verticalPosition: 'top',
+      });
     })
 
   }
   handleRateing(i) {
     this.arrayStars = []
     this.cartRootService.rateChange.next(i + 1)
+
   }
 
 }
