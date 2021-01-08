@@ -16,7 +16,7 @@
                             </mat-error>
                         </mat-form-field>
                         <div class="w-100 d-flex justify-content-between mb-2">
-                            <mat-form-field appearance="fill" class="w-45">
+                            <mat-form-field appearance="fill" class="w-100">
                                 <mat-label>Số điện thoại</mat-label>
                                 <input matInput placeholder="Số điện thoại" formControlName="customer_phone">
                                 <mat-error>{{
@@ -24,14 +24,7 @@
                                     }}
                                 </mat-error>
                             </mat-form-field>
-                            <mat-form-field appearance="fill" class="w-45">
-                                <mat-label>Địa chỉ email</mat-label>
-                                <input matInput placeholder="Địa chỉ email" formControlName="email">
-                                <mat-error>{{
-                                    InfoForm.controls["email"].errors?.message
-                                    }}
-                                </mat-error>
-                            </mat-form-field>
+
                         </div>
                         <mat-form-field appearance="fill" class="w-100 mb-2">
                             <mat-label>Tỉnh/Thành phố</mat-label>

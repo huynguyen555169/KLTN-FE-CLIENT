@@ -159,9 +159,15 @@ export class PaymentComponent implements OnInit {
         })
 
       })
-
+      let mess = "";
+      if (this.paymentType === "momo") {
+        mess = "Vui lòng quét mã QR"
+      } else {
+        mess = "Đặt hàng thành công"
+      }
       this._snackBar.openFromComponent(SnackBarComponent, {
-        data: res.message,
+
+        data: mess,
         duration: 2000,
         panelClass: ['blue-snackbar'],
         verticalPosition: 'top',

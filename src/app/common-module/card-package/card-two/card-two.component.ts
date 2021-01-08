@@ -41,7 +41,7 @@ export class CardTwoModel {
   rate: number;
 
   constructor(data: any) {
-    this.imageUrl = data.product_images;
+    this.imageUrl = data.product_images[0];
     this.title = data.product_name;
     this.master = data.instructor_name;
     this.description = data.product_description;
