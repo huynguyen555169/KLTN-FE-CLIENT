@@ -58,7 +58,7 @@ $animation-time: 0.7s;
     .title {
       font-size: 30px;
       font-weight: 500;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       display: block !important;
     }
 
@@ -74,7 +74,7 @@ $animation-time: 0.7s;
       .content-wrapper {
         max-width: 100%;
         height: fit-content;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
 
         .content-item {
           margin-right: 15px;
@@ -90,14 +90,14 @@ $animation-time: 0.7s;
       -webkit-line-clamp: 3;
       text-overflow: ellipsis;
       overflow: hidden;
-      font-size: 25px;
+      font-size: 20px;
       line-height: 30px;
       max-height: 91px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .chips {
-      margin-bottom: 60px;
+      margin-bottom: 10px;
       .chip-item {
         border: 1px solid white;
         padding: 0px 10px;
@@ -119,9 +119,9 @@ $animation-time: 0.7s;
 
     .price-area {
       width: fit-content;
-      margin-bottom: 60px;
+      margin-bottom: 20px;
       .new-price {
-        font-size: 48px;
+        font-size: 38px;
         font-weight: 500;
       }
 
