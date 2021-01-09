@@ -154,7 +154,7 @@ export class DetailProductComponent implements OnInit {
           this.cartRootService.countChange.next(res.count)
           this.spinner.hide()
           this._snackBar.openFromComponent(SnackBarComponent, {
-            data: res.message,
+            data: "Thêm sản phẩm thành công",
             duration: 2000,
             panelClass: ['blue-snackbar'],
             verticalPosition: 'top',
