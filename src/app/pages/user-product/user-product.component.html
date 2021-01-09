@@ -7,7 +7,7 @@
             <span class="material-icons">
                 notes
             </span>
-            Lưu ý: sản phẩm chỉ được huỷ khi đang ở 2 trạng thái (Chờ xác nhận & Chờ lấy hàng).
+            Lưu ý: Sản phẩm chỉ được huỷ khi đang ở 2 trạng thái (Chờ xác nhận & Chờ lấy hàng).
         </div>
         <div class="mt-3">
             <mat-tab-group mat-align-tabs="start" (selectedTabChange)="handleChange($event)">
@@ -32,10 +32,16 @@
                                     {{ dataMaster[i].order_status.order_status_title_vn}}
                                 </div>
                             </div>
-                            <button mat-raised-button color="warn" (click)="handleCancel(dataMaster[i].order_id)"
-                                [disabled]="dataMaster[i].order_status.order_status_id !==1 && dataMaster[i].order_status.order_status_id !==2">Huỷ
-                                đơn
-                                hàng</button>
+                            <div class="">
+                                <button mat-stroked-button color="warn"
+                                    (click)="handleDetail(dataMaster[i].order_id)">XEM
+                                    CHI TIẾT</button>
+                                <button mat-raised-button color="warn" class="ml-3"
+                                    (click)="handleCancel(dataMaster[i].order_id)"
+                                    [disabled]="dataMaster[i].order_status.order_status_id !==1 && dataMaster[i].order_status.order_status_id !==2">HUỶ
+                                    ĐƠN HÀNG</button>
+                            </div>
+
                         </div>
 
                     </div>

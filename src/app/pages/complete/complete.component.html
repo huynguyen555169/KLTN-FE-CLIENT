@@ -5,16 +5,29 @@
                 <div class="title">
                     CHI TIẾT ĐƠN HÀNG
                 </div>
+                <div class="mt-4 d-flex align-items-center notes">
+                    <span class="material-icons">
+                        notes
+                    </span>
+                    Lưu ý: Đơn hàng của bạn sẽ được giao trong thời gian nhanh nhất (1-3 ngày).
+                </div>
             </div>
         </div>
         <div class="mt-5 mb-5 list-product">
             <div class="mb-2" *ngFor="let item of dataArr">
                 <app-card-order [data]="item"></app-card-order>
             </div>
+            <div class="d-flex justify-content-between align-items-center w-100 pt-2 pb-2">
+                <div class="d-flex align-items-center font-italic" style="font-size: 13px;">
+                    Tình trạng: <div class="pl-1" style="color:#F54336; font-size: 18px;">
+                        {{data.order_status.order_status_title_vn}}
+                    </div>
+                </div>
 
-            <div class="d-flex justify-content-end align-items-center w-100 pt-2 pb-2">
-                <button mat-raised-button color="warn">Huỷ đơn hàng</button>
+
             </div>
+
+
         </div>
         <div class="row d-flex flex-column">
             <div class="w-100 d-flex justify-content-end">
@@ -60,6 +73,9 @@
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end" *ngIf="data.order_is_cod ===1">
                 Thanh toán khi nhận hàng
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end" *ngIf="data.order_is_cod ===0">
+                Thanh toán bằng ví MoMo
             </div>
         </div>
 

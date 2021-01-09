@@ -47,7 +47,6 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {
     window.onscroll = function (e) {
       this.isScroll = true
-      console.log(this.isScroll)
     }
     if (JSON.parse(localStorage.getItem('currentUser1'))) {
       this.cartRootService.isLogin.next(true)

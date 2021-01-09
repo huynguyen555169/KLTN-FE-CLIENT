@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DetailAccountService } from 'src/app/core/services/api/account/detail-account.service';
 import { HttpRequestModel } from 'src/app/core/services/http-request-service/http-request.service';
 import { CSpinnerService } from 'src/app/shared/c-spinner/c-spinner.service';
@@ -37,7 +38,7 @@ export class UserProductComponent implements OnInit {
   dataMaster;
   statusCheck;
 
-  constructor(private orderService: DetailAccountService, private spinner: CSpinnerService) { }
+  constructor(private orderService: DetailAccountService, private spinner: CSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
     this.spinner.show()
@@ -127,6 +128,9 @@ export class UserProductComponent implements OnInit {
 
       })
     })
+  }
+  handleDetail(e) {
+    this.router.navigate(['order-received'], { queryParams: { id: e } })
   }
 
 }

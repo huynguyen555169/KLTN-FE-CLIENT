@@ -125,7 +125,6 @@ export class DetailProductComponent implements OnInit {
   }
   handleClickSize(size) {
     const index = this.dataListSize.indexOf(size)
-    console.log(index)
     this.data = this.dataListSize[index]
 
   }
