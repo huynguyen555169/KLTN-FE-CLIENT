@@ -59,6 +59,12 @@ export class CartComponent implements OnInit {
     deleteItem.body = { data: [e] };
     const indexInList = this.data.findIndex(d => d.productInfo.product_id === e);
     this.cartService.deleteProduct(deleteItem, httpOptions).subscribe((res) => {
+      this._snackBar.openFromComponent(SnackBarComponent, {
+        data: res.message,
+        duration: 3000,
+        panelClass: ['blue-snackbar'],
+        verticalPosition: 'top',
+      });
       if (res.message === 'Xóa giỏ hàng thành công') {
         this.count -= 1;
         this.cartRootService.countChange.next(this.count);

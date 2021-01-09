@@ -70,6 +70,7 @@ export class DetailProductComponent implements OnInit {
 
   productCurrent;
   erro;
+  index;
 
   constructor(private router: Router, private detailService: DetailService, private route: ActivatedRoute, private cartService: CartServiceService, private spinner: CSpinnerService, private _snackBar: MatSnackBar, private cartRootService: CartRootService, public dialog: MatDialog) {
   }
@@ -86,6 +87,7 @@ export class DetailProductComponent implements OnInit {
         })
         this.spinner.hide()
         this.data = res.data[0]
+        this.index = this.dataListSize.indexOf(this.data)
         this.description = this.data.product_description.split('.')
         const dataGetComment = new HttpRequestModel();
         dataGetComment.params = { product_id: this.data.product_id }
@@ -112,6 +114,13 @@ export class DetailProductComponent implements OnInit {
 
 
   }
+
+  handleQty(e) {
+    console.log(e)
+    if (this.qty > this.data.product_qty) {
+      alert('aaa')
+    }
+  }
   handleItemClick(item) {
     this.dataStar = this.dataStar.map(menu => {
       menu.isActive = menu === item;
@@ -124,8 +133,8 @@ export class DetailProductComponent implements OnInit {
     })
   }
   handleClickSize(size) {
-    const index = this.dataListSize.indexOf(size)
-    this.data = this.dataListSize[index]
+    this.index = this.dataListSize.indexOf(size)
+    this.data = this.dataListSize[this.index]
 
   }
   addToCart() {
